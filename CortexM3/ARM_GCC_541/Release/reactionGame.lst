@@ -1,0 +1,2233 @@
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"reactionGame.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.REACTIONGAME_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	REACTIONGAME_Init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	REACTIONGAME_Init, %function
+  25              	REACTIONGAME_Init:
+  26              	.LFB110:
+  27              		.file 1 "source\\asw\\reactionGame.c"
+   1:source\asw/reactionGame.c **** /**
+   2:source\asw/reactionGame.c **** * \file <filename>
+   3:source\asw/reactionGame.c **** * \author <author-name>
+   4:source\asw/reactionGame.c **** * \date <date>
+   5:source\asw/reactionGame.c **** *
+   6:source\asw/reactionGame.c **** * \brief <Symbolic File name>
+   7:source\asw/reactionGame.c **** *
+   8:source\asw/reactionGame.c **** * \copyright Copyright ©2016
+   9:source\asw/reactionGame.c **** * Department of electrical engineering and information technology, Hochschule Darmstadt - Universit
+  10:source\asw/reactionGame.c **** * Permission to use, copy, modify, and distribute this software and its documentation for education
+  11:source\asw/reactionGame.c **** * (unless permitted by h_da) and official h_da projects, is hereby granted for enrolled students of
+  12:source\asw/reactionGame.c **** * this paragraph and the following paragraph appear in all copies, modifications, and distributions
+  13:source\asw/reactionGame.c **** * Contact Prof.Dr.-Ing. Peter Fromm, peter.fromm@h-da.de, Birkenweg 8 64295 Darmstadt - GERMANY for
+  14:source\asw/reactionGame.c **** *
+  15:source\asw/reactionGame.c **** * \warning This software is a PROTOTYPE version and is not designed or intended for use in producti
+  16:source\asw/reactionGame.c **** * The user represents and warrants that it will NOT use or redistribute the Software for such purpo
+  17:source\asw/reactionGame.c **** * This prototype is for research purposes only. This software is provided "AS IS," without a warran
+  18:source\asw/reactionGame.c **** */
+  19:source\asw/reactionGame.c **** 
+  20:source\asw/reactionGame.c **** /*****************************************************************************/
+  21:source\asw/reactionGame.c **** /* Include files                                                             */
+  22:source\asw/reactionGame.c **** /*****************************************************************************/
+  23:source\asw/reactionGame.c **** #include "reactionGame.h"
+  24:source\asw/reactionGame.c **** 
+  25:source\asw/reactionGame.c **** #include "seven.h"
+  26:source\asw/reactionGame.c **** #include "led.h"
+  27:source\asw/reactionGame.c **** #include "uart.h"
+  28:source\asw/reactionGame.c **** #include <stdlib.h> 
+  29:source\asw/reactionGame.c **** 
+  30:source\asw/reactionGame.c **** /*****************************************************************************/
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 2
+
+
+  31:source\asw/reactionGame.c **** /* Local pre-processor symbols/macros ('#define')                            */
+  32:source\asw/reactionGame.c **** /*****************************************************************************/
+  33:source\asw/reactionGame.c **** 
+  34:source\asw/reactionGame.c **** /*****************************************************************************/
+  35:source\asw/reactionGame.c **** /* Global variable definitions (declared in header file with 'extern')       */
+  36:source\asw/reactionGame.c **** /*****************************************************************************/
+  37:source\asw/reactionGame.c **** uint32 ticks=0;
+  38:source\asw/reactionGame.c **** uint32 RandomTim=0;
+  39:source\asw/reactionGame.c **** static uint8 Score=0;
+  40:source\asw/reactionGame.c **** uint32 Time[10]={0};
+  41:source\asw/reactionGame.c **** BUTTON_id_t RandButton;
+  42:source\asw/reactionGame.c **** uint8 Round=0;
+  43:source\asw/reactionGame.c **** uint8 MaxRound=10;
+  44:source\asw/reactionGame.c **** 
+  45:source\asw/reactionGame.c **** /*****************************************************************************/
+  46:source\asw/reactionGame.c **** /* Local type definitions ('typedef')                                        */
+  47:source\asw/reactionGame.c **** /*****************************************************************************/
+  48:source\asw/reactionGame.c **** 
+  49:source\asw/reactionGame.c **** /*****************************************************************************/
+  50:source\asw/reactionGame.c **** /* Local variable definitions ('static')                                     */
+  51:source\asw/reactionGame.c **** /*****************************************************************************/
+  52:source\asw/reactionGame.c **** 
+  53:source\asw/reactionGame.c **** 
+  54:source\asw/reactionGame.c **** 
+  55:source\asw/reactionGame.c **** /*****************************************************************************/
+  56:source\asw/reactionGame.c **** /* Local function prototypes ('static')                                      */
+  57:source\asw/reactionGame.c **** /*****************************************************************************/
+  58:source\asw/reactionGame.c **** 
+  59:source\asw/reactionGame.c **** 
+  60:source\asw/reactionGame.c **** /*****************************************************************************/
+  61:source\asw/reactionGame.c **** /* Function implementation - global ('extern') and local ('static')          */
+  62:source\asw/reactionGame.c **** /*****************************************************************************/
+  63:source\asw/reactionGame.c **** 
+  64:source\asw/reactionGame.c **** /**
+  65:source\asw/reactionGame.c ****  * Blinker Initialisation
+  66:source\asw/reactionGame.c ****  * @param BLINKER_t *const me   - blinker object
+  67:source\asw/reactionGame.c ****  * @param BLINKER_Id_t led      - left/right blinker
+  68:source\asw/reactionGame.c ****  * @return RC_SUCCESS
+  69:source\asw/reactionGame.c ****  */
+  70:source\asw/reactionGame.c **** 
+  71:source\asw/reactionGame.c **** RC_t REACTIONGAME_Init(uint8 score)
+  72:source\asw/reactionGame.c **** {
+  28              		.loc 1 72 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  73:source\asw/reactionGame.c ****     Score=score;
+  34              		.loc 1 73 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 1870     		strb	r0, [r3]
+  74:source\asw/reactionGame.c ****     return RC_SUCCESS;
+  75:source\asw/reactionGame.c **** }
+  37              		.loc 1 75 0
+  38 0004 0020     		movs	r0, #0
+  39              	.LVL1:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 3
+
+
+  40 0006 7047     		bx	lr
+  41              	.L3:
+  42              		.align	2
+  43              	.L2:
+  44 0008 00000000 		.word	.LANCHOR0
+  45              		.cfi_endproc
+  46              	.LFE110:
+  47              		.size	REACTIONGAME_Init, .-REACTIONGAME_Init
+  48              		.section	.text.REACTIONGAME_DisplayButton,"ax",%progbits
+  49              		.align	1
+  50              		.global	REACTIONGAME_DisplayButton
+  51              		.thumb
+  52              		.thumb_func
+  53              		.type	REACTIONGAME_DisplayButton, %function
+  54              	REACTIONGAME_DisplayButton:
+  55              	.LFB111:
+  76:source\asw/reactionGame.c ****     
+  77:source\asw/reactionGame.c **** 
+  78:source\asw/reactionGame.c **** /**
+  79:source\asw/reactionGame.c ****  * Set Blinker depending on button press
+  80:source\asw/reactionGame.c ****  * @param BLINKER_t *const me   - blinker object
+  81:source\asw/reactionGame.c ****  * @param uint8_t noBlinks      - number of blinks to go
+  82:source\asw/reactionGame.c ****  * @return RC_SUCCESS
+  83:source\asw/reactionGame.c ****  */
+  84:source\asw/reactionGame.c **** 
+  85:source\asw/reactionGame.c **** RC_t REACTIONGAME_DisplayButton(BUTTON_id_t button)
+  86:source\asw/reactionGame.c **** {
+  56              		.loc 1 86 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              		@ link register save eliminated.
+  61              	.LVL2:
+  87:source\asw/reactionGame.c ****     UART_ShowRandButton(button);  
+  62              		.loc 1 87 0
+  63 0000 FFF7FEBF 		b	UART_ShowRandButton
+  64              	.LVL3:
+  65              		.cfi_endproc
+  66              	.LFE111:
+  67              		.size	REACTIONGAME_DisplayButton, .-REACTIONGAME_DisplayButton
+  68              		.section	.text.REACTIONGAME_RandTime,"ax",%progbits
+  69              		.align	1
+  70              		.global	REACTIONGAME_RandTime
+  71              		.thumb
+  72              		.thumb_func
+  73              		.type	REACTIONGAME_RandTime, %function
+  74              	REACTIONGAME_RandTime:
+  75              	.LFB112:
+  88:source\asw/reactionGame.c **** }
+  89:source\asw/reactionGame.c **** 
+  90:source\asw/reactionGame.c **** RC_t REACTIONGAME_RandTime()
+  91:source\asw/reactionGame.c **** {
+  76              		.loc 1 91 0
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 4
+
+
+  81              		.cfi_def_cfa_offset 8
+  82              		.cfi_offset 3, -8
+  83              		.cfi_offset 14, -4
+  92:source\asw/reactionGame.c ****     RandomTim=(rand()%3000)+1;
+  84              		.loc 1 92 0
+  85 0002 FFF7FEFF 		bl	rand
+  86              	.LVL4:
+  87 0006 40F6B833 		movw	r3, #3000
+  88 000a 90FBF3F2 		sdiv	r2, r0, r3
+  89 000e 02FB1300 		mls	r0, r2, r3, r0
+  90 0012 024B     		ldr	r3, .L6
+  91 0014 0130     		adds	r0, r0, #1
+  92 0016 5860     		str	r0, [r3, #4]
+  93:source\asw/reactionGame.c **** }
+  93              		.loc 1 93 0
+  94 0018 08BD     		pop	{r3, pc}
+  95              	.L7:
+  96 001a 00BF     		.align	2
+  97              	.L6:
+  98 001c 00000000 		.word	.LANCHOR0
+  99              		.cfi_endproc
+ 100              	.LFE112:
+ 101              		.size	REACTIONGAME_RandTime, .-REACTIONGAME_RandTime
+ 102              		.section	.text.REACTIONGAME_RandButtonSelect,"ax",%progbits
+ 103              		.align	1
+ 104              		.global	REACTIONGAME_RandButtonSelect
+ 105              		.thumb
+ 106              		.thumb_func
+ 107              		.type	REACTIONGAME_RandButtonSelect, %function
+ 108              	REACTIONGAME_RandButtonSelect:
+ 109              	.LFB113:
+  94:source\asw/reactionGame.c **** 
+  95:source\asw/reactionGame.c **** RC_t REACTIONGAME_RandButtonSelect()
+  96:source\asw/reactionGame.c **** {
+ 110              		.loc 1 96 0
+ 111              		.cfi_startproc
+ 112              		@ args = 0, pretend = 0, frame = 0
+ 113              		@ frame_needed = 0, uses_anonymous_args = 0
+ 114              	.LVL5:
+ 115 0000 10B5     		push	{r4, lr}
+ 116              		.cfi_def_cfa_offset 8
+ 117              		.cfi_offset 4, -8
+ 118              		.cfi_offset 14, -4
+  97:source\asw/reactionGame.c ****     SEVEN_id_t seven = SEVEN_0;
+  98:source\asw/reactionGame.c ****     uint8 RandButton=(rand()%2)+1;
+ 119              		.loc 1 98 0
+ 120 0002 FFF7FEFF 		bl	rand
+ 121              	.LVL6:
+  99:source\asw/reactionGame.c ****      switch (RandButton)
+ 122              		.loc 1 99 0
+ 123 0006 104B     		ldr	r3, .L16
+ 124 0008 0340     		ands	r3, r3, r0
+ 125 000a 002B     		cmp	r3, #0
+ 126 000c BEBF     		ittt	lt
+ 127 000e 03F1FF33 		addlt	r3, r3, #-1
+ 128 0012 63F00103 		ornlt	r3, r3, #1
+ 129 0016 0133     		addlt	r3, r3, #1
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 5
+
+
+ 130 0018 0133     		adds	r3, r3, #1
+ 131 001a DCB2     		uxtb	r4, r3
+ 132 001c 012C     		cmp	r4, #1
+ 133 001e 02D0     		beq	.L11
+ 134 0020 022C     		cmp	r4, #2
+ 135 0022 07D0     		beq	.L12
+ 136 0024 10BD     		pop	{r4, pc}
+ 137              	.L11:
+ 138              	.LVL7:
+ 100:source\asw/reactionGame.c ****     {
+ 101:source\asw/reactionGame.c ****         case 1 : 
+ 102:source\asw/reactionGame.c ****             RandButton = BUTTON_1;
+ 103:source\asw/reactionGame.c ****             seven = SEVEN_0;
+ 104:source\asw/reactionGame.c ****             SEVEN_Set(seven,RandButton);
+ 139              		.loc 1 104 0
+ 140 0026 0021     		movs	r1, #0
+ 141 0028 0846     		mov	r0, r1
+ 142 002a FFF7FEFF 		bl	SEVEN_Set
+ 143              	.LVL8:
+ 105:source\asw/reactionGame.c ****             seven = SEVEN_1;
+ 106:source\asw/reactionGame.c ****             SEVEN_Set(seven,RandButton);
+ 144              		.loc 1 106 0
+ 145 002e 0021     		movs	r1, #0
+ 146 0030 2046     		mov	r0, r4
+ 147 0032 05E0     		b	.L14
+ 148              	.LVL9:
+ 149              	.L12:
+ 107:source\asw/reactionGame.c ****             break;
+ 108:source\asw/reactionGame.c ****         case 2 : 
+ 109:source\asw/reactionGame.c ****             RandButton = BUTTON_2;
+ 110:source\asw/reactionGame.c ****             seven = SEVEN_0;
+ 111:source\asw/reactionGame.c ****             SEVEN_Set(seven,RandButton);
+ 150              		.loc 1 111 0
+ 151 0034 0121     		movs	r1, #1
+ 152 0036 0020     		movs	r0, #0
+ 153 0038 FFF7FEFF 		bl	SEVEN_Set
+ 154              	.LVL10:
+ 112:source\asw/reactionGame.c ****             seven = SEVEN_1;
+ 113:source\asw/reactionGame.c ****             SEVEN_Set(seven,RandButton);
+ 155              		.loc 1 113 0
+ 156 003c 0121     		movs	r1, #1
+ 157 003e 0846     		mov	r0, r1
+ 158              	.LVL11:
+ 159              	.L14:
+ 114:source\asw/reactionGame.c ****             break;
+ 115:source\asw/reactionGame.c ****     }
+ 116:source\asw/reactionGame.c ****     
+ 117:source\asw/reactionGame.c **** }
+ 160              		.loc 1 117 0
+ 161 0040 BDE81040 		pop	{r4, lr}
+ 162              		.cfi_restore 14
+ 163              		.cfi_restore 4
+ 164              		.cfi_def_cfa_offset 0
+ 113:source\asw/reactionGame.c ****             break;
+ 165              		.loc 1 113 0
+ 166 0044 FFF7FEBF 		b	SEVEN_Set
+ 167              	.LVL12:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 6
+
+
+ 168              	.L17:
+ 169              		.align	2
+ 170              	.L16:
+ 171 0048 01000080 		.word	-2147483647
+ 172              		.cfi_endproc
+ 173              	.LFE113:
+ 174              		.size	REACTIONGAME_RandButtonSelect, .-REACTIONGAME_RandButtonSelect
+ 175              		.section	.text.REACTIONGAME_ShowScore,"ax",%progbits
+ 176              		.align	1
+ 177              		.global	REACTIONGAME_ShowScore
+ 178              		.thumb
+ 179              		.thumb_func
+ 180              		.type	REACTIONGAME_ShowScore, %function
+ 181              	REACTIONGAME_ShowScore:
+ 182              	.LFB114:
+ 118:source\asw/reactionGame.c **** 
+ 119:source\asw/reactionGame.c **** RC_t REACTIONGAME_ShowScore()
+ 120:source\asw/reactionGame.c **** {
+ 183              		.loc 1 120 0
+ 184              		.cfi_startproc
+ 185              		@ args = 0, pretend = 0, frame = 0
+ 186              		@ frame_needed = 0, uses_anonymous_args = 0
+ 187              		@ link register save eliminated.
+ 121:source\asw/reactionGame.c ****     UART_ShowScore(Score);
+ 188              		.loc 1 121 0
+ 189 0000 014B     		ldr	r3, .L19
+ 190 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 191 0004 FFF7FEBF 		b	UART_ShowScore
+ 192              	.LVL13:
+ 193              	.L20:
+ 194              		.align	2
+ 195              	.L19:
+ 196 0008 00000000 		.word	.LANCHOR0
+ 197              		.cfi_endproc
+ 198              	.LFE114:
+ 199              		.size	REACTIONGAME_ShowScore, .-REACTIONGAME_ShowScore
+ 200              		.section	.text.REACTIONGAME_ShowAvgTime,"ax",%progbits
+ 201              		.align	1
+ 202              		.global	REACTIONGAME_ShowAvgTime
+ 203              		.thumb
+ 204              		.thumb_func
+ 205              		.type	REACTIONGAME_ShowAvgTime, %function
+ 206              	REACTIONGAME_ShowAvgTime:
+ 207              	.LFB115:
+ 122:source\asw/reactionGame.c **** }
+ 123:source\asw/reactionGame.c **** 
+ 124:source\asw/reactionGame.c **** RC_t REACTIONGAME_ShowAvgTime()
+ 125:source\asw/reactionGame.c **** {
+ 208              		.loc 1 125 0
+ 209              		.cfi_startproc
+ 210              		@ args = 0, pretend = 0, frame = 0
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212              		@ link register save eliminated.
+ 213              	.LVL14:
+ 214 0000 10B4     		push	{r4}
+ 215              		.cfi_def_cfa_offset 4
+ 216              		.cfi_offset 4, -4
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 7
+
+
+ 217              	.LBB2:
+ 126:source\asw/reactionGame.c ****     uint32 sum=0;
+ 127:source\asw/reactionGame.c ****     uint32 average=0;
+ 128:source\asw/reactionGame.c ****     for(uint8 i = 0; i < MaxRound; i++)
+ 218              		.loc 1 128 0
+ 219 0002 094B     		ldr	r3, .L25
+ 220 0004 0022     		movs	r2, #0
+ 221 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 222              	.LBE2:
+ 126:source\asw/reactionGame.c ****     uint32 sum=0;
+ 223              		.loc 1 126 0
+ 224 0008 1346     		mov	r3, r2
+ 225              	.LBB3:
+ 129:source\asw/reactionGame.c ****     {
+ 130:source\asw/reactionGame.c ****         sum += Time[i];
+ 226              		.loc 1 130 0
+ 227 000a 084C     		ldr	r4, .L25+4
+ 228              	.LVL15:
+ 229              	.L22:
+ 128:source\asw/reactionGame.c ****     {
+ 230              		.loc 1 128 0 discriminator 1
+ 231 000c D1B2     		uxtb	r1, r2
+ 232 000e 8842     		cmp	r0, r1
+ 233 0010 04D9     		bls	.L24
+ 234              		.loc 1 130 0 discriminator 3
+ 235 0012 54F82210 		ldr	r1, [r4, r2, lsl #2]
+ 236 0016 0132     		adds	r2, r2, #1
+ 237              	.LVL16:
+ 238 0018 0B44     		add	r3, r3, r1
+ 239              	.LVL17:
+ 240 001a F7E7     		b	.L22
+ 241              	.LVL18:
+ 242              	.L24:
+ 243              	.LBE3:
+ 131:source\asw/reactionGame.c ****     }
+ 132:source\asw/reactionGame.c ****     average = sum / MaxRound;
+ 133:source\asw/reactionGame.c ****     UART_ShowScore(average);
+ 244              		.loc 1 133 0
+ 245 001c B3FBF0F0 		udiv	r0, r3, r0
+ 246              	.LVL19:
+ 134:source\asw/reactionGame.c **** }
+ 247              		.loc 1 134 0
+ 248 0020 10BC     		pop	{r4}
+ 249              		.cfi_restore 4
+ 250              		.cfi_def_cfa_offset 0
+ 133:source\asw/reactionGame.c **** }
+ 251              		.loc 1 133 0
+ 252 0022 C0B2     		uxtb	r0, r0
+ 253 0024 FFF7FEBF 		b	UART_ShowScore
+ 254              	.LVL20:
+ 255              	.L26:
+ 256              		.align	2
+ 257              	.L25:
+ 258 0028 00000000 		.word	.LANCHOR1
+ 259 002c 08000000 		.word	.LANCHOR0+8
+ 260              		.cfi_endproc
+ 261              	.LFE115:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 8
+
+
+ 262              		.size	REACTIONGAME_ShowAvgTime, .-REACTIONGAME_ShowAvgTime
+ 263              		.section	.text.REACTIONGAME_IncreaseScore,"ax",%progbits
+ 264              		.align	1
+ 265              		.global	REACTIONGAME_IncreaseScore
+ 266              		.thumb
+ 267              		.thumb_func
+ 268              		.type	REACTIONGAME_IncreaseScore, %function
+ 269              	REACTIONGAME_IncreaseScore:
+ 270              	.LFB116:
+ 135:source\asw/reactionGame.c **** 
+ 136:source\asw/reactionGame.c **** RC_t REACTIONGAME_IncreaseScore()
+ 137:source\asw/reactionGame.c **** {
+ 271              		.loc 1 137 0
+ 272              		.cfi_startproc
+ 273              		@ args = 0, pretend = 0, frame = 0
+ 274              		@ frame_needed = 0, uses_anonymous_args = 0
+ 275              		@ link register save eliminated.
+ 138:source\asw/reactionGame.c ****     Score++;
+ 276              		.loc 1 138 0
+ 277 0000 024A     		ldr	r2, .L28
+ 278 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 279 0004 0133     		adds	r3, r3, #1
+ 280 0006 1370     		strb	r3, [r2]
+ 139:source\asw/reactionGame.c **** }
+ 281              		.loc 1 139 0
+ 282 0008 7047     		bx	lr
+ 283              	.L29:
+ 284 000a 00BF     		.align	2
+ 285              	.L28:
+ 286 000c 00000000 		.word	.LANCHOR0
+ 287              		.cfi_endproc
+ 288              	.LFE116:
+ 289              		.size	REACTIONGAME_IncreaseScore, .-REACTIONGAME_IncreaseScore
+ 290              		.section	.text.REACTIONGAME_DecreaseScore,"ax",%progbits
+ 291              		.align	1
+ 292              		.global	REACTIONGAME_DecreaseScore
+ 293              		.thumb
+ 294              		.thumb_func
+ 295              		.type	REACTIONGAME_DecreaseScore, %function
+ 296              	REACTIONGAME_DecreaseScore:
+ 297              	.LFB117:
+ 140:source\asw/reactionGame.c **** 
+ 141:source\asw/reactionGame.c **** RC_t REACTIONGAME_DecreaseScore()
+ 142:source\asw/reactionGame.c **** {
+ 298              		.loc 1 142 0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
+ 143:source\asw/reactionGame.c ****     Score--;
+ 303              		.loc 1 143 0
+ 304 0000 024A     		ldr	r2, .L31
+ 305 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 306 0004 013B     		subs	r3, r3, #1
+ 307 0006 1370     		strb	r3, [r2]
+ 144:source\asw/reactionGame.c **** }
+ 308              		.loc 1 144 0
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 9
+
+
+ 309 0008 7047     		bx	lr
+ 310              	.L32:
+ 311 000a 00BF     		.align	2
+ 312              	.L31:
+ 313 000c 00000000 		.word	.LANCHOR0
+ 314              		.cfi_endproc
+ 315              	.LFE117:
+ 316              		.size	REACTIONGAME_DecreaseScore, .-REACTIONGAME_DecreaseScore
+ 317              		.global	MaxRound
+ 318              		.global	Round
+ 319              		.comm	RandButton,1,1
+ 320              		.global	Time
+ 321              		.global	RandomTim
+ 322              		.global	ticks
+ 323              		.data
+ 324              		.set	.LANCHOR1,. + 0
+ 325              		.type	MaxRound, %object
+ 326              		.size	MaxRound, 1
+ 327              	MaxRound:
+ 328 0000 0A       		.byte	10
+ 329              		.bss
+ 330              		.align	2
+ 331              		.set	.LANCHOR0,. + 0
+ 332              		.type	Score, %object
+ 333              		.size	Score, 1
+ 334              	Score:
+ 335 0000 00       		.space	1
+ 336 0001 000000   		.space	3
+ 337              		.type	RandomTim, %object
+ 338              		.size	RandomTim, 4
+ 339              	RandomTim:
+ 340 0004 00000000 		.space	4
+ 341              		.type	Time, %object
+ 342              		.size	Time, 40
+ 343              	Time:
+ 344 0008 00000000 		.space	40
+ 344      00000000 
+ 344      00000000 
+ 344      00000000 
+ 344      00000000 
+ 345              		.type	Round, %object
+ 346              		.size	Round, 1
+ 347              	Round:
+ 348 0030 00       		.space	1
+ 349 0031 000000   		.space	3
+ 350              		.type	ticks, %object
+ 351              		.size	ticks, 4
+ 352              	ticks:
+ 353 0034 00000000 		.space	4
+ 354              		.text
+ 355              	.Letext0:
+ 356              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 357              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 358              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 359              		.file 5 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_types.inc"
+ 360              		.file 6 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 361              		.file 7 ".\\source\\bsw/global.h"
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 10
+
+
+ 362              		.file 8 ".\\source\\bsw/button.h"
+ 363              		.file 9 ".\\source\\bsw/seven.h"
+ 364              		.file 10 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_intfunc.inc"
+ 365              		.file 11 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_context.inc"
+ 366              		.file 12 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_primitives.inc"
+ 367              		.file 13 "Generated_Source\\PSoC5/core_cm3.h"
+ 368              		.file 14 ".\\source\\bsw/uart.h"
+ 369              		.file 15 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
+ 370              		.section	.debug_info,"",%progbits
+ 371              	.Ldebug_info0:
+ 372 0000 92040000 		.4byte	0x492
+ 373 0004 0400     		.2byte	0x4
+ 374 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 375 000a 04       		.byte	0x4
+ 376 000b 01       		.uleb128 0x1
+ 377 000c 6F050000 		.4byte	.LASF87
+ 378 0010 0C       		.byte	0xc
+ 379 0011 34020000 		.4byte	.LASF88
+ 380 0015 E2000000 		.4byte	.LASF89
+ 381 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 382 001d 00000000 		.4byte	0
+ 383 0021 00000000 		.4byte	.Ldebug_line0
+ 384 0025 02       		.uleb128 0x2
+ 385 0026 04       		.byte	0x4
+ 386 0027 07       		.byte	0x7
+ 387 0028 49030000 		.4byte	.LASF0
+ 388 002c 02       		.uleb128 0x2
+ 389 002d 01       		.byte	0x1
+ 390 002e 06       		.byte	0x6
+ 391 002f D4010000 		.4byte	.LASF1
+ 392 0033 02       		.uleb128 0x2
+ 393 0034 01       		.byte	0x1
+ 394 0035 08       		.byte	0x8
+ 395 0036 E6020000 		.4byte	.LASF2
+ 396 003a 02       		.uleb128 0x2
+ 397 003b 02       		.byte	0x2
+ 398 003c 05       		.byte	0x5
+ 399 003d 4A000000 		.4byte	.LASF3
+ 400 0041 02       		.uleb128 0x2
+ 401 0042 02       		.byte	0x2
+ 402 0043 07       		.byte	0x7
+ 403 0044 E8030000 		.4byte	.LASF4
+ 404 0048 03       		.uleb128 0x3
+ 405 0049 BD040000 		.4byte	.LASF9
+ 406 004d 02       		.byte	0x2
+ 407 004e 3F       		.byte	0x3f
+ 408 004f 53000000 		.4byte	0x53
+ 409 0053 02       		.uleb128 0x2
+ 410 0054 04       		.byte	0x4
+ 411 0055 05       		.byte	0x5
+ 412 0056 4E020000 		.4byte	.LASF5
+ 413 005a 02       		.uleb128 0x2
+ 414 005b 04       		.byte	0x4
+ 415 005c 07       		.byte	0x7
+ 416 005d 61040000 		.4byte	.LASF6
+ 417 0061 02       		.uleb128 0x2
+ 418 0062 08       		.byte	0x8
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 11
+
+
+ 419 0063 05       		.byte	0x5
+ 420 0064 FA010000 		.4byte	.LASF7
+ 421 0068 02       		.uleb128 0x2
+ 422 0069 08       		.byte	0x8
+ 423 006a 07       		.byte	0x7
+ 424 006b 27030000 		.4byte	.LASF8
+ 425 006f 04       		.uleb128 0x4
+ 426 0070 04       		.byte	0x4
+ 427 0071 05       		.byte	0x5
+ 428 0072 696E7400 		.ascii	"int\000"
+ 429 0076 03       		.uleb128 0x3
+ 430 0077 E0030000 		.4byte	.LASF10
+ 431 007b 03       		.byte	0x3
+ 432 007c 2C       		.byte	0x2c
+ 433 007d 48000000 		.4byte	0x48
+ 434 0081 05       		.uleb128 0x5
+ 435 0082 8A010000 		.4byte	.LASF11
+ 436 0086 04       		.byte	0x4
+ 437 0087 E401     		.2byte	0x1e4
+ 438 0089 33000000 		.4byte	0x33
+ 439 008d 05       		.uleb128 0x5
+ 440 008e 47040000 		.4byte	.LASF12
+ 441 0092 04       		.byte	0x4
+ 442 0093 E601     		.2byte	0x1e6
+ 443 0095 5A000000 		.4byte	0x5a
+ 444 0099 02       		.uleb128 0x2
+ 445 009a 04       		.byte	0x4
+ 446 009b 04       		.byte	0x4
+ 447 009c EA010000 		.4byte	.LASF13
+ 448 00a0 02       		.uleb128 0x2
+ 449 00a1 08       		.byte	0x8
+ 450 00a2 04       		.byte	0x4
+ 451 00a3 73040000 		.4byte	.LASF14
+ 452 00a7 02       		.uleb128 0x2
+ 453 00a8 01       		.byte	0x1
+ 454 00a9 08       		.byte	0x8
+ 455 00aa C6030000 		.4byte	.LASF15
+ 456 00ae 02       		.uleb128 0x2
+ 457 00af 08       		.byte	0x8
+ 458 00b0 04       		.byte	0x4
+ 459 00b1 DA020000 		.4byte	.LASF16
+ 460 00b5 02       		.uleb128 0x2
+ 461 00b6 04       		.byte	0x4
+ 462 00b7 07       		.byte	0x7
+ 463 00b8 7A000000 		.4byte	.LASF17
+ 464 00bc 03       		.uleb128 0x3
+ 465 00bd 9C030000 		.4byte	.LASF18
+ 466 00c1 05       		.byte	0x5
+ 467 00c2 53       		.byte	0x53
+ 468 00c3 6F000000 		.4byte	0x6f
+ 469 00c7 03       		.uleb128 0x3
+ 470 00c8 BA000000 		.4byte	.LASF19
+ 471 00cc 05       		.byte	0x5
+ 472 00cd 54       		.byte	0x54
+ 473 00ce 25000000 		.4byte	0x25
+ 474 00d2 03       		.uleb128 0x3
+ 475 00d3 8B040000 		.4byte	.LASF20
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 12
+
+
+ 476 00d7 06       		.byte	0x6
+ 477 00d8 4D       		.byte	0x4d
+ 478 00d9 C7000000 		.4byte	0xc7
+ 479 00dd 03       		.uleb128 0x3
+ 480 00de 9E000000 		.4byte	.LASF21
+ 481 00e2 06       		.byte	0x6
+ 482 00e3 4F       		.byte	0x4f
+ 483 00e4 C7000000 		.4byte	0xc7
+ 484 00e8 03       		.uleb128 0x3
+ 485 00e9 C4000000 		.4byte	.LASF22
+ 486 00ed 06       		.byte	0x6
+ 487 00ee 78       		.byte	0x78
+ 488 00ef BC000000 		.4byte	0xbc
+ 489 00f3 06       		.uleb128 0x6
+ 490 00f4 65524300 		.ascii	"eRC\000"
+ 491 00f8 01       		.byte	0x1
+ 492 00f9 2C000000 		.4byte	0x2c
+ 493 00fd 07       		.byte	0x7
+ 494 00fe AC       		.byte	0xac
+ 495 00ff 9A010000 		.4byte	0x19a
+ 496 0103 07       		.uleb128 0x7
+ 497 0104 19000000 		.4byte	.LASF23
+ 498 0108 00       		.byte	0
+ 499 0109 08       		.uleb128 0x8
+ 500 010a 36050000 		.4byte	.LASF24
+ 501 010e 7F       		.sleb128 -1
+ 502 010f 08       		.uleb128 0x8
+ 503 0110 78030000 		.4byte	.LASF25
+ 504 0114 7E       		.sleb128 -2
+ 505 0115 08       		.uleb128 0x8
+ 506 0116 90000000 		.4byte	.LASF26
+ 507 011a 7D       		.sleb128 -3
+ 508 011b 08       		.uleb128 0x8
+ 509 011c 3F050000 		.4byte	.LASF27
+ 510 0120 7C       		.sleb128 -4
+ 511 0121 08       		.uleb128 0x8
+ 512 0122 9F040000 		.4byte	.LASF28
+ 513 0126 7B       		.sleb128 -5
+ 514 0127 08       		.uleb128 0x8
+ 515 0128 54000000 		.4byte	.LASF29
+ 516 012c 7A       		.sleb128 -6
+ 517 012d 08       		.uleb128 0x8
+ 518 012e 57020000 		.4byte	.LASF30
+ 519 0132 79       		.sleb128 -7
+ 520 0133 08       		.uleb128 0x8
+ 521 0134 CB030000 		.4byte	.LASF31
+ 522 0138 78       		.sleb128 -8
+ 523 0139 08       		.uleb128 0x8
+ 524 013a 86030000 		.4byte	.LASF32
+ 525 013e 77       		.sleb128 -9
+ 526 013f 08       		.uleb128 0x8
+ 527 0140 70020000 		.4byte	.LASF33
+ 528 0144 76       		.sleb128 -10
+ 529 0145 08       		.uleb128 0x8
+ 530 0146 02060000 		.4byte	.LASF34
+ 531 014a 75       		.sleb128 -11
+ 532 014b 08       		.uleb128 0x8
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 13
+
+
+ 533 014c 56030000 		.4byte	.LASF35
+ 534 0150 74       		.sleb128 -12
+ 535 0151 08       		.uleb128 0x8
+ 536 0152 35040000 		.4byte	.LASF36
+ 537 0156 73       		.sleb128 -13
+ 538 0157 08       		.uleb128 0x8
+ 539 0158 06000000 		.4byte	.LASF37
+ 540 015c 72       		.sleb128 -14
+ 541 015d 08       		.uleb128 0x8
+ 542 015e 36000000 		.4byte	.LASF38
+ 543 0162 71       		.sleb128 -15
+ 544 0163 08       		.uleb128 0x8
+ 545 0164 8A020000 		.4byte	.LASF39
+ 546 0168 70       		.sleb128 -16
+ 547 0169 08       		.uleb128 0x8
+ 548 016a A6000000 		.4byte	.LASF40
+ 549 016e 6F       		.sleb128 -17
+ 550 016f 08       		.uleb128 0x8
+ 551 0170 65000000 		.4byte	.LASF41
+ 552 0174 6E       		.sleb128 -18
+ 553 0175 08       		.uleb128 0x8
+ 554 0176 21020000 		.4byte	.LASF42
+ 555 017a 6D       		.sleb128 -19
+ 556 017b 08       		.uleb128 0x8
+ 557 017c 22040000 		.4byte	.LASF43
+ 558 0180 6C       		.sleb128 -20
+ 559 0181 08       		.uleb128 0x8
+ 560 0182 9B020000 		.4byte	.LASF44
+ 561 0186 6B       		.sleb128 -21
+ 562 0187 08       		.uleb128 0x8
+ 563 0188 F4020000 		.4byte	.LASF45
+ 564 018c 6A       		.sleb128 -22
+ 565 018d 08       		.uleb128 0x8
+ 566 018e CB000000 		.4byte	.LASF46
+ 567 0192 69       		.sleb128 -23
+ 568 0193 08       		.uleb128 0x8
+ 569 0194 AA010000 		.4byte	.LASF47
+ 570 0198 68       		.sleb128 -24
+ 571 0199 00       		.byte	0
+ 572 019a 03       		.uleb128 0x3
+ 573 019b FD050000 		.4byte	.LASF48
+ 574 019f 07       		.byte	0x7
+ 575 01a0 C8       		.byte	0xc8
+ 576 01a1 F3000000 		.4byte	0xf3
+ 577 01a5 09       		.uleb128 0x9
+ 578 01a6 A5030000 		.4byte	.LASF49
+ 579 01aa 01       		.byte	0x1
+ 580 01ab 33000000 		.4byte	0x33
+ 581 01af 08       		.byte	0x8
+ 582 01b0 59       		.byte	0x59
+ 583 01b1 CE010000 		.4byte	0x1ce
+ 584 01b5 07       		.uleb128 0x7
+ 585 01b6 C7040000 		.4byte	.LASF50
+ 586 01ba 00       		.byte	0
+ 587 01bb 07       		.uleb128 0x7
+ 588 01bc D0040000 		.4byte	.LASF51
+ 589 01c0 01       		.byte	0x1
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 14
+
+
+ 590 01c1 07       		.uleb128 0x7
+ 591 01c2 D9040000 		.4byte	.LASF52
+ 592 01c6 02       		.byte	0x2
+ 593 01c7 07       		.uleb128 0x7
+ 594 01c8 E2040000 		.4byte	.LASF53
+ 595 01cc 03       		.byte	0x3
+ 596 01cd 00       		.byte	0
+ 597 01ce 03       		.uleb128 0x3
+ 598 01cf 7E020000 		.4byte	.LASF54
+ 599 01d3 08       		.byte	0x8
+ 600 01d4 5F       		.byte	0x5f
+ 601 01d5 A5010000 		.4byte	0x1a5
+ 602 01d9 0A       		.uleb128 0xa
+ 603 01da 01       		.byte	0x1
+ 604 01db 33000000 		.4byte	0x33
+ 605 01df 09       		.byte	0x9
+ 606 01e0 5F       		.byte	0x5f
+ 607 01e1 F2010000 		.4byte	0x1f2
+ 608 01e5 07       		.uleb128 0x7
+ 609 01e6 88000000 		.4byte	.LASF55
+ 610 01ea 00       		.byte	0
+ 611 01eb 07       		.uleb128 0x7
+ 612 01ec 06050000 		.4byte	.LASF56
+ 613 01f0 01       		.byte	0x1
+ 614 01f1 00       		.byte	0
+ 615 01f2 03       		.uleb128 0x3
+ 616 01f3 7A040000 		.4byte	.LASF57
+ 617 01f7 09       		.byte	0x9
+ 618 01f8 62       		.byte	0x62
+ 619 01f9 D9010000 		.4byte	0x1d9
+ 620 01fd 0B       		.uleb128 0xb
+ 621 01fe 24000000 		.4byte	.LASF58
+ 622 0202 01       		.byte	0x1
+ 623 0203 47       		.byte	0x47
+ 624 0204 9A010000 		.4byte	0x19a
+ 625 0208 00000000 		.4byte	.LFB110
+ 626 020c 0C000000 		.4byte	.LFE110-.LFB110
+ 627 0210 01       		.uleb128 0x1
+ 628 0211 9C       		.byte	0x9c
+ 629 0212 26020000 		.4byte	0x226
+ 630 0216 0C       		.uleb128 0xc
+ 631 0217 21030000 		.4byte	.LASF60
+ 632 021b 01       		.byte	0x1
+ 633 021c 47       		.byte	0x47
+ 634 021d 81000000 		.4byte	0x81
+ 635 0221 00000000 		.4byte	.LLST0
+ 636 0225 00       		.byte	0
+ 637 0226 0B       		.uleb128 0xb
+ 638 0227 0E050000 		.4byte	.LASF59
+ 639 022b 01       		.byte	0x1
+ 640 022c 55       		.byte	0x55
+ 641 022d 9A010000 		.4byte	0x19a
+ 642 0231 00000000 		.4byte	.LFB111
+ 643 0235 04000000 		.4byte	.LFE111-.LFB111
+ 644 0239 01       		.uleb128 0x1
+ 645 023a 9C       		.byte	0x9c
+ 646 023b 58020000 		.4byte	0x258
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 15
+
+
+ 647 023f 0C       		.uleb128 0xc
+ 648 0240 69020000 		.4byte	.LASF61
+ 649 0244 01       		.byte	0x1
+ 650 0245 55       		.byte	0x55
+ 651 0246 CE010000 		.4byte	0x1ce
+ 652 024a 22000000 		.4byte	.LLST1
+ 653 024e 0D       		.uleb128 0xd
+ 654 024f 04000000 		.4byte	.LVL3
+ 655 0253 69040000 		.4byte	0x469
+ 656 0257 00       		.byte	0
+ 657 0258 0E       		.uleb128 0xe
+ 658 0259 AD020000 		.4byte	.LASF62
+ 659 025d 01       		.byte	0x1
+ 660 025e 5A       		.byte	0x5a
+ 661 025f 9A010000 		.4byte	0x19a
+ 662 0263 00000000 		.4byte	.LFB112
+ 663 0267 20000000 		.4byte	.LFE112-.LFB112
+ 664 026b 01       		.uleb128 0x1
+ 665 026c 9C       		.byte	0x9c
+ 666 026d 7B020000 		.4byte	0x27b
+ 667 0271 0F       		.uleb128 0xf
+ 668 0272 06000000 		.4byte	.LVL4
+ 669 0276 74040000 		.4byte	0x474
+ 670 027a 00       		.byte	0
+ 671 027b 0E       		.uleb128 0xe
+ 672 027c 04040000 		.4byte	.LASF63
+ 673 0280 01       		.byte	0x1
+ 674 0281 5F       		.byte	0x5f
+ 675 0282 9A010000 		.4byte	0x19a
+ 676 0286 00000000 		.4byte	.LFB113
+ 677 028a 4C000000 		.4byte	.LFE113-.LFB113
+ 678 028e 01       		.uleb128 0x1
+ 679 028f 9C       		.byte	0x9c
+ 680 0290 F5020000 		.4byte	0x2f5
+ 681 0294 10       		.uleb128 0x10
+ 682 0295 99040000 		.4byte	.LASF64
+ 683 0299 01       		.byte	0x1
+ 684 029a 61       		.byte	0x61
+ 685 029b F2010000 		.4byte	0x1f2
+ 686 029f 43000000 		.4byte	.LLST2
+ 687 02a3 10       		.uleb128 0x10
+ 688 02a4 3E030000 		.4byte	.LASF65
+ 689 02a8 01       		.byte	0x1
+ 690 02a9 62       		.byte	0x62
+ 691 02aa 81000000 		.4byte	0x81
+ 692 02ae 7B000000 		.4byte	.LLST3
+ 693 02b2 0F       		.uleb128 0xf
+ 694 02b3 06000000 		.4byte	.LVL6
+ 695 02b7 74040000 		.4byte	0x474
+ 696 02bb 11       		.uleb128 0x11
+ 697 02bc 2E000000 		.4byte	.LVL8
+ 698 02c0 7F040000 		.4byte	0x47f
+ 699 02c4 D3020000 		.4byte	0x2d3
+ 700 02c8 12       		.uleb128 0x12
+ 701 02c9 01       		.uleb128 0x1
+ 702 02ca 50       		.byte	0x50
+ 703 02cb 01       		.uleb128 0x1
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 16
+
+
+ 704 02cc 30       		.byte	0x30
+ 705 02cd 12       		.uleb128 0x12
+ 706 02ce 01       		.uleb128 0x1
+ 707 02cf 51       		.byte	0x51
+ 708 02d0 01       		.uleb128 0x1
+ 709 02d1 30       		.byte	0x30
+ 710 02d2 00       		.byte	0
+ 711 02d3 11       		.uleb128 0x11
+ 712 02d4 3C000000 		.4byte	.LVL10
+ 713 02d8 7F040000 		.4byte	0x47f
+ 714 02dc EB020000 		.4byte	0x2eb
+ 715 02e0 12       		.uleb128 0x12
+ 716 02e1 01       		.uleb128 0x1
+ 717 02e2 50       		.byte	0x50
+ 718 02e3 01       		.uleb128 0x1
+ 719 02e4 30       		.byte	0x30
+ 720 02e5 12       		.uleb128 0x12
+ 721 02e6 01       		.uleb128 0x1
+ 722 02e7 51       		.byte	0x51
+ 723 02e8 01       		.uleb128 0x1
+ 724 02e9 31       		.byte	0x31
+ 725 02ea 00       		.byte	0
+ 726 02eb 0D       		.uleb128 0xd
+ 727 02ec 48000000 		.4byte	.LVL12
+ 728 02f0 7F040000 		.4byte	0x47f
+ 729 02f4 00       		.byte	0
+ 730 02f5 0E       		.uleb128 0xe
+ 731 02f6 C3020000 		.4byte	.LASF66
+ 732 02fa 01       		.byte	0x1
+ 733 02fb 77       		.byte	0x77
+ 734 02fc 9A010000 		.4byte	0x19a
+ 735 0300 00000000 		.4byte	.LFB114
+ 736 0304 0C000000 		.4byte	.LFE114-.LFB114
+ 737 0308 01       		.uleb128 0x1
+ 738 0309 9C       		.byte	0x9c
+ 739 030a 18030000 		.4byte	0x318
+ 740 030e 0D       		.uleb128 0xd
+ 741 030f 08000000 		.4byte	.LVL13
+ 742 0313 8A040000 		.4byte	0x48a
+ 743 0317 00       		.byte	0
+ 744 0318 0E       		.uleb128 0xe
+ 745 0319 AD030000 		.4byte	.LASF67
+ 746 031d 01       		.byte	0x1
+ 747 031e 7C       		.byte	0x7c
+ 748 031f 9A010000 		.4byte	0x19a
+ 749 0323 00000000 		.4byte	.LFB115
+ 750 0327 30000000 		.4byte	.LFE115-.LFB115
+ 751 032b 01       		.uleb128 0x1
+ 752 032c 9C       		.byte	0x9c
+ 753 032d 70030000 		.4byte	0x370
+ 754 0331 13       		.uleb128 0x13
+ 755 0332 73756D00 		.ascii	"sum\000"
+ 756 0336 01       		.byte	0x1
+ 757 0337 7E       		.byte	0x7e
+ 758 0338 8D000000 		.4byte	0x8d
+ 759 033c B0000000 		.4byte	.LLST4
+ 760 0340 10       		.uleb128 0x10
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 17
+
+
+ 761 0341 67050000 		.4byte	.LASF68
+ 762 0345 01       		.byte	0x1
+ 763 0346 7F       		.byte	0x7f
+ 764 0347 8D000000 		.4byte	0x8d
+ 765 034b CF000000 		.4byte	.LLST5
+ 766 034f 14       		.uleb128 0x14
+ 767 0350 00000000 		.4byte	.Ldebug_ranges0+0
+ 768 0354 66030000 		.4byte	0x366
+ 769 0358 13       		.uleb128 0x13
+ 770 0359 6900     		.ascii	"i\000"
+ 771 035b 01       		.byte	0x1
+ 772 035c 80       		.byte	0x80
+ 773 035d 81000000 		.4byte	0x81
+ 774 0361 FC000000 		.4byte	.LLST6
+ 775 0365 00       		.byte	0
+ 776 0366 0D       		.uleb128 0xd
+ 777 0367 28000000 		.4byte	.LVL20
+ 778 036b 8A040000 		.4byte	0x48a
+ 779 036f 00       		.byte	0
+ 780 0370 15       		.uleb128 0x15
+ 781 0371 06030000 		.4byte	.LASF69
+ 782 0375 01       		.byte	0x1
+ 783 0376 88       		.byte	0x88
+ 784 0377 9A010000 		.4byte	0x19a
+ 785 037b 00000000 		.4byte	.LFB116
+ 786 037f 10000000 		.4byte	.LFE116-.LFB116
+ 787 0383 01       		.uleb128 0x1
+ 788 0384 9C       		.byte	0x9c
+ 789 0385 15       		.uleb128 0x15
+ 790 0386 EB040000 		.4byte	.LASF70
+ 791 038a 01       		.byte	0x1
+ 792 038b 8D       		.byte	0x8d
+ 793 038c 9A010000 		.4byte	0x19a
+ 794 0390 00000000 		.4byte	.LFB117
+ 795 0394 10000000 		.4byte	.LFE117-.LFB117
+ 796 0398 01       		.uleb128 0x1
+ 797 0399 9C       		.byte	0x9c
+ 798 039a 16       		.uleb128 0x16
+ 799 039b 93040000 		.4byte	.LASF71
+ 800 039f 01       		.byte	0x1
+ 801 03a0 27       		.byte	0x27
+ 802 03a1 81000000 		.4byte	0x81
+ 803 03a5 05       		.uleb128 0x5
+ 804 03a6 03       		.byte	0x3
+ 805 03a7 00000000 		.4byte	Score
+ 806 03ab 17       		.uleb128 0x17
+ 807 03ac 4F050000 		.4byte	.LASF72
+ 808 03b0 0A       		.byte	0xa
+ 809 03b1 40       		.byte	0x40
+ 810 03b2 D2000000 		.4byte	0xd2
+ 811 03b6 17       		.uleb128 0x17
+ 812 03b7 08020000 		.4byte	.LASF73
+ 813 03bb 0A       		.byte	0xa
+ 814 03bc 47       		.byte	0x47
+ 815 03bd DD000000 		.4byte	0xdd
+ 816 03c1 17       		.uleb128 0x17
+ 817 03c2 4E040000 		.4byte	.LASF74
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 18
+
+
+ 818 03c6 0A       		.byte	0xa
+ 819 03c7 4A       		.byte	0x4a
+ 820 03c8 D2000000 		.4byte	0xd2
+ 821 03cc 17       		.uleb128 0x17
+ 822 03cd BB010000 		.4byte	.LASF75
+ 823 03d1 0B       		.byte	0xb
+ 824 03d2 48       		.byte	0x48
+ 825 03d3 E8000000 		.4byte	0xe8
+ 826 03d7 17       		.uleb128 0x17
+ 827 03d8 95010000 		.4byte	.LASF76
+ 828 03dc 0C       		.byte	0xc
+ 829 03dd 44       		.byte	0x44
+ 830 03de D2000000 		.4byte	0xd2
+ 831 03e2 18       		.uleb128 0x18
+ 832 03e3 29050000 		.4byte	.LASF77
+ 833 03e7 0D       		.byte	0xd
+ 834 03e8 1207     		.2byte	0x712
+ 835 03ea EE030000 		.4byte	0x3ee
+ 836 03ee 19       		.uleb128 0x19
+ 837 03ef 76000000 		.4byte	0x76
+ 838 03f3 1A       		.uleb128 0x1a
+ 839 03f4 00000000 		.4byte	.LASF78
+ 840 03f8 01       		.byte	0x1
+ 841 03f9 25       		.byte	0x25
+ 842 03fa 8D000000 		.4byte	0x8d
+ 843 03fe 05       		.uleb128 0x5
+ 844 03ff 03       		.byte	0x3
+ 845 0400 00000000 		.4byte	ticks
+ 846 0404 1B       		.uleb128 0x1b
+ 847 0405 8D000000 		.4byte	0x8d
+ 848 0409 14040000 		.4byte	0x414
+ 849 040d 1C       		.uleb128 0x1c
+ 850 040e B5000000 		.4byte	0xb5
+ 851 0412 09       		.byte	0x9
+ 852 0413 00       		.byte	0
+ 853 0414 1A       		.uleb128 0x1a
+ 854 0415 83000000 		.4byte	.LASF79
+ 855 0419 01       		.byte	0x1
+ 856 041a 28       		.byte	0x28
+ 857 041b 04040000 		.4byte	0x404
+ 858 041f 05       		.uleb128 0x5
+ 859 0420 03       		.byte	0x3
+ 860 0421 00000000 		.4byte	Time
+ 861 0425 1A       		.uleb128 0x1a
+ 862 0426 3E030000 		.4byte	.LASF65
+ 863 042a 01       		.byte	0x1
+ 864 042b 29       		.byte	0x29
+ 865 042c CE010000 		.4byte	0x1ce
+ 866 0430 05       		.uleb128 0x5
+ 867 0431 03       		.byte	0x3
+ 868 0432 00000000 		.4byte	RandButton
+ 869 0436 1A       		.uleb128 0x1a
+ 870 0437 85040000 		.4byte	.LASF80
+ 871 043b 01       		.byte	0x1
+ 872 043c 2A       		.byte	0x2a
+ 873 043d 81000000 		.4byte	0x81
+ 874 0441 05       		.uleb128 0x5
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 19
+
+
+ 875 0442 03       		.byte	0x3
+ 876 0443 00000000 		.4byte	Round
+ 877 0447 1A       		.uleb128 0x1a
+ 878 0448 FB030000 		.4byte	.LASF81
+ 879 044c 01       		.byte	0x1
+ 880 044d 2B       		.byte	0x2b
+ 881 044e 81000000 		.4byte	0x81
+ 882 0452 05       		.uleb128 0x5
+ 883 0453 03       		.byte	0x3
+ 884 0454 00000000 		.4byte	MaxRound
+ 885 0458 1A       		.uleb128 0x1a
+ 886 0459 E0010000 		.4byte	.LASF82
+ 887 045d 01       		.byte	0x1
+ 888 045e 26       		.byte	0x26
+ 889 045f 8D000000 		.4byte	0x8d
+ 890 0463 05       		.uleb128 0x5
+ 891 0464 03       		.byte	0x3
+ 892 0465 00000000 		.4byte	RandomTim
+ 893 0469 1D       		.uleb128 0x1d
+ 894 046a 64030000 		.4byte	.LASF83
+ 895 046e 64030000 		.4byte	.LASF83
+ 896 0472 0E       		.byte	0xe
+ 897 0473 88       		.byte	0x88
+ 898 0474 1D       		.uleb128 0x1d
+ 899 0475 90010000 		.4byte	.LASF84
+ 900 0479 90010000 		.4byte	.LASF84
+ 901 047d 0F       		.byte	0xf
+ 902 047e 88       		.byte	0x88
+ 903 047f 1D       		.uleb128 0x1d
+ 904 0480 F0010000 		.4byte	.LASF85
+ 905 0484 F0010000 		.4byte	.LASF85
+ 906 0488 09       		.byte	0x9
+ 907 0489 82       		.byte	0x82
+ 908 048a 1D       		.uleb128 0x1d
+ 909 048b AE040000 		.4byte	.LASF86
+ 910 048f AE040000 		.4byte	.LASF86
+ 911 0493 0E       		.byte	0xe
+ 912 0494 8B       		.byte	0x8b
+ 913 0495 00       		.byte	0
+ 914              		.section	.debug_abbrev,"",%progbits
+ 915              	.Ldebug_abbrev0:
+ 916 0000 01       		.uleb128 0x1
+ 917 0001 11       		.uleb128 0x11
+ 918 0002 01       		.byte	0x1
+ 919 0003 25       		.uleb128 0x25
+ 920 0004 0E       		.uleb128 0xe
+ 921 0005 13       		.uleb128 0x13
+ 922 0006 0B       		.uleb128 0xb
+ 923 0007 03       		.uleb128 0x3
+ 924 0008 0E       		.uleb128 0xe
+ 925 0009 1B       		.uleb128 0x1b
+ 926 000a 0E       		.uleb128 0xe
+ 927 000b 55       		.uleb128 0x55
+ 928 000c 17       		.uleb128 0x17
+ 929 000d 11       		.uleb128 0x11
+ 930 000e 01       		.uleb128 0x1
+ 931 000f 10       		.uleb128 0x10
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 20
+
+
+ 932 0010 17       		.uleb128 0x17
+ 933 0011 00       		.byte	0
+ 934 0012 00       		.byte	0
+ 935 0013 02       		.uleb128 0x2
+ 936 0014 24       		.uleb128 0x24
+ 937 0015 00       		.byte	0
+ 938 0016 0B       		.uleb128 0xb
+ 939 0017 0B       		.uleb128 0xb
+ 940 0018 3E       		.uleb128 0x3e
+ 941 0019 0B       		.uleb128 0xb
+ 942 001a 03       		.uleb128 0x3
+ 943 001b 0E       		.uleb128 0xe
+ 944 001c 00       		.byte	0
+ 945 001d 00       		.byte	0
+ 946 001e 03       		.uleb128 0x3
+ 947 001f 16       		.uleb128 0x16
+ 948 0020 00       		.byte	0
+ 949 0021 03       		.uleb128 0x3
+ 950 0022 0E       		.uleb128 0xe
+ 951 0023 3A       		.uleb128 0x3a
+ 952 0024 0B       		.uleb128 0xb
+ 953 0025 3B       		.uleb128 0x3b
+ 954 0026 0B       		.uleb128 0xb
+ 955 0027 49       		.uleb128 0x49
+ 956 0028 13       		.uleb128 0x13
+ 957 0029 00       		.byte	0
+ 958 002a 00       		.byte	0
+ 959 002b 04       		.uleb128 0x4
+ 960 002c 24       		.uleb128 0x24
+ 961 002d 00       		.byte	0
+ 962 002e 0B       		.uleb128 0xb
+ 963 002f 0B       		.uleb128 0xb
+ 964 0030 3E       		.uleb128 0x3e
+ 965 0031 0B       		.uleb128 0xb
+ 966 0032 03       		.uleb128 0x3
+ 967 0033 08       		.uleb128 0x8
+ 968 0034 00       		.byte	0
+ 969 0035 00       		.byte	0
+ 970 0036 05       		.uleb128 0x5
+ 971 0037 16       		.uleb128 0x16
+ 972 0038 00       		.byte	0
+ 973 0039 03       		.uleb128 0x3
+ 974 003a 0E       		.uleb128 0xe
+ 975 003b 3A       		.uleb128 0x3a
+ 976 003c 0B       		.uleb128 0xb
+ 977 003d 3B       		.uleb128 0x3b
+ 978 003e 05       		.uleb128 0x5
+ 979 003f 49       		.uleb128 0x49
+ 980 0040 13       		.uleb128 0x13
+ 981 0041 00       		.byte	0
+ 982 0042 00       		.byte	0
+ 983 0043 06       		.uleb128 0x6
+ 984 0044 04       		.uleb128 0x4
+ 985 0045 01       		.byte	0x1
+ 986 0046 03       		.uleb128 0x3
+ 987 0047 08       		.uleb128 0x8
+ 988 0048 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 21
+
+
+ 989 0049 0B       		.uleb128 0xb
+ 990 004a 49       		.uleb128 0x49
+ 991 004b 13       		.uleb128 0x13
+ 992 004c 3A       		.uleb128 0x3a
+ 993 004d 0B       		.uleb128 0xb
+ 994 004e 3B       		.uleb128 0x3b
+ 995 004f 0B       		.uleb128 0xb
+ 996 0050 01       		.uleb128 0x1
+ 997 0051 13       		.uleb128 0x13
+ 998 0052 00       		.byte	0
+ 999 0053 00       		.byte	0
+ 1000 0054 07       		.uleb128 0x7
+ 1001 0055 28       		.uleb128 0x28
+ 1002 0056 00       		.byte	0
+ 1003 0057 03       		.uleb128 0x3
+ 1004 0058 0E       		.uleb128 0xe
+ 1005 0059 1C       		.uleb128 0x1c
+ 1006 005a 0B       		.uleb128 0xb
+ 1007 005b 00       		.byte	0
+ 1008 005c 00       		.byte	0
+ 1009 005d 08       		.uleb128 0x8
+ 1010 005e 28       		.uleb128 0x28
+ 1011 005f 00       		.byte	0
+ 1012 0060 03       		.uleb128 0x3
+ 1013 0061 0E       		.uleb128 0xe
+ 1014 0062 1C       		.uleb128 0x1c
+ 1015 0063 0D       		.uleb128 0xd
+ 1016 0064 00       		.byte	0
+ 1017 0065 00       		.byte	0
+ 1018 0066 09       		.uleb128 0x9
+ 1019 0067 04       		.uleb128 0x4
+ 1020 0068 01       		.byte	0x1
+ 1021 0069 03       		.uleb128 0x3
+ 1022 006a 0E       		.uleb128 0xe
+ 1023 006b 0B       		.uleb128 0xb
+ 1024 006c 0B       		.uleb128 0xb
+ 1025 006d 49       		.uleb128 0x49
+ 1026 006e 13       		.uleb128 0x13
+ 1027 006f 3A       		.uleb128 0x3a
+ 1028 0070 0B       		.uleb128 0xb
+ 1029 0071 3B       		.uleb128 0x3b
+ 1030 0072 0B       		.uleb128 0xb
+ 1031 0073 01       		.uleb128 0x1
+ 1032 0074 13       		.uleb128 0x13
+ 1033 0075 00       		.byte	0
+ 1034 0076 00       		.byte	0
+ 1035 0077 0A       		.uleb128 0xa
+ 1036 0078 04       		.uleb128 0x4
+ 1037 0079 01       		.byte	0x1
+ 1038 007a 0B       		.uleb128 0xb
+ 1039 007b 0B       		.uleb128 0xb
+ 1040 007c 49       		.uleb128 0x49
+ 1041 007d 13       		.uleb128 0x13
+ 1042 007e 3A       		.uleb128 0x3a
+ 1043 007f 0B       		.uleb128 0xb
+ 1044 0080 3B       		.uleb128 0x3b
+ 1045 0081 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 22
+
+
+ 1046 0082 01       		.uleb128 0x1
+ 1047 0083 13       		.uleb128 0x13
+ 1048 0084 00       		.byte	0
+ 1049 0085 00       		.byte	0
+ 1050 0086 0B       		.uleb128 0xb
+ 1051 0087 2E       		.uleb128 0x2e
+ 1052 0088 01       		.byte	0x1
+ 1053 0089 3F       		.uleb128 0x3f
+ 1054 008a 19       		.uleb128 0x19
+ 1055 008b 03       		.uleb128 0x3
+ 1056 008c 0E       		.uleb128 0xe
+ 1057 008d 3A       		.uleb128 0x3a
+ 1058 008e 0B       		.uleb128 0xb
+ 1059 008f 3B       		.uleb128 0x3b
+ 1060 0090 0B       		.uleb128 0xb
+ 1061 0091 27       		.uleb128 0x27
+ 1062 0092 19       		.uleb128 0x19
+ 1063 0093 49       		.uleb128 0x49
+ 1064 0094 13       		.uleb128 0x13
+ 1065 0095 11       		.uleb128 0x11
+ 1066 0096 01       		.uleb128 0x1
+ 1067 0097 12       		.uleb128 0x12
+ 1068 0098 06       		.uleb128 0x6
+ 1069 0099 40       		.uleb128 0x40
+ 1070 009a 18       		.uleb128 0x18
+ 1071 009b 9742     		.uleb128 0x2117
+ 1072 009d 19       		.uleb128 0x19
+ 1073 009e 01       		.uleb128 0x1
+ 1074 009f 13       		.uleb128 0x13
+ 1075 00a0 00       		.byte	0
+ 1076 00a1 00       		.byte	0
+ 1077 00a2 0C       		.uleb128 0xc
+ 1078 00a3 05       		.uleb128 0x5
+ 1079 00a4 00       		.byte	0
+ 1080 00a5 03       		.uleb128 0x3
+ 1081 00a6 0E       		.uleb128 0xe
+ 1082 00a7 3A       		.uleb128 0x3a
+ 1083 00a8 0B       		.uleb128 0xb
+ 1084 00a9 3B       		.uleb128 0x3b
+ 1085 00aa 0B       		.uleb128 0xb
+ 1086 00ab 49       		.uleb128 0x49
+ 1087 00ac 13       		.uleb128 0x13
+ 1088 00ad 02       		.uleb128 0x2
+ 1089 00ae 17       		.uleb128 0x17
+ 1090 00af 00       		.byte	0
+ 1091 00b0 00       		.byte	0
+ 1092 00b1 0D       		.uleb128 0xd
+ 1093 00b2 898201   		.uleb128 0x4109
+ 1094 00b5 00       		.byte	0
+ 1095 00b6 11       		.uleb128 0x11
+ 1096 00b7 01       		.uleb128 0x1
+ 1097 00b8 9542     		.uleb128 0x2115
+ 1098 00ba 19       		.uleb128 0x19
+ 1099 00bb 31       		.uleb128 0x31
+ 1100 00bc 13       		.uleb128 0x13
+ 1101 00bd 00       		.byte	0
+ 1102 00be 00       		.byte	0
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 23
+
+
+ 1103 00bf 0E       		.uleb128 0xe
+ 1104 00c0 2E       		.uleb128 0x2e
+ 1105 00c1 01       		.byte	0x1
+ 1106 00c2 3F       		.uleb128 0x3f
+ 1107 00c3 19       		.uleb128 0x19
+ 1108 00c4 03       		.uleb128 0x3
+ 1109 00c5 0E       		.uleb128 0xe
+ 1110 00c6 3A       		.uleb128 0x3a
+ 1111 00c7 0B       		.uleb128 0xb
+ 1112 00c8 3B       		.uleb128 0x3b
+ 1113 00c9 0B       		.uleb128 0xb
+ 1114 00ca 49       		.uleb128 0x49
+ 1115 00cb 13       		.uleb128 0x13
+ 1116 00cc 11       		.uleb128 0x11
+ 1117 00cd 01       		.uleb128 0x1
+ 1118 00ce 12       		.uleb128 0x12
+ 1119 00cf 06       		.uleb128 0x6
+ 1120 00d0 40       		.uleb128 0x40
+ 1121 00d1 18       		.uleb128 0x18
+ 1122 00d2 9742     		.uleb128 0x2117
+ 1123 00d4 19       		.uleb128 0x19
+ 1124 00d5 01       		.uleb128 0x1
+ 1125 00d6 13       		.uleb128 0x13
+ 1126 00d7 00       		.byte	0
+ 1127 00d8 00       		.byte	0
+ 1128 00d9 0F       		.uleb128 0xf
+ 1129 00da 898201   		.uleb128 0x4109
+ 1130 00dd 00       		.byte	0
+ 1131 00de 11       		.uleb128 0x11
+ 1132 00df 01       		.uleb128 0x1
+ 1133 00e0 31       		.uleb128 0x31
+ 1134 00e1 13       		.uleb128 0x13
+ 1135 00e2 00       		.byte	0
+ 1136 00e3 00       		.byte	0
+ 1137 00e4 10       		.uleb128 0x10
+ 1138 00e5 34       		.uleb128 0x34
+ 1139 00e6 00       		.byte	0
+ 1140 00e7 03       		.uleb128 0x3
+ 1141 00e8 0E       		.uleb128 0xe
+ 1142 00e9 3A       		.uleb128 0x3a
+ 1143 00ea 0B       		.uleb128 0xb
+ 1144 00eb 3B       		.uleb128 0x3b
+ 1145 00ec 0B       		.uleb128 0xb
+ 1146 00ed 49       		.uleb128 0x49
+ 1147 00ee 13       		.uleb128 0x13
+ 1148 00ef 02       		.uleb128 0x2
+ 1149 00f0 17       		.uleb128 0x17
+ 1150 00f1 00       		.byte	0
+ 1151 00f2 00       		.byte	0
+ 1152 00f3 11       		.uleb128 0x11
+ 1153 00f4 898201   		.uleb128 0x4109
+ 1154 00f7 01       		.byte	0x1
+ 1155 00f8 11       		.uleb128 0x11
+ 1156 00f9 01       		.uleb128 0x1
+ 1157 00fa 31       		.uleb128 0x31
+ 1158 00fb 13       		.uleb128 0x13
+ 1159 00fc 01       		.uleb128 0x1
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 24
+
+
+ 1160 00fd 13       		.uleb128 0x13
+ 1161 00fe 00       		.byte	0
+ 1162 00ff 00       		.byte	0
+ 1163 0100 12       		.uleb128 0x12
+ 1164 0101 8A8201   		.uleb128 0x410a
+ 1165 0104 00       		.byte	0
+ 1166 0105 02       		.uleb128 0x2
+ 1167 0106 18       		.uleb128 0x18
+ 1168 0107 9142     		.uleb128 0x2111
+ 1169 0109 18       		.uleb128 0x18
+ 1170 010a 00       		.byte	0
+ 1171 010b 00       		.byte	0
+ 1172 010c 13       		.uleb128 0x13
+ 1173 010d 34       		.uleb128 0x34
+ 1174 010e 00       		.byte	0
+ 1175 010f 03       		.uleb128 0x3
+ 1176 0110 08       		.uleb128 0x8
+ 1177 0111 3A       		.uleb128 0x3a
+ 1178 0112 0B       		.uleb128 0xb
+ 1179 0113 3B       		.uleb128 0x3b
+ 1180 0114 0B       		.uleb128 0xb
+ 1181 0115 49       		.uleb128 0x49
+ 1182 0116 13       		.uleb128 0x13
+ 1183 0117 02       		.uleb128 0x2
+ 1184 0118 17       		.uleb128 0x17
+ 1185 0119 00       		.byte	0
+ 1186 011a 00       		.byte	0
+ 1187 011b 14       		.uleb128 0x14
+ 1188 011c 0B       		.uleb128 0xb
+ 1189 011d 01       		.byte	0x1
+ 1190 011e 55       		.uleb128 0x55
+ 1191 011f 17       		.uleb128 0x17
+ 1192 0120 01       		.uleb128 0x1
+ 1193 0121 13       		.uleb128 0x13
+ 1194 0122 00       		.byte	0
+ 1195 0123 00       		.byte	0
+ 1196 0124 15       		.uleb128 0x15
+ 1197 0125 2E       		.uleb128 0x2e
+ 1198 0126 00       		.byte	0
+ 1199 0127 3F       		.uleb128 0x3f
+ 1200 0128 19       		.uleb128 0x19
+ 1201 0129 03       		.uleb128 0x3
+ 1202 012a 0E       		.uleb128 0xe
+ 1203 012b 3A       		.uleb128 0x3a
+ 1204 012c 0B       		.uleb128 0xb
+ 1205 012d 3B       		.uleb128 0x3b
+ 1206 012e 0B       		.uleb128 0xb
+ 1207 012f 49       		.uleb128 0x49
+ 1208 0130 13       		.uleb128 0x13
+ 1209 0131 11       		.uleb128 0x11
+ 1210 0132 01       		.uleb128 0x1
+ 1211 0133 12       		.uleb128 0x12
+ 1212 0134 06       		.uleb128 0x6
+ 1213 0135 40       		.uleb128 0x40
+ 1214 0136 18       		.uleb128 0x18
+ 1215 0137 9742     		.uleb128 0x2117
+ 1216 0139 19       		.uleb128 0x19
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 25
+
+
+ 1217 013a 00       		.byte	0
+ 1218 013b 00       		.byte	0
+ 1219 013c 16       		.uleb128 0x16
+ 1220 013d 34       		.uleb128 0x34
+ 1221 013e 00       		.byte	0
+ 1222 013f 03       		.uleb128 0x3
+ 1223 0140 0E       		.uleb128 0xe
+ 1224 0141 3A       		.uleb128 0x3a
+ 1225 0142 0B       		.uleb128 0xb
+ 1226 0143 3B       		.uleb128 0x3b
+ 1227 0144 0B       		.uleb128 0xb
+ 1228 0145 49       		.uleb128 0x49
+ 1229 0146 13       		.uleb128 0x13
+ 1230 0147 02       		.uleb128 0x2
+ 1231 0148 18       		.uleb128 0x18
+ 1232 0149 00       		.byte	0
+ 1233 014a 00       		.byte	0
+ 1234 014b 17       		.uleb128 0x17
+ 1235 014c 34       		.uleb128 0x34
+ 1236 014d 00       		.byte	0
+ 1237 014e 03       		.uleb128 0x3
+ 1238 014f 0E       		.uleb128 0xe
+ 1239 0150 3A       		.uleb128 0x3a
+ 1240 0151 0B       		.uleb128 0xb
+ 1241 0152 3B       		.uleb128 0x3b
+ 1242 0153 0B       		.uleb128 0xb
+ 1243 0154 49       		.uleb128 0x49
+ 1244 0155 13       		.uleb128 0x13
+ 1245 0156 3F       		.uleb128 0x3f
+ 1246 0157 19       		.uleb128 0x19
+ 1247 0158 3C       		.uleb128 0x3c
+ 1248 0159 19       		.uleb128 0x19
+ 1249 015a 00       		.byte	0
+ 1250 015b 00       		.byte	0
+ 1251 015c 18       		.uleb128 0x18
+ 1252 015d 34       		.uleb128 0x34
+ 1253 015e 00       		.byte	0
+ 1254 015f 03       		.uleb128 0x3
+ 1255 0160 0E       		.uleb128 0xe
+ 1256 0161 3A       		.uleb128 0x3a
+ 1257 0162 0B       		.uleb128 0xb
+ 1258 0163 3B       		.uleb128 0x3b
+ 1259 0164 05       		.uleb128 0x5
+ 1260 0165 49       		.uleb128 0x49
+ 1261 0166 13       		.uleb128 0x13
+ 1262 0167 3F       		.uleb128 0x3f
+ 1263 0168 19       		.uleb128 0x19
+ 1264 0169 3C       		.uleb128 0x3c
+ 1265 016a 19       		.uleb128 0x19
+ 1266 016b 00       		.byte	0
+ 1267 016c 00       		.byte	0
+ 1268 016d 19       		.uleb128 0x19
+ 1269 016e 35       		.uleb128 0x35
+ 1270 016f 00       		.byte	0
+ 1271 0170 49       		.uleb128 0x49
+ 1272 0171 13       		.uleb128 0x13
+ 1273 0172 00       		.byte	0
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 26
+
+
+ 1274 0173 00       		.byte	0
+ 1275 0174 1A       		.uleb128 0x1a
+ 1276 0175 34       		.uleb128 0x34
+ 1277 0176 00       		.byte	0
+ 1278 0177 03       		.uleb128 0x3
+ 1279 0178 0E       		.uleb128 0xe
+ 1280 0179 3A       		.uleb128 0x3a
+ 1281 017a 0B       		.uleb128 0xb
+ 1282 017b 3B       		.uleb128 0x3b
+ 1283 017c 0B       		.uleb128 0xb
+ 1284 017d 49       		.uleb128 0x49
+ 1285 017e 13       		.uleb128 0x13
+ 1286 017f 3F       		.uleb128 0x3f
+ 1287 0180 19       		.uleb128 0x19
+ 1288 0181 02       		.uleb128 0x2
+ 1289 0182 18       		.uleb128 0x18
+ 1290 0183 00       		.byte	0
+ 1291 0184 00       		.byte	0
+ 1292 0185 1B       		.uleb128 0x1b
+ 1293 0186 01       		.uleb128 0x1
+ 1294 0187 01       		.byte	0x1
+ 1295 0188 49       		.uleb128 0x49
+ 1296 0189 13       		.uleb128 0x13
+ 1297 018a 01       		.uleb128 0x1
+ 1298 018b 13       		.uleb128 0x13
+ 1299 018c 00       		.byte	0
+ 1300 018d 00       		.byte	0
+ 1301 018e 1C       		.uleb128 0x1c
+ 1302 018f 21       		.uleb128 0x21
+ 1303 0190 00       		.byte	0
+ 1304 0191 49       		.uleb128 0x49
+ 1305 0192 13       		.uleb128 0x13
+ 1306 0193 2F       		.uleb128 0x2f
+ 1307 0194 0B       		.uleb128 0xb
+ 1308 0195 00       		.byte	0
+ 1309 0196 00       		.byte	0
+ 1310 0197 1D       		.uleb128 0x1d
+ 1311 0198 2E       		.uleb128 0x2e
+ 1312 0199 00       		.byte	0
+ 1313 019a 3F       		.uleb128 0x3f
+ 1314 019b 19       		.uleb128 0x19
+ 1315 019c 3C       		.uleb128 0x3c
+ 1316 019d 19       		.uleb128 0x19
+ 1317 019e 6E       		.uleb128 0x6e
+ 1318 019f 0E       		.uleb128 0xe
+ 1319 01a0 03       		.uleb128 0x3
+ 1320 01a1 0E       		.uleb128 0xe
+ 1321 01a2 3A       		.uleb128 0x3a
+ 1322 01a3 0B       		.uleb128 0xb
+ 1323 01a4 3B       		.uleb128 0x3b
+ 1324 01a5 0B       		.uleb128 0xb
+ 1325 01a6 00       		.byte	0
+ 1326 01a7 00       		.byte	0
+ 1327 01a8 00       		.byte	0
+ 1328              		.section	.debug_loc,"",%progbits
+ 1329              	.Ldebug_loc0:
+ 1330              	.LLST0:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 27
+
+
+ 1331 0000 00000000 		.4byte	.LVL0
+ 1332 0004 06000000 		.4byte	.LVL1
+ 1333 0008 0100     		.2byte	0x1
+ 1334 000a 50       		.byte	0x50
+ 1335 000b 06000000 		.4byte	.LVL1
+ 1336 000f 0C000000 		.4byte	.LFE110
+ 1337 0013 0500     		.2byte	0x5
+ 1338 0015 03       		.byte	0x3
+ 1339 0016 00000000 		.4byte	Score
+ 1340 001a 00000000 		.4byte	0
+ 1341 001e 00000000 		.4byte	0
+ 1342              	.LLST1:
+ 1343 0022 00000000 		.4byte	.LVL2
+ 1344 0026 03000000 		.4byte	.LVL3-1
+ 1345 002a 0100     		.2byte	0x1
+ 1346 002c 50       		.byte	0x50
+ 1347 002d 03000000 		.4byte	.LVL3-1
+ 1348 0031 04000000 		.4byte	.LFE111
+ 1349 0035 0400     		.2byte	0x4
+ 1350 0037 F3       		.byte	0xf3
+ 1351 0038 01       		.uleb128 0x1
+ 1352 0039 50       		.byte	0x50
+ 1353 003a 9F       		.byte	0x9f
+ 1354 003b 00000000 		.4byte	0
+ 1355 003f 00000000 		.4byte	0
+ 1356              	.LLST2:
+ 1357 0043 00000000 		.4byte	.LVL5
+ 1358 0047 2E000000 		.4byte	.LVL8
+ 1359 004b 0200     		.2byte	0x2
+ 1360 004d 30       		.byte	0x30
+ 1361 004e 9F       		.byte	0x9f
+ 1362 004f 2E000000 		.4byte	.LVL8
+ 1363 0053 34000000 		.4byte	.LVL9
+ 1364 0057 0200     		.2byte	0x2
+ 1365 0059 31       		.byte	0x31
+ 1366 005a 9F       		.byte	0x9f
+ 1367 005b 34000000 		.4byte	.LVL9
+ 1368 005f 3C000000 		.4byte	.LVL10
+ 1369 0063 0200     		.2byte	0x2
+ 1370 0065 30       		.byte	0x30
+ 1371 0066 9F       		.byte	0x9f
+ 1372 0067 3C000000 		.4byte	.LVL10
+ 1373 006b 4C000000 		.4byte	.LFE113
+ 1374 006f 0200     		.2byte	0x2
+ 1375 0071 31       		.byte	0x31
+ 1376 0072 9F       		.byte	0x9f
+ 1377 0073 00000000 		.4byte	0
+ 1378 0077 00000000 		.4byte	0
+ 1379              	.LLST3:
+ 1380 007b 06000000 		.4byte	.LVL6
+ 1381 007f 26000000 		.4byte	.LVL7
+ 1382 0083 0B00     		.2byte	0xb
+ 1383 0085 70       		.byte	0x70
+ 1384 0086 00       		.sleb128 0
+ 1385 0087 32       		.byte	0x32
+ 1386 0088 14       		.byte	0x14
+ 1387 0089 14       		.byte	0x14
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 28
+
+
+ 1388 008a 1B       		.byte	0x1b
+ 1389 008b 1E       		.byte	0x1e
+ 1390 008c 1C       		.byte	0x1c
+ 1391 008d 23       		.byte	0x23
+ 1392 008e 01       		.uleb128 0x1
+ 1393 008f 9F       		.byte	0x9f
+ 1394 0090 26000000 		.4byte	.LVL7
+ 1395 0094 34000000 		.4byte	.LVL9
+ 1396 0098 0200     		.2byte	0x2
+ 1397 009a 30       		.byte	0x30
+ 1398 009b 9F       		.byte	0x9f
+ 1399 009c 34000000 		.4byte	.LVL9
+ 1400 00a0 40000000 		.4byte	.LVL11
+ 1401 00a4 0200     		.2byte	0x2
+ 1402 00a6 31       		.byte	0x31
+ 1403 00a7 9F       		.byte	0x9f
+ 1404 00a8 00000000 		.4byte	0
+ 1405 00ac 00000000 		.4byte	0
+ 1406              	.LLST4:
+ 1407 00b0 00000000 		.4byte	.LVL14
+ 1408 00b4 0C000000 		.4byte	.LVL15
+ 1409 00b8 0200     		.2byte	0x2
+ 1410 00ba 30       		.byte	0x30
+ 1411 00bb 9F       		.byte	0x9f
+ 1412 00bc 0C000000 		.4byte	.LVL15
+ 1413 00c0 27000000 		.4byte	.LVL20-1
+ 1414 00c4 0100     		.2byte	0x1
+ 1415 00c6 53       		.byte	0x53
+ 1416 00c7 00000000 		.4byte	0
+ 1417 00cb 00000000 		.4byte	0
+ 1418              	.LLST5:
+ 1419 00cf 00000000 		.4byte	.LVL14
+ 1420 00d3 1C000000 		.4byte	.LVL18
+ 1421 00d7 0200     		.2byte	0x2
+ 1422 00d9 30       		.byte	0x30
+ 1423 00da 9F       		.byte	0x9f
+ 1424 00db 1C000000 		.4byte	.LVL18
+ 1425 00df 20000000 		.4byte	.LVL19
+ 1426 00e3 0F00     		.2byte	0xf
+ 1427 00e5 73       		.byte	0x73
+ 1428 00e6 00       		.sleb128 0
+ 1429 00e7 F7       		.byte	0xf7
+ 1430 00e8 25       		.uleb128 0x25
+ 1431 00e9 70       		.byte	0x70
+ 1432 00ea 00       		.sleb128 0
+ 1433 00eb 08       		.byte	0x8
+ 1434 00ec FF       		.byte	0xff
+ 1435 00ed 1A       		.byte	0x1a
+ 1436 00ee F7       		.byte	0xf7
+ 1437 00ef 25       		.uleb128 0x25
+ 1438 00f0 1B       		.byte	0x1b
+ 1439 00f1 F7       		.byte	0xf7
+ 1440 00f2 00       		.uleb128 0
+ 1441 00f3 9F       		.byte	0x9f
+ 1442 00f4 00000000 		.4byte	0
+ 1443 00f8 00000000 		.4byte	0
+ 1444              	.LLST6:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 29
+
+
+ 1445 00fc 00000000 		.4byte	.LVL14
+ 1446 0100 0C000000 		.4byte	.LVL15
+ 1447 0104 0200     		.2byte	0x2
+ 1448 0106 30       		.byte	0x30
+ 1449 0107 9F       		.byte	0x9f
+ 1450 0108 0C000000 		.4byte	.LVL15
+ 1451 010c 18000000 		.4byte	.LVL16
+ 1452 0110 0100     		.2byte	0x1
+ 1453 0112 52       		.byte	0x52
+ 1454 0113 1C000000 		.4byte	.LVL18
+ 1455 0117 27000000 		.4byte	.LVL20-1
+ 1456 011b 0100     		.2byte	0x1
+ 1457 011d 52       		.byte	0x52
+ 1458 011e 00000000 		.4byte	0
+ 1459 0122 00000000 		.4byte	0
+ 1460              		.section	.debug_aranges,"",%progbits
+ 1461 0000 54000000 		.4byte	0x54
+ 1462 0004 0200     		.2byte	0x2
+ 1463 0006 00000000 		.4byte	.Ldebug_info0
+ 1464 000a 04       		.byte	0x4
+ 1465 000b 00       		.byte	0
+ 1466 000c 0000     		.2byte	0
+ 1467 000e 0000     		.2byte	0
+ 1468 0010 00000000 		.4byte	.LFB110
+ 1469 0014 0C000000 		.4byte	.LFE110-.LFB110
+ 1470 0018 00000000 		.4byte	.LFB111
+ 1471 001c 04000000 		.4byte	.LFE111-.LFB111
+ 1472 0020 00000000 		.4byte	.LFB112
+ 1473 0024 20000000 		.4byte	.LFE112-.LFB112
+ 1474 0028 00000000 		.4byte	.LFB113
+ 1475 002c 4C000000 		.4byte	.LFE113-.LFB113
+ 1476 0030 00000000 		.4byte	.LFB114
+ 1477 0034 0C000000 		.4byte	.LFE114-.LFB114
+ 1478 0038 00000000 		.4byte	.LFB115
+ 1479 003c 30000000 		.4byte	.LFE115-.LFB115
+ 1480 0040 00000000 		.4byte	.LFB116
+ 1481 0044 10000000 		.4byte	.LFE116-.LFB116
+ 1482 0048 00000000 		.4byte	.LFB117
+ 1483 004c 10000000 		.4byte	.LFE117-.LFB117
+ 1484 0050 00000000 		.4byte	0
+ 1485 0054 00000000 		.4byte	0
+ 1486              		.section	.debug_ranges,"",%progbits
+ 1487              	.Ldebug_ranges0:
+ 1488 0000 02000000 		.4byte	.LBB2
+ 1489 0004 08000000 		.4byte	.LBE2
+ 1490 0008 0A000000 		.4byte	.LBB3
+ 1491 000c 1C000000 		.4byte	.LBE3
+ 1492 0010 00000000 		.4byte	0
+ 1493 0014 00000000 		.4byte	0
+ 1494 0018 00000000 		.4byte	.LFB110
+ 1495 001c 0C000000 		.4byte	.LFE110
+ 1496 0020 00000000 		.4byte	.LFB111
+ 1497 0024 04000000 		.4byte	.LFE111
+ 1498 0028 00000000 		.4byte	.LFB112
+ 1499 002c 20000000 		.4byte	.LFE112
+ 1500 0030 00000000 		.4byte	.LFB113
+ 1501 0034 4C000000 		.4byte	.LFE113
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 30
+
+
+ 1502 0038 00000000 		.4byte	.LFB114
+ 1503 003c 0C000000 		.4byte	.LFE114
+ 1504 0040 00000000 		.4byte	.LFB115
+ 1505 0044 30000000 		.4byte	.LFE115
+ 1506 0048 00000000 		.4byte	.LFB116
+ 1507 004c 10000000 		.4byte	.LFE116
+ 1508 0050 00000000 		.4byte	.LFB117
+ 1509 0054 10000000 		.4byte	.LFE117
+ 1510 0058 00000000 		.4byte	0
+ 1511 005c 00000000 		.4byte	0
+ 1512              		.section	.debug_line,"",%progbits
+ 1513              	.Ldebug_line0:
+ 1514 0000 63030000 		.section	.debug_str,"MS",%progbits,1
+ 1514      0200BB02 
+ 1514      00000201 
+ 1514      FB0E0D00 
+ 1514      01010101 
+ 1515              	.LASF78:
+ 1516 0000 7469636B 		.ascii	"ticks\000"
+ 1516      7300
+ 1517              	.LASF37:
+ 1518 0006 52435F45 		.ascii	"RC_ERROR_READ_ONLY\000"
+ 1518      52524F52 
+ 1518      5F524541 
+ 1518      445F4F4E 
+ 1518      4C5900
+ 1519              	.LASF23:
+ 1520 0019 52435F53 		.ascii	"RC_SUCCESS\000"
+ 1520      55434345 
+ 1520      535300
+ 1521              	.LASF58:
+ 1522 0024 52454143 		.ascii	"REACTIONGAME_Init\000"
+ 1522      54494F4E 
+ 1522      47414D45 
+ 1522      5F496E69 
+ 1522      7400
+ 1523              	.LASF38:
+ 1524 0036 52435F45 		.ascii	"RC_ERROR_WRITE_ONLY\000"
+ 1524      52524F52 
+ 1524      5F575249 
+ 1524      54455F4F 
+ 1524      4E4C5900 
+ 1525              	.LASF3:
+ 1526 004a 73686F72 		.ascii	"short int\000"
+ 1526      7420696E 
+ 1526      7400
+ 1527              	.LASF29:
+ 1528 0054 52435F45 		.ascii	"RC_ERROR_OVERRUN\000"
+ 1528      52524F52 
+ 1528      5F4F5645 
+ 1528      5252554E 
+ 1528      00
+ 1529              	.LASF41:
+ 1530 0065 52435F45 		.ascii	"RC_ERROR_WRITE_FAILS\000"
+ 1530      52524F52 
+ 1530      5F575249 
+ 1530      54455F46 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 31
+
+
+ 1530      41494C53 
+ 1531              	.LASF17:
+ 1532 007a 73697A65 		.ascii	"sizetype\000"
+ 1532      74797065 
+ 1532      00
+ 1533              	.LASF79:
+ 1534 0083 54696D65 		.ascii	"Time\000"
+ 1534      00
+ 1535              	.LASF55:
+ 1536 0088 53455645 		.ascii	"SEVEN_0\000"
+ 1536      4E5F3000 
+ 1537              	.LASF26:
+ 1538 0090 52435F45 		.ascii	"RC_ERROR_ZERO\000"
+ 1538      52524F52 
+ 1538      5F5A4552 
+ 1538      4F00
+ 1539              	.LASF21:
+ 1540 009e 45455F46 		.ascii	"EE_FREG\000"
+ 1540      52454700 
+ 1541              	.LASF40:
+ 1542 00a6 52435F45 		.ascii	"RC_ERROR_READ_FAILS\000"
+ 1542      52524F52 
+ 1542      5F524541 
+ 1542      445F4641 
+ 1542      494C5300 
+ 1543              	.LASF19:
+ 1544 00ba 45455F55 		.ascii	"EE_UINT32\000"
+ 1544      494E5433 
+ 1544      3200
+ 1545              	.LASF22:
+ 1546 00c4 45455F54 		.ascii	"EE_TID\000"
+ 1546      494400
+ 1547              	.LASF46:
+ 1548 00cb 52435F45 		.ascii	"RC_ERROR_INVALID_STATE\000"
+ 1548      52524F52 
+ 1548      5F494E56 
+ 1548      414C4944 
+ 1548      5F535441 
+ 1549              	.LASF89:
+ 1550 00e2 443A5C48 		.ascii	"D:\\H_da\\Winter Semester\\MM03 Advanced Microcontr"
+ 1550      5F64615C 
+ 1550      57696E74 
+ 1550      65722053 
+ 1550      656D6573 
+ 1551 0112 6F6C6C65 		.ascii	"oller Systems and Embedded Operating Systems\\Lectu"
+ 1551      72205379 
+ 1551      7374656D 
+ 1551      7320616E 
+ 1551      6420456D 
+ 1552 0144 72652050 		.ascii	"re Prof. Fromm\\workspace\\workspace_psoc\\Reaction"
+ 1552      726F662E 
+ 1552      2046726F 
+ 1552      6D6D5C77 
+ 1552      6F726B73 
+ 1553 0174 47616D65 		.ascii	"Game_with erika.cydsn\000"
+ 1553      5F776974 
+ 1553      68206572 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 32
+
+
+ 1553      696B612E 
+ 1553      63796473 
+ 1554              	.LASF11:
+ 1555 018a 75696E74 		.ascii	"uint8\000"
+ 1555      3800
+ 1556              	.LASF84:
+ 1557 0190 72616E64 		.ascii	"rand\000"
+ 1557      00
+ 1558              	.LASF76:
+ 1559 0195 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 1559      52515F6E 
+ 1559      65737469 
+ 1559      6E675F6C 
+ 1559      6576656C 
+ 1560              	.LASF47:
+ 1561 01aa 52435F45 		.ascii	"RC_ERROR_UNKNOWN\000"
+ 1561      52524F52 
+ 1561      5F554E4B 
+ 1561      4E4F574E 
+ 1561      00
+ 1562              	.LASF75:
+ 1563 01bb 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 1563      74645F65 
+ 1563      6E646379 
+ 1563      636C655F 
+ 1563      6E657874 
+ 1564              	.LASF1:
+ 1565 01d4 7369676E 		.ascii	"signed char\000"
+ 1565      65642063 
+ 1565      68617200 
+ 1566              	.LASF82:
+ 1567 01e0 52616E64 		.ascii	"RandomTim\000"
+ 1567      6F6D5469 
+ 1567      6D00
+ 1568              	.LASF13:
+ 1569 01ea 666C6F61 		.ascii	"float\000"
+ 1569      7400
+ 1570              	.LASF85:
+ 1571 01f0 53455645 		.ascii	"SEVEN_Set\000"
+ 1571      4E5F5365 
+ 1571      7400
+ 1572              	.LASF7:
+ 1573 01fa 6C6F6E67 		.ascii	"long long int\000"
+ 1573      206C6F6E 
+ 1573      6720696E 
+ 1573      7400
+ 1574              	.LASF73:
+ 1575 0208 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 1575      6F5F4952 
+ 1575      515F7375 
+ 1575      7370656E 
+ 1575      645F7374 
+ 1576              	.LASF42:
+ 1577 0221 52435F45 		.ascii	"RC_ERROR_NOT_MATCH\000"
+ 1577      52524F52 
+ 1577      5F4E4F54 
+ 1577      5F4D4154 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 33
+
+
+ 1577      434800
+ 1578              	.LASF88:
+ 1579 0234 736F7572 		.ascii	"source\\asw\\reactionGame.c\000"
+ 1579      63655C61 
+ 1579      73775C72 
+ 1579      65616374 
+ 1579      696F6E47 
+ 1580              	.LASF5:
+ 1581 024e 6C6F6E67 		.ascii	"long int\000"
+ 1581      20696E74 
+ 1581      00
+ 1582              	.LASF30:
+ 1583 0257 52435F45 		.ascii	"RC_ERROR_UNDERRUN\000"
+ 1583      52524F52 
+ 1583      5F554E44 
+ 1583      45525255 
+ 1583      4E00
+ 1584              	.LASF61:
+ 1585 0269 62757474 		.ascii	"button\000"
+ 1585      6F6E00
+ 1586              	.LASF33:
+ 1587 0270 52435F45 		.ascii	"RC_ERROR_BUSY\000"
+ 1587      52524F52 
+ 1587      5F425553 
+ 1587      5900
+ 1588              	.LASF54:
+ 1589 027e 42555454 		.ascii	"BUTTON_id_t\000"
+ 1589      4F4E5F69 
+ 1589      645F7400 
+ 1590              	.LASF39:
+ 1591 028a 52435F45 		.ascii	"RC_ERROR_INVALID\000"
+ 1591      52524F52 
+ 1591      5F494E56 
+ 1591      414C4944 
+ 1591      00
+ 1592              	.LASF44:
+ 1593 029b 52435F45 		.ascii	"RC_ERROR_BAD_DATA\000"
+ 1593      52524F52 
+ 1593      5F424144 
+ 1593      5F444154 
+ 1593      4100
+ 1594              	.LASF62:
+ 1595 02ad 52454143 		.ascii	"REACTIONGAME_RandTime\000"
+ 1595      54494F4E 
+ 1595      47414D45 
+ 1595      5F52616E 
+ 1595      6454696D 
+ 1596              	.LASF66:
+ 1597 02c3 52454143 		.ascii	"REACTIONGAME_ShowScore\000"
+ 1597      54494F4E 
+ 1597      47414D45 
+ 1597      5F53686F 
+ 1597      7753636F 
+ 1598              	.LASF16:
+ 1599 02da 6C6F6E67 		.ascii	"long double\000"
+ 1599      20646F75 
+ 1599      626C6500 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 34
+
+
+ 1600              	.LASF2:
+ 1601 02e6 756E7369 		.ascii	"unsigned char\000"
+ 1601      676E6564 
+ 1601      20636861 
+ 1601      7200
+ 1602              	.LASF45:
+ 1603 02f4 52435F45 		.ascii	"RC_ERROR_CANCELED\000"
+ 1603      52524F52 
+ 1603      5F43414E 
+ 1603      43454C45 
+ 1603      4400
+ 1604              	.LASF69:
+ 1605 0306 52454143 		.ascii	"REACTIONGAME_IncreaseScore\000"
+ 1605      54494F4E 
+ 1605      47414D45 
+ 1605      5F496E63 
+ 1605      72656173 
+ 1606              	.LASF60:
+ 1607 0321 73636F72 		.ascii	"score\000"
+ 1607      6500
+ 1608              	.LASF8:
+ 1609 0327 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1609      206C6F6E 
+ 1609      6720756E 
+ 1609      7369676E 
+ 1609      65642069 
+ 1610              	.LASF65:
+ 1611 033e 52616E64 		.ascii	"RandButton\000"
+ 1611      42757474 
+ 1611      6F6E00
+ 1612              	.LASF0:
+ 1613 0349 756E7369 		.ascii	"unsigned int\000"
+ 1613      676E6564 
+ 1613      20696E74 
+ 1613      00
+ 1614              	.LASF35:
+ 1615 0356 52435F45 		.ascii	"RC_ERROR_OPEN\000"
+ 1615      52524F52 
+ 1615      5F4F5045 
+ 1615      4E00
+ 1616              	.LASF83:
+ 1617 0364 55415254 		.ascii	"UART_ShowRandButton\000"
+ 1617      5F53686F 
+ 1617      7752616E 
+ 1617      64427574 
+ 1617      746F6E00 
+ 1618              	.LASF25:
+ 1619 0378 52435F45 		.ascii	"RC_ERROR_NULL\000"
+ 1619      52524F52 
+ 1619      5F4E554C 
+ 1619      4C00
+ 1620              	.LASF32:
+ 1621 0386 52435F45 		.ascii	"RC_ERROR_BUFFER_EMTPY\000"
+ 1621      52524F52 
+ 1621      5F425546 
+ 1621      4645525F 
+ 1621      454D5450 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 35
+
+
+ 1622              	.LASF18:
+ 1623 039c 45455F49 		.ascii	"EE_INT32\000"
+ 1623      4E543332 
+ 1623      00
+ 1624              	.LASF49:
+ 1625 03a5 65427574 		.ascii	"eButton\000"
+ 1625      746F6E00 
+ 1626              	.LASF67:
+ 1627 03ad 52454143 		.ascii	"REACTIONGAME_ShowAvgTime\000"
+ 1627      54494F4E 
+ 1627      47414D45 
+ 1627      5F53686F 
+ 1627      77417667 
+ 1628              	.LASF15:
+ 1629 03c6 63686172 		.ascii	"char\000"
+ 1629      00
+ 1630              	.LASF31:
+ 1631 03cb 52435F45 		.ascii	"RC_ERROR_BUFFER_FULL\000"
+ 1631      52524F52 
+ 1631      5F425546 
+ 1631      4645525F 
+ 1631      46554C4C 
+ 1632              	.LASF10:
+ 1633 03e0 696E7433 		.ascii	"int32_t\000"
+ 1633      325F7400 
+ 1634              	.LASF4:
+ 1635 03e8 73686F72 		.ascii	"short unsigned int\000"
+ 1635      7420756E 
+ 1635      7369676E 
+ 1635      65642069 
+ 1635      6E7400
+ 1636              	.LASF81:
+ 1637 03fb 4D617852 		.ascii	"MaxRound\000"
+ 1637      6F756E64 
+ 1637      00
+ 1638              	.LASF63:
+ 1639 0404 52454143 		.ascii	"REACTIONGAME_RandButtonSelect\000"
+ 1639      54494F4E 
+ 1639      47414D45 
+ 1639      5F52616E 
+ 1639      64427574 
+ 1640              	.LASF43:
+ 1641 0422 52435F45 		.ascii	"RC_ERROR_BAD_PARAM\000"
+ 1641      52524F52 
+ 1641      5F424144 
+ 1641      5F504152 
+ 1641      414D00
+ 1642              	.LASF36:
+ 1643 0435 52435F45 		.ascii	"RC_ERROR_CHECKSUM\000"
+ 1643      52524F52 
+ 1643      5F434845 
+ 1643      434B5355 
+ 1643      4D00
+ 1644              	.LASF12:
+ 1645 0447 75696E74 		.ascii	"uint32\000"
+ 1645      333200
+ 1646              	.LASF74:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 36
+
+
+ 1647 044e 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 1647      70706C69 
+ 1647      63617469 
+ 1647      6F6E4D6F 
+ 1647      646500
+ 1648              	.LASF6:
+ 1649 0461 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1649      20756E73 
+ 1649      69676E65 
+ 1649      6420696E 
+ 1649      7400
+ 1650              	.LASF14:
+ 1651 0473 646F7562 		.ascii	"double\000"
+ 1651      6C6500
+ 1652              	.LASF57:
+ 1653 047a 53455645 		.ascii	"SEVEN_id_t\000"
+ 1653      4E5F6964 
+ 1653      5F7400
+ 1654              	.LASF80:
+ 1655 0485 526F756E 		.ascii	"Round\000"
+ 1655      6400
+ 1656              	.LASF20:
+ 1657 048b 45455F55 		.ascii	"EE_UREG\000"
+ 1657      52454700 
+ 1658              	.LASF71:
+ 1659 0493 53636F72 		.ascii	"Score\000"
+ 1659      6500
+ 1660              	.LASF64:
+ 1661 0499 73657665 		.ascii	"seven\000"
+ 1661      6E00
+ 1662              	.LASF28:
+ 1663 049f 52435F45 		.ascii	"RC_ERROR_RANGE\000"
+ 1663      52524F52 
+ 1663      5F52414E 
+ 1663      474500
+ 1664              	.LASF86:
+ 1665 04ae 55415254 		.ascii	"UART_ShowScore\000"
+ 1665      5F53686F 
+ 1665      7753636F 
+ 1665      726500
+ 1666              	.LASF9:
+ 1667 04bd 5F5F696E 		.ascii	"__int32_t\000"
+ 1667      7433325F 
+ 1667      7400
+ 1668              	.LASF50:
+ 1669 04c7 42555454 		.ascii	"BUTTON_1\000"
+ 1669      4F4E5F31 
+ 1669      00
+ 1670              	.LASF51:
+ 1671 04d0 42555454 		.ascii	"BUTTON_2\000"
+ 1671      4F4E5F32 
+ 1671      00
+ 1672              	.LASF52:
+ 1673 04d9 42555454 		.ascii	"BUTTON_3\000"
+ 1673      4F4E5F33 
+ 1673      00
+ 1674              	.LASF53:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 37
+
+
+ 1675 04e2 42555454 		.ascii	"BUTTON_4\000"
+ 1675      4F4E5F34 
+ 1675      00
+ 1676              	.LASF70:
+ 1677 04eb 52454143 		.ascii	"REACTIONGAME_DecreaseScore\000"
+ 1677      54494F4E 
+ 1677      47414D45 
+ 1677      5F446563 
+ 1677      72656173 
+ 1678              	.LASF56:
+ 1679 0506 53455645 		.ascii	"SEVEN_1\000"
+ 1679      4E5F3100 
+ 1680              	.LASF59:
+ 1681 050e 52454143 		.ascii	"REACTIONGAME_DisplayButton\000"
+ 1681      54494F4E 
+ 1681      47414D45 
+ 1681      5F446973 
+ 1681      706C6179 
+ 1682              	.LASF77:
+ 1683 0529 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1683      52784275 
+ 1683      66666572 
+ 1683      00
+ 1684              	.LASF24:
+ 1685 0536 52435F45 		.ascii	"RC_ERROR\000"
+ 1685      52524F52 
+ 1685      00
+ 1686              	.LASF27:
+ 1687 053f 52435F45 		.ascii	"RC_ERROR_MEMORY\000"
+ 1687      52524F52 
+ 1687      5F4D454D 
+ 1687      4F525900 
+ 1688              	.LASF72:
+ 1689 054f 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 1689      6F5F4952 
+ 1689      515F6469 
+ 1689      7361626C 
+ 1689      655F636F 
+ 1690              	.LASF68:
+ 1691 0567 61766572 		.ascii	"average\000"
+ 1691      61676500 
+ 1692              	.LASF87:
+ 1693 056f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1693      43313120 
+ 1693      352E342E 
+ 1693      31203230 
+ 1693      31363036 
+ 1694 05a2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1694      20726576 
+ 1694      6973696F 
+ 1694      6E203233 
+ 1694      37373135 
+ 1695 05d5 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 1695      66756E63 
+ 1695      74696F6E 
+ 1695      2D736563 
+ 1695      74696F6E 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccyUUHbN.s 			page 38
+
+
+ 1696              	.LASF48:
+ 1697 05fd 52435F74 		.ascii	"RC_t\000"
+ 1697      00
+ 1698              	.LASF34:
+ 1699 0602 52435F45 		.ascii	"RC_ERROR_TIME_OUT\000"
+ 1699      52524F52 
+ 1699      5F54494D 
+ 1699      455F4F55 
+ 1699      5400
+ 1700              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

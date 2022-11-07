@@ -1,0 +1,769 @@
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"SEVEN_reg_PM.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.SEVEN_reg_SaveConfig,"ax",%progbits
+  20              		.align	1
+  21              		.global	SEVEN_reg_SaveConfig
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	SEVEN_reg_SaveConfig, %function
+  25              	SEVEN_reg_SaveConfig:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\SEVEN_reg_PM.c"
+   1:Generated_Source\PSoC5/SEVEN_reg_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * File Name: SEVEN_reg_PM.c
+   3:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Version 1.80
+   4:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+   5:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Description:
+   6:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  This file contains the setup, control, and status commands to support 
+   7:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  the component operation in the low power mode. 
+   8:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+   9:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Note:
+  10:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  11:Generated_Source\PSoC5/SEVEN_reg_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/SEVEN_reg_PM.c **** 
+  18:Generated_Source\PSoC5/SEVEN_reg_PM.c **** #include "SEVEN_reg.h"
+  19:Generated_Source\PSoC5/SEVEN_reg_PM.c **** 
+  20:Generated_Source\PSoC5/SEVEN_reg_PM.c **** /* Check for removal by optimization */
+  21:Generated_Source\PSoC5/SEVEN_reg_PM.c **** #if !defined(SEVEN_reg_Sync_ctrl_reg__REMOVED)
+  22:Generated_Source\PSoC5/SEVEN_reg_PM.c **** 
+  23:Generated_Source\PSoC5/SEVEN_reg_PM.c **** static SEVEN_reg_BACKUP_STRUCT  SEVEN_reg_backup = {0u};
+  24:Generated_Source\PSoC5/SEVEN_reg_PM.c **** 
+  25:Generated_Source\PSoC5/SEVEN_reg_PM.c ****     
+  26:Generated_Source\PSoC5/SEVEN_reg_PM.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Function Name: SEVEN_reg_SaveConfig
+  28:Generated_Source\PSoC5/SEVEN_reg_PM.c **** ********************************************************************************
+  29:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  30:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Summary:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 2
+
+
+  31:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  Saves the control register value.
+  32:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  33:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Parameters:
+  34:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  None
+  35:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  36:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Return:
+  37:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  None
+  38:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  39:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *******************************************************************************/
+  40:Generated_Source\PSoC5/SEVEN_reg_PM.c **** void SEVEN_reg_SaveConfig(void) 
+  41:Generated_Source\PSoC5/SEVEN_reg_PM.c **** {
+  28              		.loc 1 41 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  42:Generated_Source\PSoC5/SEVEN_reg_PM.c ****     SEVEN_reg_backup.controlState = SEVEN_reg_Control;
+  33              		.loc 1 42 0
+  34 0000 024B     		ldr	r3, .L2
+  35 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  36 0004 024B     		ldr	r3, .L2+4
+  37 0006 1A70     		strb	r2, [r3]
+  38 0008 7047     		bx	lr
+  39              	.L3:
+  40 000a 00BF     		.align	2
+  41              	.L2:
+  42 000c 79650040 		.word	1073767801
+  43 0010 00000000 		.word	.LANCHOR0
+  44              		.cfi_endproc
+  45              	.LFE0:
+  46              		.size	SEVEN_reg_SaveConfig, .-SEVEN_reg_SaveConfig
+  47              		.section	.text.SEVEN_reg_RestoreConfig,"ax",%progbits
+  48              		.align	1
+  49              		.global	SEVEN_reg_RestoreConfig
+  50              		.thumb
+  51              		.thumb_func
+  52              		.type	SEVEN_reg_RestoreConfig, %function
+  53              	SEVEN_reg_RestoreConfig:
+  54              	.LFB1:
+  43:Generated_Source\PSoC5/SEVEN_reg_PM.c **** }
+  44:Generated_Source\PSoC5/SEVEN_reg_PM.c **** 
+  45:Generated_Source\PSoC5/SEVEN_reg_PM.c **** 
+  46:Generated_Source\PSoC5/SEVEN_reg_PM.c **** /*******************************************************************************
+  47:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Function Name: SEVEN_reg_RestoreConfig
+  48:Generated_Source\PSoC5/SEVEN_reg_PM.c **** ********************************************************************************
+  49:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  50:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Summary:
+  51:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  Restores the control register value.
+  52:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  53:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Parameters:
+  54:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  None
+  55:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  56:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Return:
+  57:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  None
+  58:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  59:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  60:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *******************************************************************************/
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 3
+
+
+  61:Generated_Source\PSoC5/SEVEN_reg_PM.c **** void SEVEN_reg_RestoreConfig(void) 
+  62:Generated_Source\PSoC5/SEVEN_reg_PM.c **** {
+  55              		.loc 1 62 0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+  63:Generated_Source\PSoC5/SEVEN_reg_PM.c ****      SEVEN_reg_Control = SEVEN_reg_backup.controlState;
+  60              		.loc 1 63 0
+  61 0000 024B     		ldr	r3, .L5
+  62 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  63 0004 024B     		ldr	r3, .L5+4
+  64 0006 1A70     		strb	r2, [r3]
+  65 0008 7047     		bx	lr
+  66              	.L6:
+  67 000a 00BF     		.align	2
+  68              	.L5:
+  69 000c 00000000 		.word	.LANCHOR0
+  70 0010 79650040 		.word	1073767801
+  71              		.cfi_endproc
+  72              	.LFE1:
+  73              		.size	SEVEN_reg_RestoreConfig, .-SEVEN_reg_RestoreConfig
+  74              		.section	.text.SEVEN_reg_Sleep,"ax",%progbits
+  75              		.align	1
+  76              		.global	SEVEN_reg_Sleep
+  77              		.thumb
+  78              		.thumb_func
+  79              		.type	SEVEN_reg_Sleep, %function
+  80              	SEVEN_reg_Sleep:
+  81              	.LFB2:
+  64:Generated_Source\PSoC5/SEVEN_reg_PM.c **** }
+  65:Generated_Source\PSoC5/SEVEN_reg_PM.c **** 
+  66:Generated_Source\PSoC5/SEVEN_reg_PM.c **** 
+  67:Generated_Source\PSoC5/SEVEN_reg_PM.c **** /*******************************************************************************
+  68:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Function Name: SEVEN_reg_Sleep
+  69:Generated_Source\PSoC5/SEVEN_reg_PM.c **** ********************************************************************************
+  70:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  71:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Summary:
+  72:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  Prepares the component for entering the low power mode.
+  73:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  74:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Parameters:
+  75:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  None
+  76:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  77:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Return:
+  78:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  None
+  79:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  80:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *******************************************************************************/
+  81:Generated_Source\PSoC5/SEVEN_reg_PM.c **** void SEVEN_reg_Sleep(void) 
+  82:Generated_Source\PSoC5/SEVEN_reg_PM.c **** {
+  82              		.loc 1 82 0
+  83              		.cfi_startproc
+  84              		@ args = 0, pretend = 0, frame = 0
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86              		@ link register save eliminated.
+  83:Generated_Source\PSoC5/SEVEN_reg_PM.c ****     SEVEN_reg_SaveConfig();
+  87              		.loc 1 83 0
+  88 0000 FFF7FEBF 		b	SEVEN_reg_SaveConfig
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 4
+
+
+  89              	.LVL0:
+  90              		.cfi_endproc
+  91              	.LFE2:
+  92              		.size	SEVEN_reg_Sleep, .-SEVEN_reg_Sleep
+  93              		.section	.text.SEVEN_reg_Wakeup,"ax",%progbits
+  94              		.align	1
+  95              		.global	SEVEN_reg_Wakeup
+  96              		.thumb
+  97              		.thumb_func
+  98              		.type	SEVEN_reg_Wakeup, %function
+  99              	SEVEN_reg_Wakeup:
+ 100              	.LFB3:
+  84:Generated_Source\PSoC5/SEVEN_reg_PM.c **** }
+  85:Generated_Source\PSoC5/SEVEN_reg_PM.c **** 
+  86:Generated_Source\PSoC5/SEVEN_reg_PM.c **** 
+  87:Generated_Source\PSoC5/SEVEN_reg_PM.c **** /*******************************************************************************
+  88:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Function Name: SEVEN_reg_Wakeup
+  89:Generated_Source\PSoC5/SEVEN_reg_PM.c **** ********************************************************************************
+  90:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  91:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Summary:
+  92:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  Restores the component after waking up from the low power mode.
+  93:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  94:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Parameters:
+  95:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  None
+  96:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+  97:Generated_Source\PSoC5/SEVEN_reg_PM.c **** * Return:
+  98:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *  None
+  99:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *
+ 100:Generated_Source\PSoC5/SEVEN_reg_PM.c **** *******************************************************************************/
+ 101:Generated_Source\PSoC5/SEVEN_reg_PM.c **** void SEVEN_reg_Wakeup(void)  
+ 102:Generated_Source\PSoC5/SEVEN_reg_PM.c **** {
+ 101              		.loc 1 102 0
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105              		@ link register save eliminated.
+ 103:Generated_Source\PSoC5/SEVEN_reg_PM.c ****     SEVEN_reg_RestoreConfig();
+ 106              		.loc 1 103 0
+ 107 0000 FFF7FEBF 		b	SEVEN_reg_RestoreConfig
+ 108              	.LVL1:
+ 109              		.cfi_endproc
+ 110              	.LFE3:
+ 111              		.size	SEVEN_reg_Wakeup, .-SEVEN_reg_Wakeup
+ 112              		.bss
+ 113              		.set	.LANCHOR0,. + 0
+ 114              		.type	SEVEN_reg_backup, %object
+ 115              		.size	SEVEN_reg_backup, 1
+ 116              	SEVEN_reg_backup:
+ 117 0000 00       		.space	1
+ 118              		.text
+ 119              	.Letext0:
+ 120              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 121              		.file 3 "Generated_Source\\PSoC5\\SEVEN_reg.h"
+ 122              		.section	.debug_info,"",%progbits
+ 123              	.Ldebug_info0:
+ 124 0000 2B010000 		.4byte	0x12b
+ 125 0004 0400     		.2byte	0x4
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 5
+
+
+ 126 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 127 000a 04       		.byte	0x4
+ 128 000b 01       		.uleb128 0x1
+ 129 000c 80010000 		.4byte	.LASF19
+ 130 0010 0C       		.byte	0xc
+ 131 0011 0E020000 		.4byte	.LASF20
+ 132 0015 BA000000 		.4byte	.LASF21
+ 133 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 134 001d 00000000 		.4byte	0
+ 135 0021 00000000 		.4byte	.Ldebug_line0
+ 136 0025 02       		.uleb128 0x2
+ 137 0026 01       		.byte	0x1
+ 138 0027 06       		.byte	0x6
+ 139 0028 75020000 		.4byte	.LASF0
+ 140 002c 02       		.uleb128 0x2
+ 141 002d 01       		.byte	0x1
+ 142 002e 08       		.byte	0x8
+ 143 002f 2D000000 		.4byte	.LASF1
+ 144 0033 02       		.uleb128 0x2
+ 145 0034 02       		.byte	0x2
+ 146 0035 05       		.byte	0x5
+ 147 0036 47020000 		.4byte	.LASF2
+ 148 003a 02       		.uleb128 0x2
+ 149 003b 02       		.byte	0x2
+ 150 003c 07       		.byte	0x7
+ 151 003d 6A000000 		.4byte	.LASF3
+ 152 0041 02       		.uleb128 0x2
+ 153 0042 04       		.byte	0x4
+ 154 0043 05       		.byte	0x5
+ 155 0044 6C020000 		.4byte	.LASF4
+ 156 0048 02       		.uleb128 0x2
+ 157 0049 04       		.byte	0x4
+ 158 004a 07       		.byte	0x7
+ 159 004b 40000000 		.4byte	.LASF5
+ 160 004f 02       		.uleb128 0x2
+ 161 0050 08       		.byte	0x8
+ 162 0051 05       		.byte	0x5
+ 163 0052 34020000 		.4byte	.LASF6
+ 164 0056 02       		.uleb128 0x2
+ 165 0057 08       		.byte	0x8
+ 166 0058 07       		.byte	0x7
+ 167 0059 16000000 		.4byte	.LASF7
+ 168 005d 03       		.uleb128 0x3
+ 169 005e 04       		.byte	0x4
+ 170 005f 05       		.byte	0x5
+ 171 0060 696E7400 		.ascii	"int\000"
+ 172 0064 02       		.uleb128 0x2
+ 173 0065 04       		.byte	0x4
+ 174 0066 07       		.byte	0x7
+ 175 0067 62010000 		.4byte	.LASF8
+ 176 006b 04       		.uleb128 0x4
+ 177 006c 51020000 		.4byte	.LASF12
+ 178 0070 02       		.byte	0x2
+ 179 0071 E401     		.2byte	0x1e4
+ 180 0073 2C000000 		.4byte	0x2c
+ 181 0077 02       		.uleb128 0x2
+ 182 0078 04       		.byte	0x4
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 6
+
+
+ 183 0079 04       		.byte	0x4
+ 184 007a 10000000 		.4byte	.LASF9
+ 185 007e 02       		.uleb128 0x2
+ 186 007f 08       		.byte	0x8
+ 187 0080 04       		.byte	0x4
+ 188 0081 8A000000 		.4byte	.LASF10
+ 189 0085 02       		.uleb128 0x2
+ 190 0086 01       		.byte	0x1
+ 191 0087 08       		.byte	0x8
+ 192 0088 42020000 		.4byte	.LASF11
+ 193 008c 04       		.uleb128 0x4
+ 194 008d 3B000000 		.4byte	.LASF13
+ 195 0091 02       		.byte	0x2
+ 196 0092 8E02     		.2byte	0x28e
+ 197 0094 98000000 		.4byte	0x98
+ 198 0098 05       		.uleb128 0x5
+ 199 0099 6B000000 		.4byte	0x6b
+ 200 009d 06       		.uleb128 0x6
+ 201 009e 01       		.byte	0x1
+ 202 009f 03       		.byte	0x3
+ 203 00a0 24       		.byte	0x24
+ 204 00a1 B2000000 		.4byte	0xb2
+ 205 00a5 07       		.uleb128 0x7
+ 206 00a6 7D000000 		.4byte	.LASF22
+ 207 00aa 03       		.byte	0x3
+ 208 00ab 26       		.byte	0x26
+ 209 00ac 6B000000 		.4byte	0x6b
+ 210 00b0 00       		.byte	0
+ 211 00b1 00       		.byte	0
+ 212 00b2 08       		.uleb128 0x8
+ 213 00b3 52000000 		.4byte	.LASF14
+ 214 00b7 03       		.byte	0x3
+ 215 00b8 28       		.byte	0x28
+ 216 00b9 9D000000 		.4byte	0x9d
+ 217 00bd 09       		.uleb128 0x9
+ 218 00be 57020000 		.4byte	.LASF15
+ 219 00c2 01       		.byte	0x1
+ 220 00c3 28       		.byte	0x28
+ 221 00c4 00000000 		.4byte	.LFB0
+ 222 00c8 14000000 		.4byte	.LFE0-.LFB0
+ 223 00cc 01       		.uleb128 0x1
+ 224 00cd 9C       		.byte	0x9c
+ 225 00ce 09       		.uleb128 0x9
+ 226 00cf A2000000 		.4byte	.LASF16
+ 227 00d3 01       		.byte	0x1
+ 228 00d4 3D       		.byte	0x3d
+ 229 00d5 00000000 		.4byte	.LFB1
+ 230 00d9 14000000 		.4byte	.LFE1-.LFB1
+ 231 00dd 01       		.uleb128 0x1
+ 232 00de 9C       		.byte	0x9c
+ 233 00df 0A       		.uleb128 0xa
+ 234 00e0 00000000 		.4byte	.LASF17
+ 235 00e4 01       		.byte	0x1
+ 236 00e5 51       		.byte	0x51
+ 237 00e6 00000000 		.4byte	.LFB2
+ 238 00ea 04000000 		.4byte	.LFE2-.LFB2
+ 239 00ee 01       		.uleb128 0x1
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 7
+
+
+ 240 00ef 9C       		.byte	0x9c
+ 241 00f0 FE000000 		.4byte	0xfe
+ 242 00f4 0B       		.uleb128 0xb
+ 243 00f5 04000000 		.4byte	.LVL0
+ 244 00f9 BD000000 		.4byte	0xbd
+ 245 00fd 00       		.byte	0
+ 246 00fe 0A       		.uleb128 0xa
+ 247 00ff 6F010000 		.4byte	.LASF18
+ 248 0103 01       		.byte	0x1
+ 249 0104 65       		.byte	0x65
+ 250 0105 00000000 		.4byte	.LFB3
+ 251 0109 04000000 		.4byte	.LFE3-.LFB3
+ 252 010d 01       		.uleb128 0x1
+ 253 010e 9C       		.byte	0x9c
+ 254 010f 1D010000 		.4byte	0x11d
+ 255 0113 0B       		.uleb128 0xb
+ 256 0114 04000000 		.4byte	.LVL1
+ 257 0118 CE000000 		.4byte	0xce
+ 258 011c 00       		.byte	0
+ 259 011d 0C       		.uleb128 0xc
+ 260 011e 91000000 		.4byte	.LASF23
+ 261 0122 01       		.byte	0x1
+ 262 0123 17       		.byte	0x17
+ 263 0124 B2000000 		.4byte	0xb2
+ 264 0128 05       		.uleb128 0x5
+ 265 0129 03       		.byte	0x3
+ 266 012a 00000000 		.4byte	SEVEN_reg_backup
+ 267 012e 00       		.byte	0
+ 268              		.section	.debug_abbrev,"",%progbits
+ 269              	.Ldebug_abbrev0:
+ 270 0000 01       		.uleb128 0x1
+ 271 0001 11       		.uleb128 0x11
+ 272 0002 01       		.byte	0x1
+ 273 0003 25       		.uleb128 0x25
+ 274 0004 0E       		.uleb128 0xe
+ 275 0005 13       		.uleb128 0x13
+ 276 0006 0B       		.uleb128 0xb
+ 277 0007 03       		.uleb128 0x3
+ 278 0008 0E       		.uleb128 0xe
+ 279 0009 1B       		.uleb128 0x1b
+ 280 000a 0E       		.uleb128 0xe
+ 281 000b 55       		.uleb128 0x55
+ 282 000c 17       		.uleb128 0x17
+ 283 000d 11       		.uleb128 0x11
+ 284 000e 01       		.uleb128 0x1
+ 285 000f 10       		.uleb128 0x10
+ 286 0010 17       		.uleb128 0x17
+ 287 0011 00       		.byte	0
+ 288 0012 00       		.byte	0
+ 289 0013 02       		.uleb128 0x2
+ 290 0014 24       		.uleb128 0x24
+ 291 0015 00       		.byte	0
+ 292 0016 0B       		.uleb128 0xb
+ 293 0017 0B       		.uleb128 0xb
+ 294 0018 3E       		.uleb128 0x3e
+ 295 0019 0B       		.uleb128 0xb
+ 296 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 8
+
+
+ 297 001b 0E       		.uleb128 0xe
+ 298 001c 00       		.byte	0
+ 299 001d 00       		.byte	0
+ 300 001e 03       		.uleb128 0x3
+ 301 001f 24       		.uleb128 0x24
+ 302 0020 00       		.byte	0
+ 303 0021 0B       		.uleb128 0xb
+ 304 0022 0B       		.uleb128 0xb
+ 305 0023 3E       		.uleb128 0x3e
+ 306 0024 0B       		.uleb128 0xb
+ 307 0025 03       		.uleb128 0x3
+ 308 0026 08       		.uleb128 0x8
+ 309 0027 00       		.byte	0
+ 310 0028 00       		.byte	0
+ 311 0029 04       		.uleb128 0x4
+ 312 002a 16       		.uleb128 0x16
+ 313 002b 00       		.byte	0
+ 314 002c 03       		.uleb128 0x3
+ 315 002d 0E       		.uleb128 0xe
+ 316 002e 3A       		.uleb128 0x3a
+ 317 002f 0B       		.uleb128 0xb
+ 318 0030 3B       		.uleb128 0x3b
+ 319 0031 05       		.uleb128 0x5
+ 320 0032 49       		.uleb128 0x49
+ 321 0033 13       		.uleb128 0x13
+ 322 0034 00       		.byte	0
+ 323 0035 00       		.byte	0
+ 324 0036 05       		.uleb128 0x5
+ 325 0037 35       		.uleb128 0x35
+ 326 0038 00       		.byte	0
+ 327 0039 49       		.uleb128 0x49
+ 328 003a 13       		.uleb128 0x13
+ 329 003b 00       		.byte	0
+ 330 003c 00       		.byte	0
+ 331 003d 06       		.uleb128 0x6
+ 332 003e 13       		.uleb128 0x13
+ 333 003f 01       		.byte	0x1
+ 334 0040 0B       		.uleb128 0xb
+ 335 0041 0B       		.uleb128 0xb
+ 336 0042 3A       		.uleb128 0x3a
+ 337 0043 0B       		.uleb128 0xb
+ 338 0044 3B       		.uleb128 0x3b
+ 339 0045 0B       		.uleb128 0xb
+ 340 0046 01       		.uleb128 0x1
+ 341 0047 13       		.uleb128 0x13
+ 342 0048 00       		.byte	0
+ 343 0049 00       		.byte	0
+ 344 004a 07       		.uleb128 0x7
+ 345 004b 0D       		.uleb128 0xd
+ 346 004c 00       		.byte	0
+ 347 004d 03       		.uleb128 0x3
+ 348 004e 0E       		.uleb128 0xe
+ 349 004f 3A       		.uleb128 0x3a
+ 350 0050 0B       		.uleb128 0xb
+ 351 0051 3B       		.uleb128 0x3b
+ 352 0052 0B       		.uleb128 0xb
+ 353 0053 49       		.uleb128 0x49
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 9
+
+
+ 354 0054 13       		.uleb128 0x13
+ 355 0055 38       		.uleb128 0x38
+ 356 0056 0B       		.uleb128 0xb
+ 357 0057 00       		.byte	0
+ 358 0058 00       		.byte	0
+ 359 0059 08       		.uleb128 0x8
+ 360 005a 16       		.uleb128 0x16
+ 361 005b 00       		.byte	0
+ 362 005c 03       		.uleb128 0x3
+ 363 005d 0E       		.uleb128 0xe
+ 364 005e 3A       		.uleb128 0x3a
+ 365 005f 0B       		.uleb128 0xb
+ 366 0060 3B       		.uleb128 0x3b
+ 367 0061 0B       		.uleb128 0xb
+ 368 0062 49       		.uleb128 0x49
+ 369 0063 13       		.uleb128 0x13
+ 370 0064 00       		.byte	0
+ 371 0065 00       		.byte	0
+ 372 0066 09       		.uleb128 0x9
+ 373 0067 2E       		.uleb128 0x2e
+ 374 0068 00       		.byte	0
+ 375 0069 3F       		.uleb128 0x3f
+ 376 006a 19       		.uleb128 0x19
+ 377 006b 03       		.uleb128 0x3
+ 378 006c 0E       		.uleb128 0xe
+ 379 006d 3A       		.uleb128 0x3a
+ 380 006e 0B       		.uleb128 0xb
+ 381 006f 3B       		.uleb128 0x3b
+ 382 0070 0B       		.uleb128 0xb
+ 383 0071 27       		.uleb128 0x27
+ 384 0072 19       		.uleb128 0x19
+ 385 0073 11       		.uleb128 0x11
+ 386 0074 01       		.uleb128 0x1
+ 387 0075 12       		.uleb128 0x12
+ 388 0076 06       		.uleb128 0x6
+ 389 0077 40       		.uleb128 0x40
+ 390 0078 18       		.uleb128 0x18
+ 391 0079 9742     		.uleb128 0x2117
+ 392 007b 19       		.uleb128 0x19
+ 393 007c 00       		.byte	0
+ 394 007d 00       		.byte	0
+ 395 007e 0A       		.uleb128 0xa
+ 396 007f 2E       		.uleb128 0x2e
+ 397 0080 01       		.byte	0x1
+ 398 0081 3F       		.uleb128 0x3f
+ 399 0082 19       		.uleb128 0x19
+ 400 0083 03       		.uleb128 0x3
+ 401 0084 0E       		.uleb128 0xe
+ 402 0085 3A       		.uleb128 0x3a
+ 403 0086 0B       		.uleb128 0xb
+ 404 0087 3B       		.uleb128 0x3b
+ 405 0088 0B       		.uleb128 0xb
+ 406 0089 27       		.uleb128 0x27
+ 407 008a 19       		.uleb128 0x19
+ 408 008b 11       		.uleb128 0x11
+ 409 008c 01       		.uleb128 0x1
+ 410 008d 12       		.uleb128 0x12
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 10
+
+
+ 411 008e 06       		.uleb128 0x6
+ 412 008f 40       		.uleb128 0x40
+ 413 0090 18       		.uleb128 0x18
+ 414 0091 9742     		.uleb128 0x2117
+ 415 0093 19       		.uleb128 0x19
+ 416 0094 01       		.uleb128 0x1
+ 417 0095 13       		.uleb128 0x13
+ 418 0096 00       		.byte	0
+ 419 0097 00       		.byte	0
+ 420 0098 0B       		.uleb128 0xb
+ 421 0099 898201   		.uleb128 0x4109
+ 422 009c 00       		.byte	0
+ 423 009d 11       		.uleb128 0x11
+ 424 009e 01       		.uleb128 0x1
+ 425 009f 9542     		.uleb128 0x2115
+ 426 00a1 19       		.uleb128 0x19
+ 427 00a2 31       		.uleb128 0x31
+ 428 00a3 13       		.uleb128 0x13
+ 429 00a4 00       		.byte	0
+ 430 00a5 00       		.byte	0
+ 431 00a6 0C       		.uleb128 0xc
+ 432 00a7 34       		.uleb128 0x34
+ 433 00a8 00       		.byte	0
+ 434 00a9 03       		.uleb128 0x3
+ 435 00aa 0E       		.uleb128 0xe
+ 436 00ab 3A       		.uleb128 0x3a
+ 437 00ac 0B       		.uleb128 0xb
+ 438 00ad 3B       		.uleb128 0x3b
+ 439 00ae 0B       		.uleb128 0xb
+ 440 00af 49       		.uleb128 0x49
+ 441 00b0 13       		.uleb128 0x13
+ 442 00b1 02       		.uleb128 0x2
+ 443 00b2 18       		.uleb128 0x18
+ 444 00b3 00       		.byte	0
+ 445 00b4 00       		.byte	0
+ 446 00b5 00       		.byte	0
+ 447              		.section	.debug_aranges,"",%progbits
+ 448 0000 34000000 		.4byte	0x34
+ 449 0004 0200     		.2byte	0x2
+ 450 0006 00000000 		.4byte	.Ldebug_info0
+ 451 000a 04       		.byte	0x4
+ 452 000b 00       		.byte	0
+ 453 000c 0000     		.2byte	0
+ 454 000e 0000     		.2byte	0
+ 455 0010 00000000 		.4byte	.LFB0
+ 456 0014 14000000 		.4byte	.LFE0-.LFB0
+ 457 0018 00000000 		.4byte	.LFB1
+ 458 001c 14000000 		.4byte	.LFE1-.LFB1
+ 459 0020 00000000 		.4byte	.LFB2
+ 460 0024 04000000 		.4byte	.LFE2-.LFB2
+ 461 0028 00000000 		.4byte	.LFB3
+ 462 002c 04000000 		.4byte	.LFE3-.LFB3
+ 463 0030 00000000 		.4byte	0
+ 464 0034 00000000 		.4byte	0
+ 465              		.section	.debug_ranges,"",%progbits
+ 466              	.Ldebug_ranges0:
+ 467 0000 00000000 		.4byte	.LFB0
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 11
+
+
+ 468 0004 14000000 		.4byte	.LFE0
+ 469 0008 00000000 		.4byte	.LFB1
+ 470 000c 14000000 		.4byte	.LFE1
+ 471 0010 00000000 		.4byte	.LFB2
+ 472 0014 04000000 		.4byte	.LFE2
+ 473 0018 00000000 		.4byte	.LFB3
+ 474 001c 04000000 		.4byte	.LFE3
+ 475 0020 00000000 		.4byte	0
+ 476 0024 00000000 		.4byte	0
+ 477              		.section	.debug_line,"",%progbits
+ 478              	.Ldebug_line0:
+ 479 0000 A0000000 		.section	.debug_str,"MS",%progbits,1
+ 479      02005800 
+ 479      00000201 
+ 479      FB0E0D00 
+ 479      01010101 
+ 480              	.LASF17:
+ 481 0000 53455645 		.ascii	"SEVEN_reg_Sleep\000"
+ 481      4E5F7265 
+ 481      675F536C 
+ 481      65657000 
+ 482              	.LASF9:
+ 483 0010 666C6F61 		.ascii	"float\000"
+ 483      7400
+ 484              	.LASF7:
+ 485 0016 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 485      206C6F6E 
+ 485      6720756E 
+ 485      7369676E 
+ 485      65642069 
+ 486              	.LASF1:
+ 487 002d 756E7369 		.ascii	"unsigned char\000"
+ 487      676E6564 
+ 487      20636861 
+ 487      7200
+ 488              	.LASF13:
+ 489 003b 72656738 		.ascii	"reg8\000"
+ 489      00
+ 490              	.LASF5:
+ 491 0040 6C6F6E67 		.ascii	"long unsigned int\000"
+ 491      20756E73 
+ 491      69676E65 
+ 491      6420696E 
+ 491      7400
+ 492              	.LASF14:
+ 493 0052 53455645 		.ascii	"SEVEN_reg_BACKUP_STRUCT\000"
+ 493      4E5F7265 
+ 493      675F4241 
+ 493      434B5550 
+ 493      5F535452 
+ 494              	.LASF3:
+ 495 006a 73686F72 		.ascii	"short unsigned int\000"
+ 495      7420756E 
+ 495      7369676E 
+ 495      65642069 
+ 495      6E7400
+ 496              	.LASF22:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 12
+
+
+ 497 007d 636F6E74 		.ascii	"controlState\000"
+ 497      726F6C53 
+ 497      74617465 
+ 497      00
+ 498              	.LASF10:
+ 499 008a 646F7562 		.ascii	"double\000"
+ 499      6C6500
+ 500              	.LASF23:
+ 501 0091 53455645 		.ascii	"SEVEN_reg_backup\000"
+ 501      4E5F7265 
+ 501      675F6261 
+ 501      636B7570 
+ 501      00
+ 502              	.LASF16:
+ 503 00a2 53455645 		.ascii	"SEVEN_reg_RestoreConfig\000"
+ 503      4E5F7265 
+ 503      675F5265 
+ 503      73746F72 
+ 503      65436F6E 
+ 504              	.LASF21:
+ 505 00ba 443A5C48 		.ascii	"D:\\H_da\\Winter Semester\\MM03 Advanced Microcontr"
+ 505      5F64615C 
+ 505      57696E74 
+ 505      65722053 
+ 505      656D6573 
+ 506 00ea 6F6C6C65 		.ascii	"oller Systems and Embedded Operating Systems\\Lectu"
+ 506      72205379 
+ 506      7374656D 
+ 506      7320616E 
+ 506      6420456D 
+ 507 011c 72652050 		.ascii	"re Prof. Fromm\\workspace\\workspace_psoc\\Reaction"
+ 507      726F662E 
+ 507      2046726F 
+ 507      6D6D5C77 
+ 507      6F726B73 
+ 508 014c 47616D65 		.ascii	"Game_with erika.cydsn\000"
+ 508      5F776974 
+ 508      68206572 
+ 508      696B612E 
+ 508      63796473 
+ 509              	.LASF8:
+ 510 0162 756E7369 		.ascii	"unsigned int\000"
+ 510      676E6564 
+ 510      20696E74 
+ 510      00
+ 511              	.LASF18:
+ 512 016f 53455645 		.ascii	"SEVEN_reg_Wakeup\000"
+ 512      4E5F7265 
+ 512      675F5761 
+ 512      6B657570 
+ 512      00
+ 513              	.LASF19:
+ 514 0180 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 514      43313120 
+ 514      352E342E 
+ 514      31203230 
+ 514      31363036 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\cckzhXpC.s 			page 13
+
+
+ 515 01b3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 515      20726576 
+ 515      6973696F 
+ 515      6E203233 
+ 515      37373135 
+ 516 01e6 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 516      66756E63 
+ 516      74696F6E 
+ 516      2D736563 
+ 516      74696F6E 
+ 517              	.LASF20:
+ 518 020e 47656E65 		.ascii	"Generated_Source\\PSoC5\\SEVEN_reg_PM.c\000"
+ 518      72617465 
+ 518      645F536F 
+ 518      75726365 
+ 518      5C50536F 
+ 519              	.LASF6:
+ 520 0234 6C6F6E67 		.ascii	"long long int\000"
+ 520      206C6F6E 
+ 520      6720696E 
+ 520      7400
+ 521              	.LASF11:
+ 522 0242 63686172 		.ascii	"char\000"
+ 522      00
+ 523              	.LASF2:
+ 524 0247 73686F72 		.ascii	"short int\000"
+ 524      7420696E 
+ 524      7400
+ 525              	.LASF12:
+ 526 0251 75696E74 		.ascii	"uint8\000"
+ 526      3800
+ 527              	.LASF15:
+ 528 0257 53455645 		.ascii	"SEVEN_reg_SaveConfig\000"
+ 528      4E5F7265 
+ 528      675F5361 
+ 528      7665436F 
+ 528      6E666967 
+ 529              	.LASF4:
+ 530 026c 6C6F6E67 		.ascii	"long int\000"
+ 530      20696E74 
+ 530      00
+ 531              	.LASF0:
+ 532 0275 7369676E 		.ascii	"signed char\000"
+ 532      65642063 
+ 532      68617200 
+ 533              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

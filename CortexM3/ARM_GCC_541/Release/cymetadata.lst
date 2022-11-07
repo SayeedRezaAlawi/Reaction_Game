@@ -1,0 +1,2439 @@
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.type	cy_meta_configecc, %object
+  26              		.size	cy_meta_configecc, 1832
+  27              	cy_meta_configecc:
+  28 0000 04       		.byte	4
+  29 0001 52       		.byte	82
+  30 0002 00       		.byte	0
+  31 0003 40       		.byte	64
+  32 0004 02       		.byte	2
+  33 0005 64       		.byte	100
+  34 0006 00       		.byte	0
+  35 0007 40       		.byte	64
+  36 0008 01       		.byte	1
+  37 0009 65       		.byte	101
+  38 000a 00       		.byte	0
+  39 000b 40       		.byte	64
+  40 000c 4C       		.byte	76
+  41 000d 06       		.byte	6
+  42 000e 01       		.byte	1
+  43 000f 40       		.byte	64
+  44 0010 40       		.byte	64
+  45 0011 07       		.byte	7
+  46 0012 01       		.byte	1
+  47 0013 40       		.byte	64
+  48 0014 4C       		.byte	76
+  49 0015 08       		.byte	8
+  50 0016 01       		.byte	1
+  51 0017 40       		.byte	64
+  52 0018 36       		.byte	54
+  53 0019 09       		.byte	9
+  54 001a 01       		.byte	1
+  55 001b 40       		.byte	64
+  56 001c 50       		.byte	80
+  57 001d 0A       		.byte	10
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 2
+
+
+  58 001e 01       		.byte	1
+  59 001f 40       		.byte	64
+  60 0020 2B       		.byte	43
+  61 0021 0B       		.byte	11
+  62 0022 01       		.byte	1
+  63 0023 40       		.byte	64
+  64 0024 3B       		.byte	59
+  65 0025 0C       		.byte	12
+  66 0026 01       		.byte	1
+  67 0027 40       		.byte	64
+  68 0028 1C       		.byte	28
+  69 0029 0D       		.byte	13
+  70 002a 01       		.byte	1
+  71 002b 40       		.byte	64
+  72 002c 06       		.byte	6
+  73 002d 15       		.byte	21
+  74 002e 01       		.byte	1
+  75 002f 40       		.byte	64
+  76 0030 57       		.byte	87
+  77 0031 16       		.byte	22
+  78 0032 01       		.byte	1
+  79 0033 40       		.byte	64
+  80 0034 44       		.byte	68
+  81 0035 17       		.byte	23
+  82 0036 01       		.byte	1
+  83 0037 40       		.byte	64
+  84 0038 2C       		.byte	44
+  85 0039 18       		.byte	24
+  86 003a 01       		.byte	1
+  87 003b 40       		.byte	64
+  88 003c 38       		.byte	56
+  89 003d 19       		.byte	25
+  90 003e 01       		.byte	1
+  91 003f 40       		.byte	64
+  92 0040 0B       		.byte	11
+  93 0041 1B       		.byte	27
+  94 0042 01       		.byte	1
+  95 0043 40       		.byte	64
+  96 0044 02       		.byte	2
+  97 0045 40       		.byte	64
+  98 0046 01       		.byte	1
+  99 0047 40       		.byte	64
+ 100 0048 06       		.byte	6
+ 101 0049 41       		.byte	65
+ 102 004a 01       		.byte	1
+ 103 004b 40       		.byte	64
+ 104 004c 04       		.byte	4
+ 105 004d 42       		.byte	66
+ 106 004e 01       		.byte	1
+ 107 004f 40       		.byte	64
+ 108 0050 07       		.byte	7
+ 109 0051 43       		.byte	67
+ 110 0052 01       		.byte	1
+ 111 0053 40       		.byte	64
+ 112 0054 05       		.byte	5
+ 113 0055 45       		.byte	69
+ 114 0056 01       		.byte	1
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 3
+
+
+ 115 0057 40       		.byte	64
+ 116 0058 04       		.byte	4
+ 117 0059 46       		.byte	70
+ 118 005a 01       		.byte	1
+ 119 005b 40       		.byte	64
+ 120 005c 02       		.byte	2
+ 121 005d 47       		.byte	71
+ 122 005e 01       		.byte	1
+ 123 005f 40       		.byte	64
+ 124 0060 03       		.byte	3
+ 125 0061 48       		.byte	72
+ 126 0062 01       		.byte	1
+ 127 0063 40       		.byte	64
+ 128 0064 03       		.byte	3
+ 129 0065 49       		.byte	73
+ 130 0066 01       		.byte	1
+ 131 0067 40       		.byte	64
+ 132 0068 0C       		.byte	12
+ 133 0069 4C       		.byte	76
+ 134 006a 01       		.byte	1
+ 135 006b 40       		.byte	64
+ 136 006c 0E       		.byte	14
+ 137 006d 4D       		.byte	77
+ 138 006e 01       		.byte	1
+ 139 006f 40       		.byte	64
+ 140 0070 07       		.byte	7
+ 141 0071 50       		.byte	80
+ 142 0072 01       		.byte	1
+ 143 0073 40       		.byte	64
+ 144 0074 01       		.byte	1
+ 145 0075 51       		.byte	81
+ 146 0076 01       		.byte	1
+ 147 0077 40       		.byte	64
+ 148 0078 08       		.byte	8
+ 149 0079 C9       		.byte	-55
+ 150 007a 09       		.byte	9
+ 151 007b 53       		.byte	83
+ 152 007c 10       		.byte	16
+ 153 007d 30       		.byte	48
+ 154 007e 11       		.byte	17
+ 155 007f 10       		.byte	16
+ 156 0080 86       		.byte	-122
+ 157 0081 0F       		.byte	15
+ 158 0082 89       		.byte	-119
+ 159 0083 72       		.byte	114
+ 160 0084 88       		.byte	-120
+ 161 0085 38       		.byte	56
+ 162 0086 01       		.byte	1
+ 163 0087 10       		.byte	16
+ 164 0088 02       		.byte	2
+ 165 0089 0C       		.byte	12
+ 166 008a 06       		.byte	6
+ 167 008b 04       		.byte	4
+ 168 008c 07       		.byte	7
+ 169 008d 03       		.byte	3
+ 170 008e 08       		.byte	8
+ 171 008f 01       		.byte	1
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 4
+
+
+ 172 0090 0E       		.byte	14
+ 173 0091 0A       		.byte	10
+ 174 0092 11       		.byte	17
+ 175 0093 01       		.byte	1
+ 176 0094 13       		.byte	19
+ 177 0095 06       		.byte	6
+ 178 0096 14       		.byte	20
+ 179 0097 01       		.byte	1
+ 180 0098 19       		.byte	25
+ 181 0099 0C       		.byte	12
+ 182 009a 1A       		.byte	26
+ 183 009b 02       		.byte	2
+ 184 009c 1B       		.byte	27
+ 185 009d 03       		.byte	3
+ 186 009e 1C       		.byte	28
+ 187 009f 01       		.byte	1
+ 188 00a0 1D       		.byte	29
+ 189 00a1 01       		.byte	1
+ 190 00a2 1F       		.byte	31
+ 191 00a3 0E       		.byte	14
+ 192 00a4 22       		.byte	34
+ 193 00a5 06       		.byte	6
+ 194 00a6 23       		.byte	35
+ 195 00a7 0C       		.byte	12
+ 196 00a8 24       		.byte	36
+ 197 00a9 01       		.byte	1
+ 198 00aa 28       		.byte	40
+ 199 00ab 0C       		.byte	12
+ 200 00ac 2A       		.byte	42
+ 201 00ad 02       		.byte	2
+ 202 00ae 2B       		.byte	43
+ 203 00af 08       		.byte	8
+ 204 00b0 30       		.byte	48
+ 205 00b1 0E       		.byte	14
+ 206 00b2 33       		.byte	51
+ 207 00b3 0F       		.byte	15
+ 208 00b4 34       		.byte	52
+ 209 00b5 01       		.byte	1
+ 210 00b6 35       		.byte	53
+ 211 00b7 10       		.byte	16
+ 212 00b8 38       		.byte	56
+ 213 00b9 20       		.byte	32
+ 214 00ba 3A       		.byte	58
+ 215 00bb 02       		.byte	2
+ 216 00bc 3B       		.byte	59
+ 217 00bd 08       		.byte	8
+ 218 00be 3E       		.byte	62
+ 219 00bf 10       		.byte	16
+ 220 00c0 3F       		.byte	63
+ 221 00c1 10       		.byte	16
+ 222 00c2 40       		.byte	64
+ 223 00c3 43       		.byte	67
+ 224 00c4 41       		.byte	65
+ 225 00c5 05       		.byte	5
+ 226 00c6 45       		.byte	69
+ 227 00c7 0B       		.byte	11
+ 228 00c8 46       		.byte	70
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 5
+
+
+ 229 00c9 C0       		.byte	-64
+ 230 00ca 47       		.byte	71
+ 231 00cb E0       		.byte	-32
+ 232 00cc 48       		.byte	72
+ 233 00cd 29       		.byte	41
+ 234 00ce 49       		.byte	73
+ 235 00cf FF       		.byte	-1
+ 236 00d0 4A       		.byte	74
+ 237 00d1 FF       		.byte	-1
+ 238 00d2 4B       		.byte	75
+ 239 00d3 FF       		.byte	-1
+ 240 00d4 4E       		.byte	78
+ 241 00d5 F0       		.byte	-16
+ 242 00d6 4F       		.byte	79
+ 243 00d7 44       		.byte	68
+ 244 00d8 50       		.byte	80
+ 245 00d9 0C       		.byte	12
+ 246 00da 54       		.byte	84
+ 247 00db 01       		.byte	1
+ 248 00dc 58       		.byte	88
+ 249 00dd 04       		.byte	4
+ 250 00de 59       		.byte	89
+ 251 00df 04       		.byte	4
+ 252 00e0 5A       		.byte	90
+ 253 00e1 04       		.byte	4
+ 254 00e2 5B       		.byte	91
+ 255 00e3 04       		.byte	4
+ 256 00e4 5C       		.byte	92
+ 257 00e5 11       		.byte	17
+ 258 00e6 5D       		.byte	93
+ 259 00e7 11       		.byte	17
+ 260 00e8 5F       		.byte	95
+ 261 00e9 01       		.byte	1
+ 262 00ea 66       		.byte	102
+ 263 00eb C0       		.byte	-64
+ 264 00ec 6A       		.byte	106
+ 265 00ed 40       		.byte	64
+ 266 00ee 6B       		.byte	107
+ 267 00ef 02       		.byte	2
+ 268 00f0 82       		.byte	-126
+ 269 00f1 08       		.byte	8
+ 270 00f2 84       		.byte	-124
+ 271 00f3 03       		.byte	3
+ 272 00f4 86       		.byte	-122
+ 273 00f5 04       		.byte	4
+ 274 00f6 8B       		.byte	-117
+ 275 00f7 01       		.byte	1
+ 276 00f8 8C       		.byte	-116
+ 277 00f9 03       		.byte	3
+ 278 00fa 8D       		.byte	-115
+ 279 00fb 01       		.byte	1
+ 280 00fc 8E       		.byte	-114
+ 281 00fd 0C       		.byte	12
+ 282 00fe 90       		.byte	-112
+ 283 00ff 03       		.byte	3
+ 284 0100 91       		.byte	-111
+ 285 0101 01       		.byte	1
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 6
+
+
+ 286 0102 92       		.byte	-110
+ 287 0103 04       		.byte	4
+ 288 0104 97       		.byte	-105
+ 289 0105 01       		.byte	1
+ 290 0106 A6       		.byte	-90
+ 291 0107 05       		.byte	5
+ 292 0108 A7       		.byte	-89
+ 293 0109 01       		.byte	1
+ 294 010a A8       		.byte	-88
+ 295 010b 0A       		.byte	10
+ 296 010c AA       		.byte	-86
+ 297 010d 04       		.byte	4
+ 298 010e B0       		.byte	-80
+ 299 010f 0F       		.byte	15
+ 300 0110 B1       		.byte	-79
+ 301 0111 01       		.byte	1
+ 302 0112 BA       		.byte	-70
+ 303 0113 02       		.byte	2
+ 304 0114 BF       		.byte	-65
+ 305 0115 01       		.byte	1
+ 306 0116 D8       		.byte	-40
+ 307 0117 04       		.byte	4
+ 308 0118 D9       		.byte	-39
+ 309 0119 04       		.byte	4
+ 310 011a DC       		.byte	-36
+ 311 011b 01       		.byte	1
+ 312 011c DF       		.byte	-33
+ 313 011d 01       		.byte	1
+ 314 011e 00       		.byte	0
+ 315 011f 40       		.byte	64
+ 316 0120 01       		.byte	1
+ 317 0121 02       		.byte	2
+ 318 0122 02       		.byte	2
+ 319 0123 10       		.byte	16
+ 320 0124 04       		.byte	4
+ 321 0125 80       		.byte	-128
+ 322 0126 05       		.byte	5
+ 323 0127 02       		.byte	2
+ 324 0128 06       		.byte	6
+ 325 0129 20       		.byte	32
+ 326 012a 07       		.byte	7
+ 327 012b 04       		.byte	4
+ 328 012c 09       		.byte	9
+ 329 012d 02       		.byte	2
+ 330 012e 0E       		.byte	14
+ 331 012f 21       		.byte	33
+ 332 0130 0F       		.byte	15
+ 333 0131 04       		.byte	4
+ 334 0132 12       		.byte	18
+ 335 0133 08       		.byte	8
+ 336 0134 13       		.byte	19
+ 337 0135 04       		.byte	4
+ 338 0136 14       		.byte	20
+ 339 0137 A0       		.byte	-96
+ 340 0138 17       		.byte	23
+ 341 0139 20       		.byte	32
+ 342 013a 18       		.byte	24
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 7
+
+
+ 343 013b C0       		.byte	-64
+ 344 013c 19       		.byte	25
+ 345 013d 01       		.byte	1
+ 346 013e 1C       		.byte	28
+ 347 013f 08       		.byte	8
+ 348 0140 1D       		.byte	29
+ 349 0141 02       		.byte	2
+ 350 0142 1E       		.byte	30
+ 351 0143 80       		.byte	-128
+ 352 0144 23       		.byte	35
+ 353 0145 40       		.byte	64
+ 354 0146 26       		.byte	38
+ 355 0147 08       		.byte	8
+ 356 0148 27       		.byte	39
+ 357 0149 28       		.byte	40
+ 358 014a 28       		.byte	40
+ 359 014b 10       		.byte	16
+ 360 014c 2D       		.byte	45
+ 361 014d 02       		.byte	2
+ 362 014e 2E       		.byte	46
+ 363 014f 20       		.byte	32
+ 364 0150 2F       		.byte	47
+ 365 0151 08       		.byte	8
+ 366 0152 31       		.byte	49
+ 367 0153 02       		.byte	2
+ 368 0154 32       		.byte	50
+ 369 0155 09       		.byte	9
+ 370 0156 34       		.byte	52
+ 371 0157 80       		.byte	-128
+ 372 0158 35       		.byte	53
+ 373 0159 01       		.byte	1
+ 374 015a 36       		.byte	54
+ 375 015b 40       		.byte	64
+ 376 015c 37       		.byte	55
+ 377 015d 20       		.byte	32
+ 378 015e 38       		.byte	56
+ 379 015f 90       		.byte	-112
+ 380 0160 3A       		.byte	58
+ 381 0161 90       		.byte	-112
+ 382 0162 3D       		.byte	61
+ 383 0163 01       		.byte	1
+ 384 0164 3E       		.byte	62
+ 385 0165 02       		.byte	2
+ 386 0166 3F       		.byte	63
+ 387 0167 04       		.byte	4
+ 388 0168 44       		.byte	68
+ 389 0169 10       		.byte	16
+ 390 016a 46       		.byte	70
+ 391 016b 80       		.byte	-128
+ 392 016c 4E       		.byte	78
+ 393 016d 01       		.byte	1
+ 394 016e 4F       		.byte	79
+ 395 016f 08       		.byte	8
+ 396 0170 56       		.byte	86
+ 397 0171 12       		.byte	18
+ 398 0172 5C       		.byte	92
+ 399 0173 10       		.byte	16
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 8
+
+
+ 400 0174 5D       		.byte	93
+ 401 0175 01       		.byte	1
+ 402 0176 5F       		.byte	95
+ 403 0177 48       		.byte	72
+ 404 0178 81       		.byte	-127
+ 405 0179 20       		.byte	32
+ 406 017a 82       		.byte	-126
+ 407 017b 05       		.byte	5
+ 408 017c 84       		.byte	-124
+ 409 017d 04       		.byte	4
+ 410 017e 8F       		.byte	-113
+ 411 017f 04       		.byte	4
+ 412 0180 90       		.byte	-112
+ 413 0181 20       		.byte	32
+ 414 0182 A8       		.byte	-88
+ 415 0183 10       		.byte	16
+ 416 0184 C0       		.byte	-64
+ 417 0185 FD       		.byte	-3
+ 418 0186 C2       		.byte	-62
+ 419 0187 E8       		.byte	-24
+ 420 0188 C4       		.byte	-60
+ 421 0189 76       		.byte	118
+ 422 018a CA       		.byte	-54
+ 423 018b A2       		.byte	-94
+ 424 018c CC       		.byte	-52
+ 425 018d B3       		.byte	-77
+ 426 018e CE       		.byte	-50
+ 427 018f CC       		.byte	-52
+ 428 0190 D0       		.byte	-48
+ 429 0191 C0       		.byte	-64
+ 430 0192 D2       		.byte	-46
+ 431 0193 10       		.byte	16
+ 432 0194 D6       		.byte	-42
+ 433 0195 F0       		.byte	-16
+ 434 0196 E2       		.byte	-30
+ 435 0197 05       		.byte	5
+ 436 0198 E4       		.byte	-28
+ 437 0199 10       		.byte	16
+ 438 019a E6       		.byte	-26
+ 439 019b 01       		.byte	1
+ 440 019c EA       		.byte	-22
+ 441 019d 04       		.byte	4
+ 442 019e 01       		.byte	1
+ 443 019f 12       		.byte	18
+ 444 01a0 03       		.byte	3
+ 445 01a1 04       		.byte	4
+ 446 01a2 07       		.byte	7
+ 447 01a3 03       		.byte	3
+ 448 01a4 09       		.byte	9
+ 449 01a5 1C       		.byte	28
+ 450 01a6 0D       		.byte	13
+ 451 01a7 09       		.byte	9
+ 452 01a8 0F       		.byte	15
+ 453 01a9 04       		.byte	4
+ 454 01aa 13       		.byte	19
+ 455 01ab 03       		.byte	3
+ 456 01ac 19       		.byte	25
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 9
+
+
+ 457 01ad 03       		.byte	3
+ 458 01ae 1F       		.byte	31
+ 459 01af 03       		.byte	3
+ 460 01b0 21       		.byte	33
+ 461 01b1 1C       		.byte	28
+ 462 01b2 25       		.byte	37
+ 463 01b3 03       		.byte	3
+ 464 01b4 29       		.byte	41
+ 465 01b5 07       		.byte	7
+ 466 01b6 2B       		.byte	43
+ 467 01b7 18       		.byte	24
+ 468 01b8 31       		.byte	49
+ 469 01b9 03       		.byte	3
+ 470 01ba 37       		.byte	55
+ 471 01bb 1C       		.byte	28
+ 472 01bc 40       		.byte	64
+ 473 01bd 30       		.byte	48
+ 474 01be 41       		.byte	65
+ 475 01bf 06       		.byte	6
+ 476 01c0 49       		.byte	73
+ 477 01c1 FF       		.byte	-1
+ 478 01c2 4A       		.byte	74
+ 479 01c3 FF       		.byte	-1
+ 480 01c4 4B       		.byte	75
+ 481 01c5 FF       		.byte	-1
+ 482 01c6 4D       		.byte	77
+ 483 01c7 A0       		.byte	-96
+ 484 01c8 4F       		.byte	79
+ 485 01c9 04       		.byte	4
+ 486 01ca 50       		.byte	80
+ 487 01cb 18       		.byte	24
+ 488 01cc 59       		.byte	89
+ 489 01cd 04       		.byte	4
+ 490 01ce 5A       		.byte	90
+ 491 01cf 04       		.byte	4
+ 492 01d0 5C       		.byte	92
+ 493 01d1 10       		.byte	16
+ 494 01d2 5F       		.byte	95
+ 495 01d3 01       		.byte	1
+ 496 01d4 60       		.byte	96
+ 497 01d5 40       		.byte	64
+ 498 01d6 62       		.byte	98
+ 499 01d7 C0       		.byte	-64
+ 500 01d8 64       		.byte	100
+ 501 01d9 40       		.byte	64
+ 502 01da 65       		.byte	101
+ 503 01db 40       		.byte	64
+ 504 01dc 66       		.byte	102
+ 505 01dd C0       		.byte	-64
+ 506 01de 68       		.byte	104
+ 507 01df C0       		.byte	-64
+ 508 01e0 6A       		.byte	106
+ 509 01e1 C0       		.byte	-64
+ 510 01e2 6C       		.byte	108
+ 511 01e3 C0       		.byte	-64
+ 512 01e4 6E       		.byte	110
+ 513 01e5 C0       		.byte	-64
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 10
+
+
+ 514 01e6 84       		.byte	-124
+ 515 01e7 01       		.byte	1
+ 516 01e8 89       		.byte	-119
+ 517 01e9 01       		.byte	1
+ 518 01ea 8C       		.byte	-116
+ 519 01eb 01       		.byte	1
+ 520 01ec 8D       		.byte	-115
+ 521 01ed 01       		.byte	1
+ 522 01ee 99       		.byte	-103
+ 523 01ef 01       		.byte	1
+ 524 01f0 A4       		.byte	-92
+ 525 01f1 01       		.byte	1
+ 526 01f2 AC       		.byte	-84
+ 527 01f3 01       		.byte	1
+ 528 01f4 B0       		.byte	-80
+ 529 01f5 01       		.byte	1
+ 530 01f6 B5       		.byte	-75
+ 531 01f7 01       		.byte	1
+ 532 01f8 BE       		.byte	-66
+ 533 01f9 01       		.byte	1
+ 534 01fa C0       		.byte	-64
+ 535 01fb 20       		.byte	32
+ 536 01fc C1       		.byte	-63
+ 537 01fd 03       		.byte	3
+ 538 01fe C5       		.byte	-59
+ 539 01ff 10       		.byte	16
+ 540 0200 C7       		.byte	-57
+ 541 0201 02       		.byte	2
+ 542 0202 C8       		.byte	-56
+ 543 0203 12       		.byte	18
+ 544 0204 C9       		.byte	-55
+ 545 0205 FF       		.byte	-1
+ 546 0206 CA       		.byte	-54
+ 547 0207 FF       		.byte	-1
+ 548 0208 CB       		.byte	-53
+ 549 0209 FF       		.byte	-1
+ 550 020a CD       		.byte	-51
+ 551 020b AF       		.byte	-81
+ 552 020c CE       		.byte	-50
+ 553 020d 0F       		.byte	15
+ 554 020e CF       		.byte	-49
+ 555 020f 04       		.byte	4
+ 556 0210 D0       		.byte	-48
+ 557 0211 18       		.byte	24
+ 558 0212 D6       		.byte	-42
+ 559 0213 02       		.byte	2
+ 560 0214 D7       		.byte	-41
+ 561 0215 13       		.byte	19
+ 562 0216 D8       		.byte	-40
+ 563 0217 04       		.byte	4
+ 564 0218 D9       		.byte	-39
+ 565 0219 04       		.byte	4
+ 566 021a DA       		.byte	-38
+ 567 021b 04       		.byte	4
+ 568 021c DB       		.byte	-37
+ 569 021d 04       		.byte	4
+ 570 021e DC       		.byte	-36
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 11
+
+
+ 571 021f 10       		.byte	16
+ 572 0220 DD       		.byte	-35
+ 573 0221 10       		.byte	16
+ 574 0222 DF       		.byte	-33
+ 575 0223 01       		.byte	1
+ 576 0224 E0       		.byte	-32
+ 577 0225 40       		.byte	64
+ 578 0226 E2       		.byte	-30
+ 579 0227 C0       		.byte	-64
+ 580 0228 E4       		.byte	-28
+ 581 0229 40       		.byte	64
+ 582 022a E5       		.byte	-27
+ 583 022b 40       		.byte	64
+ 584 022c E6       		.byte	-26
+ 585 022d C0       		.byte	-64
+ 586 022e E8       		.byte	-24
+ 587 022f C0       		.byte	-64
+ 588 0230 EA       		.byte	-22
+ 589 0231 C0       		.byte	-64
+ 590 0232 EC       		.byte	-20
+ 591 0233 C0       		.byte	-64
+ 592 0234 EE       		.byte	-18
+ 593 0235 C0       		.byte	-64
+ 594 0236 00       		.byte	0
+ 595 0237 44       		.byte	68
+ 596 0238 01       		.byte	1
+ 597 0239 80       		.byte	-128
+ 598 023a 03       		.byte	3
+ 599 023b 20       		.byte	32
+ 600 023c 12       		.byte	18
+ 601 023d 22       		.byte	34
+ 602 023e 19       		.byte	25
+ 603 023f 01       		.byte	1
+ 604 0240 21       		.byte	33
+ 605 0241 10       		.byte	16
+ 606 0242 23       		.byte	35
+ 607 0243 04       		.byte	4
+ 608 0244 25       		.byte	37
+ 609 0245 80       		.byte	-128
+ 610 0246 26       		.byte	38
+ 611 0247 01       		.byte	1
+ 612 0248 2C       		.byte	44
+ 613 0249 80       		.byte	-128
+ 614 024a 2F       		.byte	47
+ 615 024b 28       		.byte	40
+ 616 024c 33       		.byte	51
+ 617 024d 10       		.byte	16
+ 618 024e 35       		.byte	53
+ 619 024f 80       		.byte	-128
+ 620 0250 36       		.byte	54
+ 621 0251 22       		.byte	34
+ 622 0252 39       		.byte	57
+ 623 0253 90       		.byte	-112
+ 624 0254 3C       		.byte	60
+ 625 0255 81       		.byte	-127
+ 626 0256 3D       		.byte	61
+ 627 0257 10       		.byte	16
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 12
+
+
+ 628 0258 3F       		.byte	63
+ 629 0259 04       		.byte	4
+ 630 025a 40       		.byte	64
+ 631 025b 08       		.byte	8
+ 632 025c 41       		.byte	65
+ 633 025d 04       		.byte	4
+ 634 025e 47       		.byte	71
+ 635 025f 08       		.byte	8
+ 636 0260 49       		.byte	73
+ 637 0261 02       		.byte	2
+ 638 0262 4E       		.byte	78
+ 639 0263 08       		.byte	8
+ 640 0264 51       		.byte	81
+ 641 0265 04       		.byte	4
+ 642 0266 52       		.byte	82
+ 643 0267 08       		.byte	8
+ 644 0268 58       		.byte	88
+ 645 0269 08       		.byte	8
+ 646 026a 59       		.byte	89
+ 647 026b 01       		.byte	1
+ 648 026c 5B       		.byte	91
+ 649 026d 08       		.byte	8
+ 650 026e 69       		.byte	105
+ 651 026f 90       		.byte	-112
+ 652 0270 6B       		.byte	107
+ 653 0271 14       		.byte	20
+ 654 0272 70       		.byte	112
+ 655 0273 28       		.byte	40
+ 656 0274 71       		.byte	113
+ 657 0275 60       		.byte	96
+ 658 0276 73       		.byte	115
+ 659 0277 01       		.byte	1
+ 660 0278 80       		.byte	-128
+ 661 0279 80       		.byte	-128
+ 662 027a 82       		.byte	-126
+ 663 027b 20       		.byte	32
+ 664 027c 83       		.byte	-125
+ 665 027d 14       		.byte	20
+ 666 027e 94       		.byte	-108
+ 667 027f 44       		.byte	68
+ 668 0280 95       		.byte	-107
+ 669 0281 20       		.byte	32
+ 670 0282 97       		.byte	-105
+ 671 0283 04       		.byte	4
+ 672 0284 9B       		.byte	-101
+ 673 0285 08       		.byte	8
+ 674 0286 9D       		.byte	-99
+ 675 0287 42       		.byte	66
+ 676 0288 A2       		.byte	-94
+ 677 0289 22       		.byte	34
+ 678 028a A4       		.byte	-92
+ 679 028b 08       		.byte	8
+ 680 028c A5       		.byte	-91
+ 681 028d 20       		.byte	32
+ 682 028e AB       		.byte	-85
+ 683 028f 02       		.byte	2
+ 684 0290 B2       		.byte	-78
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 13
+
+
+ 685 0291 04       		.byte	4
+ 686 0292 C0       		.byte	-64
+ 687 0293 05       		.byte	5
+ 688 0294 C4       		.byte	-60
+ 689 0295 05       		.byte	5
+ 690 0296 CA       		.byte	-54
+ 691 0297 E0       		.byte	-32
+ 692 0298 CC       		.byte	-52
+ 693 0299 B4       		.byte	-76
+ 694 029a CE       		.byte	-50
+ 695 029b FC       		.byte	-4
+ 696 029c D0       		.byte	-48
+ 697 029d 46       		.byte	70
+ 698 029e D2       		.byte	-46
+ 699 029f 20       		.byte	32
+ 700 02a0 D6       		.byte	-42
+ 701 02a1 01       		.byte	1
+ 702 02a2 01       		.byte	1
+ 703 02a3 06       		.byte	6
+ 704 02a4 03       		.byte	3
+ 705 02a5 01       		.byte	1
+ 706 02a6 04       		.byte	4
+ 707 02a7 07       		.byte	7
+ 708 02a8 05       		.byte	5
+ 709 02a9 01       		.byte	1
+ 710 02aa 07       		.byte	7
+ 711 02ab 06       		.byte	6
+ 712 02ac 08       		.byte	8
+ 713 02ad 01       		.byte	1
+ 714 02ae 0A       		.byte	10
+ 715 02af 06       		.byte	6
+ 716 02b0 0B       		.byte	11
+ 717 02b1 01       		.byte	1
+ 718 02b2 0C       		.byte	12
+ 719 02b3 07       		.byte	7
+ 720 02b4 0D       		.byte	13
+ 721 02b5 06       		.byte	6
+ 722 02b6 0F       		.byte	15
+ 723 02b7 01       		.byte	1
+ 724 02b8 10       		.byte	16
+ 725 02b9 04       		.byte	4
+ 726 02ba 15       		.byte	21
+ 727 02bb 06       		.byte	6
+ 728 02bc 18       		.byte	24
+ 729 02bd 02       		.byte	2
+ 730 02be 19       		.byte	25
+ 731 02bf 02       		.byte	2
+ 732 02c0 26       		.byte	38
+ 733 02c1 01       		.byte	1
+ 734 02c2 28       		.byte	40
+ 735 02c3 06       		.byte	6
+ 736 02c4 29       		.byte	41
+ 737 02c5 07       		.byte	7
+ 738 02c6 2C       		.byte	44
+ 739 02c7 06       		.byte	6
+ 740 02c8 2D       		.byte	45
+ 741 02c9 04       		.byte	4
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 14
+
+
+ 742 02ca 2E       		.byte	46
+ 743 02cb 01       		.byte	1
+ 744 02cc 30       		.byte	48
+ 745 02cd 07       		.byte	7
+ 746 02ce 31       		.byte	49
+ 747 02cf 07       		.byte	7
+ 748 02d0 3B       		.byte	59
+ 749 02d1 02       		.byte	2
+ 750 02d2 40       		.byte	64
+ 751 02d3 30       		.byte	48
+ 752 02d4 41       		.byte	65
+ 753 02d5 01       		.byte	1
+ 754 02d6 49       		.byte	73
+ 755 02d7 FF       		.byte	-1
+ 756 02d8 4A       		.byte	74
+ 757 02d9 FF       		.byte	-1
+ 758 02da 4B       		.byte	75
+ 759 02db FF       		.byte	-1
+ 760 02dc 4D       		.byte	77
+ 761 02dd A0       		.byte	-96
+ 762 02de 4F       		.byte	79
+ 763 02df 04       		.byte	4
+ 764 02e0 50       		.byte	80
+ 765 02e1 18       		.byte	24
+ 766 02e2 58       		.byte	88
+ 767 02e3 04       		.byte	4
+ 768 02e4 59       		.byte	89
+ 769 02e5 04       		.byte	4
+ 770 02e6 5A       		.byte	90
+ 771 02e7 04       		.byte	4
+ 772 02e8 5C       		.byte	92
+ 773 02e9 11       		.byte	17
+ 774 02ea 5F       		.byte	95
+ 775 02eb 01       		.byte	1
+ 776 02ec 60       		.byte	96
+ 777 02ed 40       		.byte	64
+ 778 02ee 62       		.byte	98
+ 779 02ef C0       		.byte	-64
+ 780 02f0 64       		.byte	100
+ 781 02f1 40       		.byte	64
+ 782 02f2 65       		.byte	101
+ 783 02f3 40       		.byte	64
+ 784 02f4 66       		.byte	102
+ 785 02f5 C0       		.byte	-64
+ 786 02f6 68       		.byte	104
+ 787 02f7 C0       		.byte	-64
+ 788 02f8 6A       		.byte	106
+ 789 02f9 C0       		.byte	-64
+ 790 02fa 6C       		.byte	108
+ 791 02fb C0       		.byte	-64
+ 792 02fc 6E       		.byte	110
+ 793 02fd C0       		.byte	-64
+ 794 02fe 8A       		.byte	-118
+ 795 02ff 02       		.byte	2
+ 796 0300 9A       		.byte	-102
+ 797 0301 02       		.byte	2
+ 798 0302 AE       		.byte	-82
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 15
+
+
+ 799 0303 01       		.byte	1
+ 800 0304 B2       		.byte	-78
+ 801 0305 01       		.byte	1
+ 802 0306 B4       		.byte	-76
+ 803 0307 02       		.byte	2
+ 804 0308 BB       		.byte	-69
+ 805 0309 20       		.byte	32
+ 806 030a C0       		.byte	-64
+ 807 030b 30       		.byte	48
+ 808 030c C1       		.byte	-63
+ 809 030d 05       		.byte	5
+ 810 030e C5       		.byte	-59
+ 811 030f 01       		.byte	1
+ 812 0310 C6       		.byte	-58
+ 813 0311 02       		.byte	2
+ 814 0312 C8       		.byte	-56
+ 815 0313 05       		.byte	5
+ 816 0314 C9       		.byte	-55
+ 817 0315 FF       		.byte	-1
+ 818 0316 CA       		.byte	-54
+ 819 0317 FF       		.byte	-1
+ 820 0318 CB       		.byte	-53
+ 821 0319 FF       		.byte	-1
+ 822 031a CD       		.byte	-51
+ 823 031b AF       		.byte	-81
+ 824 031c CE       		.byte	-50
+ 825 031d 0F       		.byte	15
+ 826 031e CF       		.byte	-49
+ 827 031f 04       		.byte	4
+ 828 0320 D0       		.byte	-48
+ 829 0321 18       		.byte	24
+ 830 0322 D2       		.byte	-46
+ 831 0323 80       		.byte	-128
+ 832 0324 D8       		.byte	-40
+ 833 0325 04       		.byte	4
+ 834 0326 D9       		.byte	-39
+ 835 0327 04       		.byte	4
+ 836 0328 DA       		.byte	-38
+ 837 0329 04       		.byte	4
+ 838 032a DB       		.byte	-37
+ 839 032b 04       		.byte	4
+ 840 032c DC       		.byte	-36
+ 841 032d 10       		.byte	16
+ 842 032e DF       		.byte	-33
+ 843 032f 01       		.byte	1
+ 844 0330 E0       		.byte	-32
+ 845 0331 40       		.byte	64
+ 846 0332 E2       		.byte	-30
+ 847 0333 C0       		.byte	-64
+ 848 0334 E4       		.byte	-28
+ 849 0335 40       		.byte	64
+ 850 0336 E5       		.byte	-27
+ 851 0337 40       		.byte	64
+ 852 0338 E6       		.byte	-26
+ 853 0339 C0       		.byte	-64
+ 854 033a E8       		.byte	-24
+ 855 033b C0       		.byte	-64
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 16
+
+
+ 856 033c EA       		.byte	-22
+ 857 033d C0       		.byte	-64
+ 858 033e EC       		.byte	-20
+ 859 033f C0       		.byte	-64
+ 860 0340 EE       		.byte	-18
+ 861 0341 C0       		.byte	-64
+ 862 0342 00       		.byte	0
+ 863 0343 40       		.byte	64
+ 864 0344 02       		.byte	2
+ 865 0345 24       		.byte	36
+ 866 0346 04       		.byte	4
+ 867 0347 10       		.byte	16
+ 868 0348 08       		.byte	8
+ 869 0349 01       		.byte	1
+ 870 034a 09       		.byte	9
+ 871 034b 20       		.byte	32
+ 872 034c 0F       		.byte	15
+ 873 034d 08       		.byte	8
+ 874 034e 10       		.byte	16
+ 875 034f 08       		.byte	8
+ 876 0350 12       		.byte	18
+ 877 0351 02       		.byte	2
+ 878 0352 13       		.byte	19
+ 879 0353 04       		.byte	4
+ 880 0354 17       		.byte	23
+ 881 0355 40       		.byte	64
+ 882 0356 1B       		.byte	27
+ 883 0357 02       		.byte	2
+ 884 0358 1C       		.byte	28
+ 885 0359 10       		.byte	16
+ 886 035a 1E       		.byte	30
+ 887 035b 04       		.byte	4
+ 888 035c 21       		.byte	33
+ 889 035d 01       		.byte	1
+ 890 035e 22       		.byte	34
+ 891 035f 02       		.byte	2
+ 892 0360 26       		.byte	38
+ 893 0361 20       		.byte	32
+ 894 0362 28       		.byte	40
+ 895 0363 01       		.byte	1
+ 896 0364 29       		.byte	41
+ 897 0365 50       		.byte	80
+ 898 0366 30       		.byte	48
+ 899 0367 08       		.byte	8
+ 900 0368 31       		.byte	49
+ 901 0369 20       		.byte	32
+ 902 036a 35       		.byte	53
+ 903 036b 10       		.byte	16
+ 904 036c 36       		.byte	54
+ 905 036d 20       		.byte	32
+ 906 036e 38       		.byte	56
+ 907 036f 44       		.byte	68
+ 908 0370 39       		.byte	57
+ 909 0371 22       		.byte	34
+ 910 0372 3A       		.byte	58
+ 911 0373 04       		.byte	4
+ 912 0374 40       		.byte	64
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 17
+
+
+ 913 0375 10       		.byte	16
+ 914 0376 43       		.byte	67
+ 915 0377 84       		.byte	-124
+ 916 0378 47       		.byte	71
+ 917 0379 04       		.byte	4
+ 918 037a 4F       		.byte	79
+ 919 037b 88       		.byte	-120
+ 920 037c 57       		.byte	87
+ 921 037d C0       		.byte	-64
+ 922 037e 77       		.byte	119
+ 923 037f 40       		.byte	64
+ 924 0380 9B       		.byte	-101
+ 925 0381 08       		.byte	8
+ 926 0382 9D       		.byte	-99
+ 927 0383 02       		.byte	2
+ 928 0384 B2       		.byte	-78
+ 929 0385 02       		.byte	2
+ 930 0386 B6       		.byte	-74
+ 931 0387 40       		.byte	64
+ 932 0388 C0       		.byte	-64
+ 933 0389 47       		.byte	71
+ 934 038a C2       		.byte	-62
+ 935 038b 4A       		.byte	74
+ 936 038c C4       		.byte	-60
+ 937 038d 87       		.byte	-121
+ 938 038e CA       		.byte	-54
+ 939 038f 0C       		.byte	12
+ 940 0390 CC       		.byte	-52
+ 941 0391 06       		.byte	6
+ 942 0392 CE       		.byte	-50
+ 943 0393 0F       		.byte	15
+ 944 0394 D0       		.byte	-48
+ 945 0395 4A       		.byte	74
+ 946 0396 D2       		.byte	-46
+ 947 0397 10       		.byte	16
+ 948 0398 03       		.byte	3
+ 949 0399 01       		.byte	1
+ 950 039a 35       		.byte	53
+ 951 039b 01       		.byte	1
+ 952 039c 40       		.byte	64
+ 953 039d 60       		.byte	96
+ 954 039e 41       		.byte	65
+ 955 039f 02       		.byte	2
+ 956 03a0 49       		.byte	73
+ 957 03a1 FF       		.byte	-1
+ 958 03a2 4A       		.byte	74
+ 959 03a3 FF       		.byte	-1
+ 960 03a4 4B       		.byte	75
+ 961 03a5 FF       		.byte	-1
+ 962 03a6 4D       		.byte	77
+ 963 03a7 A0       		.byte	-96
+ 964 03a8 4F       		.byte	79
+ 965 03a9 04       		.byte	4
+ 966 03aa 50       		.byte	80
+ 967 03ab 18       		.byte	24
+ 968 03ac 52       		.byte	82
+ 969 03ad 80       		.byte	-128
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 18
+
+
+ 970 03ae 59       		.byte	89
+ 971 03af 04       		.byte	4
+ 972 03b0 5A       		.byte	90
+ 973 03b1 04       		.byte	4
+ 974 03b2 5B       		.byte	91
+ 975 03b3 04       		.byte	4
+ 976 03b4 5F       		.byte	95
+ 977 03b5 01       		.byte	1
+ 978 03b6 60       		.byte	96
+ 979 03b7 40       		.byte	64
+ 980 03b8 62       		.byte	98
+ 981 03b9 C0       		.byte	-64
+ 982 03ba 64       		.byte	100
+ 983 03bb 40       		.byte	64
+ 984 03bc 65       		.byte	101
+ 985 03bd 40       		.byte	64
+ 986 03be 66       		.byte	102
+ 987 03bf C0       		.byte	-64
+ 988 03c0 68       		.byte	104
+ 989 03c1 C0       		.byte	-64
+ 990 03c2 6A       		.byte	106
+ 991 03c3 C0       		.byte	-64
+ 992 03c4 6C       		.byte	108
+ 993 03c5 C0       		.byte	-64
+ 994 03c6 6E       		.byte	110
+ 995 03c7 C0       		.byte	-64
+ 996 03c8 86       		.byte	-122
+ 997 03c9 02       		.byte	2
+ 998 03ca 92       		.byte	-110
+ 999 03cb 01       		.byte	1
+ 1000 03cc 9B       		.byte	-101
+ 1001 03cd 01       		.byte	1
+ 1002 03ce A3       		.byte	-93
+ 1003 03cf 01       		.byte	1
+ 1004 03d0 A6       		.byte	-90
+ 1005 03d1 02       		.byte	2
+ 1006 03d2 B0       		.byte	-80
+ 1007 03d3 02       		.byte	2
+ 1008 03d4 B1       		.byte	-79
+ 1009 03d5 01       		.byte	1
+ 1010 03d6 B4       		.byte	-76
+ 1011 03d7 01       		.byte	1
+ 1012 03d8 C0       		.byte	-64
+ 1013 03d9 20       		.byte	32
+ 1014 03da C1       		.byte	-63
+ 1015 03db 06       		.byte	6
+ 1016 03dc C5       		.byte	-59
+ 1017 03dd 01       		.byte	1
+ 1018 03de C7       		.byte	-57
+ 1019 03df 02       		.byte	2
+ 1020 03e0 C8       		.byte	-56
+ 1021 03e1 11       		.byte	17
+ 1022 03e2 C9       		.byte	-55
+ 1023 03e3 FF       		.byte	-1
+ 1024 03e4 CA       		.byte	-54
+ 1025 03e5 FF       		.byte	-1
+ 1026 03e6 CB       		.byte	-53
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 19
+
+
+ 1027 03e7 FF       		.byte	-1
+ 1028 03e8 CD       		.byte	-51
+ 1029 03e9 AF       		.byte	-81
+ 1030 03ea CE       		.byte	-50
+ 1031 03eb 0F       		.byte	15
+ 1032 03ec CF       		.byte	-49
+ 1033 03ed 04       		.byte	4
+ 1034 03ee D0       		.byte	-48
+ 1035 03ef 18       		.byte	24
+ 1036 03f0 D2       		.byte	-46
+ 1037 03f1 80       		.byte	-128
+ 1038 03f2 D8       		.byte	-40
+ 1039 03f3 04       		.byte	4
+ 1040 03f4 D9       		.byte	-39
+ 1041 03f5 04       		.byte	4
+ 1042 03f6 DA       		.byte	-38
+ 1043 03f7 04       		.byte	4
+ 1044 03f8 DB       		.byte	-37
+ 1045 03f9 04       		.byte	4
+ 1046 03fa DF       		.byte	-33
+ 1047 03fb 01       		.byte	1
+ 1048 03fc E0       		.byte	-32
+ 1049 03fd 40       		.byte	64
+ 1050 03fe E2       		.byte	-30
+ 1051 03ff C0       		.byte	-64
+ 1052 0400 E4       		.byte	-28
+ 1053 0401 40       		.byte	64
+ 1054 0402 E5       		.byte	-27
+ 1055 0403 40       		.byte	64
+ 1056 0404 E6       		.byte	-26
+ 1057 0405 C0       		.byte	-64
+ 1058 0406 E8       		.byte	-24
+ 1059 0407 C0       		.byte	-64
+ 1060 0408 EA       		.byte	-22
+ 1061 0409 C0       		.byte	-64
+ 1062 040a EC       		.byte	-20
+ 1063 040b C0       		.byte	-64
+ 1064 040c EE       		.byte	-18
+ 1065 040d C0       		.byte	-64
+ 1066 040e 00       		.byte	0
+ 1067 040f 04       		.byte	4
+ 1068 0410 09       		.byte	9
+ 1069 0411 02       		.byte	2
+ 1070 0412 10       		.byte	16
+ 1071 0413 20       		.byte	32
+ 1072 0414 18       		.byte	24
+ 1073 0415 04       		.byte	4
+ 1074 0416 1A       		.byte	26
+ 1075 0417 40       		.byte	64
+ 1076 0418 1B       		.byte	27
+ 1077 0419 10       		.byte	16
+ 1078 041a 22       		.byte	34
+ 1079 041b 02       		.byte	2
+ 1080 041c 25       		.byte	37
+ 1081 041d 20       		.byte	32
+ 1082 041e 27       		.byte	39
+ 1083 041f 08       		.byte	8
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 20
+
+
+ 1084 0420 29       		.byte	41
+ 1085 0421 02       		.byte	2
+ 1086 0422 31       		.byte	49
+ 1087 0423 20       		.byte	32
+ 1088 0424 3C       		.byte	60
+ 1089 0425 02       		.byte	2
+ 1090 0426 40       		.byte	64
+ 1091 0427 04       		.byte	4
+ 1092 0428 46       		.byte	70
+ 1093 0429 04       		.byte	4
+ 1094 042a 48       		.byte	72
+ 1095 042b 28       		.byte	40
+ 1096 042c 4F       		.byte	79
+ 1097 042d 20       		.byte	32
+ 1098 042e 50       		.byte	80
+ 1099 042f 08       		.byte	8
+ 1100 0430 52       		.byte	82
+ 1101 0431 04       		.byte	4
+ 1102 0432 71       		.byte	113
+ 1103 0433 02       		.byte	2
+ 1104 0434 74       		.byte	116
+ 1105 0435 01       		.byte	1
+ 1106 0436 C0       		.byte	-64
+ 1107 0437 04       		.byte	4
+ 1108 0438 C2       		.byte	-62
+ 1109 0439 08       		.byte	8
+ 1110 043a C4       		.byte	-60
+ 1111 043b 04       		.byte	4
+ 1112 043c CA       		.byte	-54
+ 1113 043d 01       		.byte	1
+ 1114 043e CC       		.byte	-52
+ 1115 043f 04       		.byte	4
+ 1116 0440 CE       		.byte	-50
+ 1117 0441 80       		.byte	-128
+ 1118 0442 D0       		.byte	-48
+ 1119 0443 24       		.byte	36
+ 1120 0444 D2       		.byte	-46
+ 1121 0445 24       		.byte	36
+ 1122 0446 88       		.byte	-120
+ 1123 0447 01       		.byte	1
+ 1124 0448 9C       		.byte	-100
+ 1125 0449 01       		.byte	1
+ 1126 044a AA       		.byte	-86
+ 1127 044b 20       		.byte	32
+ 1128 044c AC       		.byte	-84
+ 1129 044d 10       		.byte	16
+ 1130 044e E8       		.byte	-24
+ 1131 044f 08       		.byte	8
+ 1132 0450 EA       		.byte	-22
+ 1133 0451 04       		.byte	4
+ 1134 0452 01       		.byte	1
+ 1135 0453 10       		.byte	16
+ 1136 0454 03       		.byte	3
+ 1137 0455 0C       		.byte	12
+ 1138 0456 05       		.byte	5
+ 1139 0457 14       		.byte	20
+ 1140 0458 0C       		.byte	12
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 21
+
+
+ 1141 0459 03       		.byte	3
+ 1142 045a 10       		.byte	16
+ 1143 045b 03       		.byte	3
+ 1144 045c 11       		.byte	17
+ 1145 045d 09       		.byte	9
+ 1146 045e 13       		.byte	19
+ 1147 045f 10       		.byte	16
+ 1148 0460 19       		.byte	25
+ 1149 0461 1C       		.byte	28
+ 1150 0462 1A       		.byte	26
+ 1151 0463 01       		.byte	1
+ 1152 0464 1B       		.byte	27
+ 1153 0465 02       		.byte	2
+ 1154 0466 1F       		.byte	31
+ 1155 0467 03       		.byte	3
+ 1156 0468 21       		.byte	33
+ 1157 0469 0C       		.byte	12
+ 1158 046a 23       		.byte	35
+ 1159 046b 11       		.byte	17
+ 1160 046c 28       		.byte	40
+ 1161 046d 02       		.byte	2
+ 1162 046e 29       		.byte	41
+ 1163 046f 10       		.byte	16
+ 1164 0470 31       		.byte	49
+ 1165 0471 1F       		.byte	31
+ 1166 0472 34       		.byte	52
+ 1167 0473 03       		.byte	3
+ 1168 0474 38       		.byte	56
+ 1169 0475 20       		.byte	32
+ 1170 0476 3E       		.byte	62
+ 1171 0477 10       		.byte	16
+ 1172 0478 40       		.byte	64
+ 1173 0479 02       		.byte	2
+ 1174 047a 47       		.byte	71
+ 1175 047b 04       		.byte	4
+ 1176 047c 49       		.byte	73
+ 1177 047d FF       		.byte	-1
+ 1178 047e 4A       		.byte	74
+ 1179 047f 07       		.byte	7
+ 1180 0480 4B       		.byte	75
+ 1181 0481 FF       		.byte	-1
+ 1182 0482 4C       		.byte	76
+ 1183 0483 40       		.byte	64
+ 1184 0484 4D       		.byte	77
+ 1185 0485 20       		.byte	32
+ 1186 0486 4E       		.byte	78
+ 1187 0487 F0       		.byte	-16
+ 1188 0488 4F       		.byte	79
+ 1189 0489 05       		.byte	5
+ 1190 048a 50       		.byte	80
+ 1191 048b 08       		.byte	8
+ 1192 048c 58       		.byte	88
+ 1193 048d 04       		.byte	4
+ 1194 048e 59       		.byte	89
+ 1195 048f 04       		.byte	4
+ 1196 0490 5A       		.byte	90
+ 1197 0491 04       		.byte	4
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 22
+
+
+ 1198 0492 5C       		.byte	92
+ 1199 0493 10       		.byte	16
+ 1200 0494 5D       		.byte	93
+ 1201 0495 01       		.byte	1
+ 1202 0496 5F       		.byte	95
+ 1203 0497 01       		.byte	1
+ 1204 0498 60       		.byte	96
+ 1205 0499 40       		.byte	64
+ 1206 049a 61       		.byte	97
+ 1207 049b A8       		.byte	-88
+ 1208 049c 62       		.byte	98
+ 1209 049d 40       		.byte	64
+ 1210 049e 63       		.byte	99
+ 1211 049f 20       		.byte	32
+ 1212 04a0 85       		.byte	-123
+ 1213 04a1 03       		.byte	3
+ 1214 04a2 8B       		.byte	-117
+ 1215 04a3 10       		.byte	16
+ 1216 04a4 8C       		.byte	-116
+ 1217 04a5 01       		.byte	1
+ 1218 04a6 91       		.byte	-111
+ 1219 04a7 02       		.byte	2
+ 1220 04a8 93       		.byte	-109
+ 1221 04a9 09       		.byte	9
+ 1222 04aa 9B       		.byte	-101
+ 1223 04ab 10       		.byte	16
+ 1224 04ac 9C       		.byte	-100
+ 1225 04ad 01       		.byte	1
+ 1226 04ae A1       		.byte	-95
+ 1227 04af 03       		.byte	3
+ 1228 04b0 A4       		.byte	-92
+ 1229 04b1 02       		.byte	2
+ 1230 04b2 A7       		.byte	-89
+ 1231 04b3 04       		.byte	4
+ 1232 04b4 AA       		.byte	-86
+ 1233 04b5 01       		.byte	1
+ 1234 04b6 AD       		.byte	-83
+ 1235 04b7 01       		.byte	1
+ 1236 04b8 AF       		.byte	-81
+ 1237 04b9 0A       		.byte	10
+ 1238 04ba B0       		.byte	-80
+ 1239 04bb 03       		.byte	3
+ 1240 04bc B1       		.byte	-79
+ 1241 04bd 03       		.byte	3
+ 1242 04be B3       		.byte	-77
+ 1243 04bf 10       		.byte	16
+ 1244 04c0 B7       		.byte	-73
+ 1245 04c1 0C       		.byte	12
+ 1246 04c2 B8       		.byte	-72
+ 1247 04c3 02       		.byte	2
+ 1248 04c4 BF       		.byte	-65
+ 1249 04c5 44       		.byte	68
+ 1250 04c6 C0       		.byte	-64
+ 1251 04c7 34       		.byte	52
+ 1252 04c8 C1       		.byte	-63
+ 1253 04c9 06       		.byte	6
+ 1254 04ca C2       		.byte	-62
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 23
+
+
+ 1255 04cb 02       		.byte	2
+ 1256 04cc C4       		.byte	-60
+ 1257 04cd 01       		.byte	1
+ 1258 04ce C5       		.byte	-59
+ 1259 04cf 0C       		.byte	12
+ 1260 04d0 C6       		.byte	-58
+ 1261 04d1 E0       		.byte	-32
+ 1262 04d2 C8       		.byte	-56
+ 1263 04d3 09       		.byte	9
+ 1264 04d4 C9       		.byte	-55
+ 1265 04d5 FF       		.byte	-1
+ 1266 04d6 CA       		.byte	-54
+ 1267 04d7 FF       		.byte	-1
+ 1268 04d8 CB       		.byte	-53
+ 1269 04d9 FF       		.byte	-1
+ 1270 04da CC       		.byte	-52
+ 1271 04db 62       		.byte	98
+ 1272 04dc CD       		.byte	-51
+ 1273 04dd A0       		.byte	-96
+ 1274 04de CE       		.byte	-50
+ 1275 04df F0       		.byte	-16
+ 1276 04e0 CF       		.byte	-49
+ 1277 04e1 41       		.byte	65
+ 1278 04e2 D0       		.byte	-48
+ 1279 04e3 0C       		.byte	12
+ 1280 04e4 D8       		.byte	-40
+ 1281 04e5 04       		.byte	4
+ 1282 04e6 D9       		.byte	-39
+ 1283 04e7 04       		.byte	4
+ 1284 04e8 DA       		.byte	-38
+ 1285 04e9 04       		.byte	4
+ 1286 04ea DC       		.byte	-36
+ 1287 04eb 11       		.byte	17
+ 1288 04ec DD       		.byte	-35
+ 1289 04ed 01       		.byte	1
+ 1290 04ee DF       		.byte	-33
+ 1291 04ef 01       		.byte	1
+ 1292 04f0 E6       		.byte	-26
+ 1293 04f1 40       		.byte	64
+ 1294 04f2 E7       		.byte	-25
+ 1295 04f3 02       		.byte	2
+ 1296 04f4 E9       		.byte	-23
+ 1297 04f5 10       		.byte	16
+ 1298 04f6 EA       		.byte	-22
+ 1299 04f7 30       		.byte	48
+ 1300 04f8 EB       		.byte	-21
+ 1301 04f9 10       		.byte	16
+ 1302 04fa ED       		.byte	-19
+ 1303 04fb 10       		.byte	16
+ 1304 04fc EE       		.byte	-18
+ 1305 04fd 10       		.byte	16
+ 1306 04fe EF       		.byte	-17
+ 1307 04ff 12       		.byte	18
+ 1308 0500 00       		.byte	0
+ 1309 0501 40       		.byte	64
+ 1310 0502 04       		.byte	4
+ 1311 0503 C0       		.byte	-64
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 24
+
+
+ 1312 0504 06       		.byte	6
+ 1313 0505 02       		.byte	2
+ 1314 0506 0A       		.byte	10
+ 1315 0507 03       		.byte	3
+ 1316 0508 0C       		.byte	12
+ 1317 0509 10       		.byte	16
+ 1318 050a 0E       		.byte	14
+ 1319 050b 80       		.byte	-128
+ 1320 050c 0F       		.byte	15
+ 1321 050d 04       		.byte	4
+ 1322 050e 13       		.byte	19
+ 1323 050f 24       		.byte	36
+ 1324 0510 17       		.byte	23
+ 1325 0511 20       		.byte	32
+ 1326 0512 19       		.byte	25
+ 1327 0513 02       		.byte	2
+ 1328 0514 1D       		.byte	29
+ 1329 0515 20       		.byte	32
+ 1330 0516 20       		.byte	32
+ 1331 0517 21       		.byte	33
+ 1332 0518 21       		.byte	33
+ 1333 0519 02       		.byte	2
+ 1334 051a 27       		.byte	39
+ 1335 051b 40       		.byte	64
+ 1336 051c 28       		.byte	40
+ 1337 051d 01       		.byte	1
+ 1338 051e 2A       		.byte	42
+ 1339 051f 09       		.byte	9
+ 1340 0520 2E       		.byte	46
+ 1341 0521 01       		.byte	1
+ 1342 0522 2F       		.byte	47
+ 1343 0523 08       		.byte	8
+ 1344 0524 30       		.byte	48
+ 1345 0525 20       		.byte	32
+ 1346 0526 31       		.byte	49
+ 1347 0527 02       		.byte	2
+ 1348 0528 35       		.byte	53
+ 1349 0529 02       		.byte	2
+ 1350 052a 37       		.byte	55
+ 1351 052b 60       		.byte	96
+ 1352 052c 38       		.byte	56
+ 1353 052d 20       		.byte	32
+ 1354 052e 39       		.byte	57
+ 1355 052f 20       		.byte	32
+ 1356 0530 3A       		.byte	58
+ 1357 0531 04       		.byte	4
+ 1358 0532 3E       		.byte	62
+ 1359 0533 02       		.byte	2
+ 1360 0534 3F       		.byte	63
+ 1361 0535 08       		.byte	8
+ 1362 0536 40       		.byte	64
+ 1363 0537 01       		.byte	1
+ 1364 0538 41       		.byte	65
+ 1365 0539 10       		.byte	16
+ 1366 053a 42       		.byte	66
+ 1367 053b 20       		.byte	32
+ 1368 053c 43       		.byte	67
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 25
+
+
+ 1369 053d 01       		.byte	1
+ 1370 053e 45       		.byte	69
+ 1371 053f 20       		.byte	32
+ 1372 0540 48       		.byte	72
+ 1373 0541 20       		.byte	32
+ 1374 0542 49       		.byte	73
+ 1375 0543 20       		.byte	32
+ 1376 0544 4F       		.byte	79
+ 1377 0545 04       		.byte	4
+ 1378 0546 52       		.byte	82
+ 1379 0547 20       		.byte	32
+ 1380 0548 57       		.byte	87
+ 1381 0549 08       		.byte	8
+ 1382 054a 83       		.byte	-125
+ 1383 054b 40       		.byte	64
+ 1384 054c 86       		.byte	-122
+ 1385 054d 20       		.byte	32
+ 1386 054e 8A       		.byte	-118
+ 1387 054f 10       		.byte	16
+ 1388 0550 8D       		.byte	-115
+ 1389 0551 02       		.byte	2
+ 1390 0552 90       		.byte	-112
+ 1391 0553 A0       		.byte	-96
+ 1392 0554 92       		.byte	-110
+ 1393 0555 02       		.byte	2
+ 1394 0556 97       		.byte	-105
+ 1395 0557 04       		.byte	4
+ 1396 0558 99       		.byte	-103
+ 1397 0559 20       		.byte	32
+ 1398 055a 9A       		.byte	-102
+ 1399 055b 0D       		.byte	13
+ 1400 055c 9B       		.byte	-101
+ 1401 055d 21       		.byte	33
+ 1402 055e 9C       		.byte	-100
+ 1403 055f 10       		.byte	16
+ 1404 0560 9D       		.byte	-99
+ 1405 0561 02       		.byte	2
+ 1406 0562 A2       		.byte	-94
+ 1407 0563 40       		.byte	64
+ 1408 0564 A3       		.byte	-93
+ 1409 0565 04       		.byte	4
+ 1410 0566 A6       		.byte	-90
+ 1411 0567 10       		.byte	16
+ 1412 0568 A7       		.byte	-89
+ 1413 0569 08       		.byte	8
+ 1414 056a B2       		.byte	-78
+ 1415 056b 09       		.byte	9
+ 1416 056c B3       		.byte	-77
+ 1417 056d 01       		.byte	1
+ 1418 056e B4       		.byte	-76
+ 1419 056f 20       		.byte	32
+ 1420 0570 C0       		.byte	-64
+ 1421 0571 81       		.byte	-127
+ 1422 0572 C2       		.byte	-62
+ 1423 0573 51       		.byte	81
+ 1424 0574 C4       		.byte	-60
+ 1425 0575 46       		.byte	70
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 26
+
+
+ 1426 0576 CA       		.byte	-54
+ 1427 0577 AB       		.byte	-85
+ 1428 0578 CC       		.byte	-52
+ 1429 0579 B5       		.byte	-75
+ 1430 057a CE       		.byte	-50
+ 1431 057b C6       		.byte	-58
+ 1432 057c D0       		.byte	-48
+ 1433 057d 2F       		.byte	47
+ 1434 057e D2       		.byte	-46
+ 1435 057f 04       		.byte	4
+ 1436 0580 E0       		.byte	-32
+ 1437 0581 80       		.byte	-128
+ 1438 0582 E4       		.byte	-28
+ 1439 0583 03       		.byte	3
+ 1440 0584 E8       		.byte	-24
+ 1441 0585 40       		.byte	64
+ 1442 0586 EC       		.byte	-20
+ 1443 0587 80       		.byte	-128
+ 1444 0588 05       		.byte	5
+ 1445 0589 01       		.byte	1
+ 1446 058a 0F       		.byte	15
+ 1447 058b 01       		.byte	1
+ 1448 058c 13       		.byte	19
+ 1449 058d 01       		.byte	1
+ 1450 058e 16       		.byte	22
+ 1451 058f 01       		.byte	1
+ 1452 0590 19       		.byte	25
+ 1453 0591 01       		.byte	1
+ 1454 0592 1D       		.byte	29
+ 1455 0593 02       		.byte	2
+ 1456 0594 2A       		.byte	42
+ 1457 0595 01       		.byte	1
+ 1458 0596 32       		.byte	50
+ 1459 0597 01       		.byte	1
+ 1460 0598 33       		.byte	51
+ 1461 0599 02       		.byte	2
+ 1462 059a 35       		.byte	53
+ 1463 059b 01       		.byte	1
+ 1464 059c 39       		.byte	57
+ 1465 059d 20       		.byte	32
+ 1466 059e 3E       		.byte	62
+ 1467 059f 04       		.byte	4
+ 1468 05a0 3F       		.byte	63
+ 1469 05a1 04       		.byte	4
+ 1470 05a2 54       		.byte	84
+ 1471 05a3 18       		.byte	24
+ 1472 05a4 58       		.byte	88
+ 1473 05a5 04       		.byte	4
+ 1474 05a6 59       		.byte	89
+ 1475 05a7 04       		.byte	4
+ 1476 05a8 5B       		.byte	91
+ 1477 05a9 04       		.byte	4
+ 1478 05aa 5C       		.byte	92
+ 1479 05ab 10       		.byte	16
+ 1480 05ac 5D       		.byte	93
+ 1481 05ad 10       		.byte	16
+ 1482 05ae 5F       		.byte	95
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 27
+
+
+ 1483 05af 01       		.byte	1
+ 1484 05b0 80       		.byte	-128
+ 1485 05b1 1C       		.byte	28
+ 1486 05b2 82       		.byte	-126
+ 1487 05b3 62       		.byte	98
+ 1488 05b4 84       		.byte	-124
+ 1489 05b5 7F       		.byte	127
+ 1490 05b6 88       		.byte	-120
+ 1491 05b7 67       		.byte	103
+ 1492 05b8 8A       		.byte	-118
+ 1493 05b9 18       		.byte	24
+ 1494 05ba 8C       		.byte	-116
+ 1495 05bb 24       		.byte	36
+ 1496 05bc 8E       		.byte	-114
+ 1497 05bd 80       		.byte	-128
+ 1498 05be 90       		.byte	-112
+ 1499 05bf 60       		.byte	96
+ 1500 05c0 94       		.byte	-108
+ 1501 05c1 40       		.byte	64
+ 1502 05c2 9A       		.byte	-102
+ 1503 05c3 63       		.byte	99
+ 1504 05c4 9E       		.byte	-98
+ 1505 05c5 04       		.byte	4
+ 1506 05c6 A0       		.byte	-96
+ 1507 05c7 10       		.byte	16
+ 1508 05c8 A4       		.byte	-92
+ 1509 05c9 08       		.byte	8
+ 1510 05ca A8       		.byte	-88
+ 1511 05cb 18       		.byte	24
+ 1512 05cc AC       		.byte	-84
+ 1513 05cd 7C       		.byte	124
+ 1514 05ce AE       		.byte	-82
+ 1515 05cf 01       		.byte	1
+ 1516 05d0 B0       		.byte	-80
+ 1517 05d1 1F       		.byte	31
+ 1518 05d2 B4       		.byte	-76
+ 1519 05d3 78       		.byte	120
+ 1520 05d4 B6       		.byte	-74
+ 1521 05d5 80       		.byte	-128
+ 1522 05d6 BA       		.byte	-70
+ 1523 05d7 22       		.byte	34
+ 1524 05d8 D8       		.byte	-40
+ 1525 05d9 04       		.byte	4
+ 1526 05da DB       		.byte	-37
+ 1527 05db 04       		.byte	4
+ 1528 05dc DC       		.byte	-36
+ 1529 05dd 01       		.byte	1
+ 1530 05de DF       		.byte	-33
+ 1531 05df 01       		.byte	1
+ 1532 05e0 00       		.byte	0
+ 1533 05e1 80       		.byte	-128
+ 1534 05e2 01       		.byte	1
+ 1535 05e3 22       		.byte	34
+ 1536 05e4 02       		.byte	2
+ 1537 05e5 20       		.byte	32
+ 1538 05e6 08       		.byte	8
+ 1539 05e7 02       		.byte	2
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 28
+
+
+ 1540 05e8 09       		.byte	9
+ 1541 05e9 08       		.byte	8
+ 1542 05ea 0A       		.byte	10
+ 1543 05eb 01       		.byte	1
+ 1544 05ec 0B       		.byte	11
+ 1545 05ed 04       		.byte	4
+ 1546 05ee 0E       		.byte	14
+ 1547 05ef 20       		.byte	32
+ 1548 05f0 10       		.byte	16
+ 1549 05f1 28       		.byte	40
+ 1550 05f2 12       		.byte	18
+ 1551 05f3 02       		.byte	2
+ 1552 05f4 13       		.byte	19
+ 1553 05f5 01       		.byte	1
+ 1554 05f6 16       		.byte	22
+ 1555 05f7 08       		.byte	8
+ 1556 05f8 18       		.byte	24
+ 1557 05f9 44       		.byte	68
+ 1558 05fa 19       		.byte	25
+ 1559 05fb 22       		.byte	34
+ 1560 05fc 1A       		.byte	26
+ 1561 05fd 01       		.byte	1
+ 1562 05fe 1F       		.byte	31
+ 1563 05ff 04       		.byte	4
+ 1564 0600 24       		.byte	36
+ 1565 0601 20       		.byte	32
+ 1566 0602 26       		.byte	38
+ 1567 0603 10       		.byte	16
+ 1568 0604 34       		.byte	52
+ 1569 0605 80       		.byte	-128
+ 1570 0606 36       		.byte	54
+ 1571 0607 22       		.byte	34
+ 1572 0608 3C       		.byte	60
+ 1573 0609 44       		.byte	68
+ 1574 060a 5E       		.byte	94
+ 1575 060b 02       		.byte	2
+ 1576 060c 66       		.byte	102
+ 1577 060d 40       		.byte	64
+ 1578 060e 67       		.byte	103
+ 1579 060f 08       		.byte	8
+ 1580 0610 69       		.byte	105
+ 1581 0611 02       		.byte	2
+ 1582 0612 6A       		.byte	106
+ 1583 0613 A8       		.byte	-88
+ 1584 0614 70       		.byte	112
+ 1585 0615 02       		.byte	2
+ 1586 0616 71       		.byte	113
+ 1587 0617 80       		.byte	-128
+ 1588 0618 72       		.byte	114
+ 1589 0619 20       		.byte	32
+ 1590 061a 73       		.byte	115
+ 1591 061b 08       		.byte	8
+ 1592 061c 80       		.byte	-128
+ 1593 061d 82       		.byte	-126
+ 1594 061e 82       		.byte	-126
+ 1595 061f 10       		.byte	16
+ 1596 0620 86       		.byte	-122
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 29
+
+
+ 1597 0621 08       		.byte	8
+ 1598 0622 87       		.byte	-121
+ 1599 0623 08       		.byte	8
+ 1600 0624 8C       		.byte	-116
+ 1601 0625 01       		.byte	1
+ 1602 0626 8D       		.byte	-115
+ 1603 0627 08       		.byte	8
+ 1604 0628 93       		.byte	-109
+ 1605 0629 05       		.byte	5
+ 1606 062a 94       		.byte	-108
+ 1607 062b 45       		.byte	69
+ 1608 062c 98       		.byte	-104
+ 1609 062d 02       		.byte	2
+ 1610 062e A0       		.byte	-96
+ 1611 062f 28       		.byte	40
+ 1612 0630 A2       		.byte	-94
+ 1613 0631 23       		.byte	35
+ 1614 0632 A4       		.byte	-92
+ 1615 0633 40       		.byte	64
+ 1616 0634 B0       		.byte	-80
+ 1617 0635 02       		.byte	2
+ 1618 0636 B1       		.byte	-79
+ 1619 0637 80       		.byte	-128
+ 1620 0638 B3       		.byte	-77
+ 1621 0639 0C       		.byte	12
+ 1622 063a C0       		.byte	-64
+ 1623 063b 0F       		.byte	15
+ 1624 063c C2       		.byte	-62
+ 1625 063d 2F       		.byte	47
+ 1626 063e C4       		.byte	-60
+ 1627 063f 4F       		.byte	79
+ 1628 0640 CC       		.byte	-52
+ 1629 0641 B0       		.byte	-80
+ 1630 0642 CE       		.byte	-50
+ 1631 0643 50       		.byte	80
+ 1632 0644 D6       		.byte	-42
+ 1633 0645 80       		.byte	-128
+ 1634 0646 D8       		.byte	-40
+ 1635 0647 30       		.byte	48
+ 1636 0648 E0       		.byte	-32
+ 1637 0649 0C       		.byte	12
+ 1638 064a E4       		.byte	-28
+ 1639 064b 14       		.byte	20
+ 1640 064c EA       		.byte	-22
+ 1641 064d 20       		.byte	32
+ 1642 064e EE       		.byte	-18
+ 1643 064f 20       		.byte	32
+ 1644 0650 88       		.byte	-120
+ 1645 0651 40       		.byte	64
+ 1646 0652 A4       		.byte	-92
+ 1647 0653 40       		.byte	64
+ 1648 0654 A8       		.byte	-88
+ 1649 0655 04       		.byte	4
+ 1650 0656 A9       		.byte	-87
+ 1651 0657 80       		.byte	-128
+ 1652 0658 AE       		.byte	-82
+ 1653 0659 44       		.byte	68
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 30
+
+
+ 1654 065a B1       		.byte	-79
+ 1655 065b 01       		.byte	1
+ 1656 065c B2       		.byte	-78
+ 1657 065d 20       		.byte	32
+ 1658 065e B4       		.byte	-76
+ 1659 065f 10       		.byte	16
+ 1660 0660 B6       		.byte	-74
+ 1661 0661 40       		.byte	64
+ 1662 0662 E6       		.byte	-26
+ 1663 0663 20       		.byte	32
+ 1664 0664 EC       		.byte	-20
+ 1665 0665 09       		.byte	9
+ 1666 0666 30       		.byte	48
+ 1667 0667 10       		.byte	16
+ 1668 0668 CC       		.byte	-52
+ 1669 0669 10       		.byte	16
+ 1670 066a 05       		.byte	5
+ 1671 066b 10       		.byte	16
+ 1672 066c 0B       		.byte	11
+ 1673 066d 10       		.byte	16
+ 1674 066e 0C       		.byte	12
+ 1675 066f 08       		.byte	8
+ 1676 0670 9C       		.byte	-100
+ 1677 0671 10       		.byte	16
+ 1678 0672 C0       		.byte	-64
+ 1679 0673 80       		.byte	-128
+ 1680 0674 C2       		.byte	-62
+ 1681 0675 30       		.byte	48
+ 1682 0676 93       		.byte	-109
+ 1683 0677 10       		.byte	16
+ 1684 0678 99       		.byte	-103
+ 1685 0679 10       		.byte	16
+ 1686 067a 9C       		.byte	-100
+ 1687 067b 10       		.byte	16
+ 1688 067c A0       		.byte	-96
+ 1689 067d 08       		.byte	8
+ 1690 067e 84       		.byte	-124
+ 1691 067f 10       		.byte	16
+ 1692 0680 8C       		.byte	-116
+ 1693 0681 08       		.byte	8
+ 1694 0682 93       		.byte	-109
+ 1695 0683 10       		.byte	16
+ 1696 0684 99       		.byte	-103
+ 1697 0685 10       		.byte	16
+ 1698 0686 9C       		.byte	-100
+ 1699 0687 10       		.byte	16
+ 1700 0688 A0       		.byte	-96
+ 1701 0689 08       		.byte	8
+ 1702 068a E6       		.byte	-26
+ 1703 068b 40       		.byte	64
+ 1704 068c 50       		.byte	80
+ 1705 068d 20       		.byte	32
+ 1706 068e 66       		.byte	102
+ 1707 068f 81       		.byte	-127
+ 1708 0690 D4       		.byte	-44
+ 1709 0691 04       		.byte	4
+ 1710 0692 D6       		.byte	-42
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 31
+
+
+ 1711 0693 01       		.byte	1
+ 1712 0694 D8       		.byte	-40
+ 1713 0695 01       		.byte	1
+ 1714 0696 A4       		.byte	-92
+ 1715 0697 20       		.byte	32
+ 1716 0698 B2       		.byte	-78
+ 1717 0699 80       		.byte	-128
+ 1718 069a B6       		.byte	-74
+ 1719 069b 01       		.byte	1
+ 1720 069c EC       		.byte	-20
+ 1721 069d 06       		.byte	6
+ 1722 069e B0       		.byte	-80
+ 1723 069f 20       		.byte	32
+ 1724 06a0 EC       		.byte	-20
+ 1725 06a1 04       		.byte	4
+ 1726 06a2 89       		.byte	-119
+ 1727 06a3 10       		.byte	16
+ 1728 06a4 B3       		.byte	-77
+ 1729 06a5 10       		.byte	16
+ 1730 06a6 B5       		.byte	-75
+ 1731 06a7 10       		.byte	16
+ 1732 06a8 01       		.byte	1
+ 1733 06a9 10       		.byte	16
+ 1734 06aa 95       		.byte	-107
+ 1735 06ab 10       		.byte	16
+ 1736 06ac C0       		.byte	-64
+ 1737 06ad 40       		.byte	64
+ 1738 06ae 53       		.byte	83
+ 1739 06af 81       		.byte	-127
+ 1740 06b0 57       		.byte	87
+ 1741 06b1 08       		.byte	8
+ 1742 06b2 58       		.byte	88
+ 1743 06b3 04       		.byte	4
+ 1744 06b4 5C       		.byte	92
+ 1745 06b5 14       		.byte	20
+ 1746 06b6 63       		.byte	99
+ 1747 06b7 20       		.byte	32
+ 1748 06b8 67       		.byte	103
+ 1749 06b9 10       		.byte	16
+ 1750 06ba 80       		.byte	-128
+ 1751 06bb 04       		.byte	4
+ 1752 06bc 83       		.byte	-125
+ 1753 06bd 01       		.byte	1
+ 1754 06be 84       		.byte	-124
+ 1755 06bf 04       		.byte	4
+ 1756 06c0 D4       		.byte	-44
+ 1757 06c1 07       		.byte	7
+ 1758 06c2 D6       		.byte	-42
+ 1759 06c3 07       		.byte	7
+ 1760 06c4 D8       		.byte	-40
+ 1761 06c5 03       		.byte	3
+ 1762 06c6 10       		.byte	16
+ 1763 06c7 20       		.byte	32
+ 1764 06c8 75       		.byte	117
+ 1765 06c9 01       		.byte	1
+ 1766 06ca 88       		.byte	-120
+ 1767 06cb 20       		.byte	32
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 32
+
+
+ 1768 06cc 99       		.byte	-103
+ 1769 06cd 01       		.byte	1
+ 1770 06ce AB       		.byte	-85
+ 1771 06cf 10       		.byte	16
+ 1772 06d0 AF       		.byte	-81
+ 1773 06d1 80       		.byte	-128
+ 1774 06d2 B3       		.byte	-77
+ 1775 06d3 18       		.byte	24
+ 1776 06d4 B4       		.byte	-76
+ 1777 06d5 10       		.byte	16
+ 1778 06d6 B5       		.byte	-75
+ 1779 06d7 01       		.byte	1
+ 1780 06d8 C4       		.byte	-60
+ 1781 06d9 08       		.byte	8
+ 1782 06da DE       		.byte	-34
+ 1783 06db 04       		.byte	4
+ 1784 06dc E6       		.byte	-26
+ 1785 06dd 04       		.byte	4
+ 1786 06de E8       		.byte	-24
+ 1787 06df 0C       		.byte	12
+ 1788 06e0 EC       		.byte	-20
+ 1789 06e1 03       		.byte	3
+ 1790 06e2 00       		.byte	0
+ 1791 06e3 03       		.byte	3
+ 1792 06e4 0A       		.byte	10
+ 1793 06e5 02       		.byte	2
+ 1794 06e6 0C       		.byte	12
+ 1795 06e7 03       		.byte	3
+ 1796 06e8 0E       		.byte	14
+ 1797 06e9 01       		.byte	1
+ 1798 06ea 10       		.byte	16
+ 1799 06eb 02       		.byte	2
+ 1800 06ec 1A       		.byte	26
+ 1801 06ed 02       		.byte	2
+ 1802 06ee 1C       		.byte	28
+ 1803 06ef 02       		.byte	2
+ 1804 06f0 00       		.byte	0
+ 1805 06f1 03       		.byte	3
+ 1806 06f2 00       		.byte	0
+ 1807 06f3 00       		.byte	0
+ 1808 06f4 80       		.byte	-128
+ 1809 06f5 80       		.byte	-128
+ 1810 06f6 00       		.byte	0
+ 1811 06f7 00       		.byte	0
+ 1812 06f8 40       		.byte	64
+ 1813 06f9 00       		.byte	0
+ 1814 06fa 00       		.byte	0
+ 1815 06fb 00       		.byte	0
+ 1816 06fc 38       		.byte	56
+ 1817 06fd C0       		.byte	-64
+ 1818 06fe C0       		.byte	-64
+ 1819 06ff 00       		.byte	0
+ 1820 0700 00       		.byte	0
+ 1821 0701 00       		.byte	0
+ 1822 0702 00       		.byte	0
+ 1823 0703 00       		.byte	0
+ 1824 0704 80       		.byte	-128
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 33
+
+
+ 1825 0705 00       		.byte	0
+ 1826 0706 40       		.byte	64
+ 1827 0707 80       		.byte	-128
+ 1828 0708 80       		.byte	-128
+ 1829 0709 00       		.byte	0
+ 1830 070a 80       		.byte	-128
+ 1831 070b 00       		.byte	0
+ 1832 070c 00       		.byte	0
+ 1833 070d 00       		.byte	0
+ 1834 070e 00       		.byte	0
+ 1835 070f 00       		.byte	0
+ 1836 0710 00       		.byte	0
+ 1837 0711 FF       		.byte	-1
+ 1838 0712 FF       		.byte	-1
+ 1839 0713 00       		.byte	0
+ 1840 0714 FF       		.byte	-1
+ 1841 0715 00       		.byte	0
+ 1842 0716 00       		.byte	0
+ 1843 0717 00       		.byte	0
+ 1844 0718 00       		.byte	0
+ 1845 0719 39       		.byte	57
+ 1846 071a 39       		.byte	57
+ 1847 071b 00       		.byte	0
+ 1848 071c 38       		.byte	56
+ 1849 071d 00       		.byte	0
+ 1850 071e 00       		.byte	0
+ 1851 071f 00       		.byte	0
+ 1852 0720 04       		.byte	4
+ 1853 0721 20       		.byte	32
+ 1854 0722 20       		.byte	32
+ 1855 0723 00       		.byte	0
+ 1856 0724 00       		.byte	0
+ 1857 0725 00       		.byte	0
+ 1858 0726 00       		.byte	0
+ 1859 0727 00       		.byte	0
+ 1860              		.section	.cywolatch,"a",%progbits
+ 1861              		.type	cy_meta_wonvl, %object
+ 1862              		.size	cy_meta_wonvl, 4
+ 1863              	cy_meta_wonvl:
+ 1864 0000 BC       		.byte	-68
+ 1865 0001 90       		.byte	-112
+ 1866 0002 AC       		.byte	-84
+ 1867 0003 AF       		.byte	-81
+ 1868              		.section	.cycustnvl,"a",%progbits
+ 1869              		.type	cy_meta_custnvl, %object
+ 1870              		.size	cy_meta_custnvl, 4
+ 1871              	cy_meta_custnvl:
+ 1872 0000 00       		.byte	0
+ 1873 0001 00       		.byte	0
+ 1874 0002 40       		.byte	64
+ 1875 0003 07       		.byte	7
+ 1876              		.section	.cymeta,"a",%progbits
+ 1877              		.type	cy_metadata, %object
+ 1878              		.size	cy_metadata, 12
+ 1879              	cy_metadata:
+ 1880 0000 00       		.byte	0
+ 1881 0001 01       		.byte	1
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 34
+
+
+ 1882 0002 2E       		.byte	46
+ 1883 0003 16       		.byte	22
+ 1884 0004 10       		.byte	16
+ 1885 0005 69       		.byte	105
+ 1886 0006 00       		.byte	0
+ 1887 0007 01       		.byte	1
+ 1888 0008 00       		.byte	0
+ 1889 0009 00       		.byte	0
+ 1890 000a 00       		.byte	0
+ 1891 000b 00       		.byte	0
+ 1892              		.section	.cyflashprotect,"a",%progbits
+ 1893              		.type	cy_meta_flashprotect, %object
+ 1894              		.size	cy_meta_flashprotect, 256
+ 1895              	cy_meta_flashprotect:
+ 1896 0000 00000000 		.space	256
+ 1896      00000000 
+ 1896      00000000 
+ 1896      00000000 
+ 1896      00000000 
+ 1897              		.text
+ 1898              	.Letext0:
+ 1899              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1900              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1901              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 1902              		.section	.debug_info,"",%progbits
+ 1903              	.Ldebug_info0:
+ 1904 0000 35010000 		.4byte	0x135
+ 1905 0004 0400     		.2byte	0x4
+ 1906 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1907 000a 04       		.byte	0x4
+ 1908 000b 01       		.uleb128 0x1
+ 1909 000c 37010000 		.4byte	.LASF17
+ 1910 0010 0C       		.byte	0xc
+ 1911 0011 26020000 		.4byte	.LASF18
+ 1912 0015 82000000 		.4byte	.LASF19
+ 1913 0019 00000000 		.4byte	.Ldebug_line0
+ 1914 001d 02       		.uleb128 0x2
+ 1915 001e 01       		.byte	0x1
+ 1916 001f 06       		.byte	0x6
+ 1917 0020 1A020000 		.4byte	.LASF0
+ 1918 0024 03       		.uleb128 0x3
+ 1919 0025 00000000 		.4byte	.LASF9
+ 1920 0029 01       		.byte	0x1
+ 1921 002a 1D       		.byte	0x1d
+ 1922 002b 2F000000 		.4byte	0x2f
+ 1923 002f 02       		.uleb128 0x2
+ 1924 0030 01       		.byte	0x1
+ 1925 0031 08       		.byte	0x8
+ 1926 0032 2D000000 		.4byte	.LASF1
+ 1927 0036 02       		.uleb128 0x2
+ 1928 0037 02       		.byte	0x2
+ 1929 0038 05       		.byte	0x5
+ 1930 0039 07020000 		.4byte	.LASF2
+ 1931 003d 02       		.uleb128 0x2
+ 1932 003e 02       		.byte	0x2
+ 1933 003f 07       		.byte	0x7
+ 1934 0040 4D000000 		.4byte	.LASF3
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 35
+
+
+ 1935 0044 02       		.uleb128 0x2
+ 1936 0045 04       		.byte	0x4
+ 1937 0046 05       		.byte	0x5
+ 1938 0047 11020000 		.4byte	.LASF4
+ 1939 004b 02       		.uleb128 0x2
+ 1940 004c 04       		.byte	0x4
+ 1941 004d 07       		.byte	0x7
+ 1942 004e 3B000000 		.4byte	.LASF5
+ 1943 0052 02       		.uleb128 0x2
+ 1944 0053 08       		.byte	0x8
+ 1945 0054 05       		.byte	0x5
+ 1946 0055 F9010000 		.4byte	.LASF6
+ 1947 0059 02       		.uleb128 0x2
+ 1948 005a 08       		.byte	0x8
+ 1949 005b 07       		.byte	0x7
+ 1950 005c 16000000 		.4byte	.LASF7
+ 1951 0060 04       		.uleb128 0x4
+ 1952 0061 04       		.byte	0x4
+ 1953 0062 05       		.byte	0x5
+ 1954 0063 696E7400 		.ascii	"int\000"
+ 1955 0067 02       		.uleb128 0x2
+ 1956 0068 04       		.byte	0x4
+ 1957 0069 07       		.byte	0x7
+ 1958 006a 2A010000 		.4byte	.LASF8
+ 1959 006e 03       		.uleb128 0x3
+ 1960 006f C5010000 		.4byte	.LASF10
+ 1961 0073 02       		.byte	0x2
+ 1962 0074 18       		.byte	0x18
+ 1963 0075 24000000 		.4byte	0x24
+ 1964 0079 05       		.uleb128 0x5
+ 1965 007a 91000000 		.4byte	0x91
+ 1966 007e 8A000000 		.4byte	0x8a
+ 1967 0082 06       		.uleb128 0x6
+ 1968 0083 8A000000 		.4byte	0x8a
+ 1969 0087 2707     		.2byte	0x727
+ 1970 0089 00       		.byte	0
+ 1971 008a 02       		.uleb128 0x2
+ 1972 008b 04       		.byte	0x4
+ 1973 008c 07       		.byte	0x7
+ 1974 008d F0010000 		.4byte	.LASF11
+ 1975 0091 07       		.uleb128 0x7
+ 1976 0092 6E000000 		.4byte	0x6e
+ 1977 0096 08       		.uleb128 0x8
+ 1978 0097 70000000 		.4byte	.LASF12
+ 1979 009b 03       		.byte	0x3
+ 1980 009c 1F       		.byte	0x1f
+ 1981 009d A7000000 		.4byte	0xa7
+ 1982 00a1 05       		.uleb128 0x5
+ 1983 00a2 03       		.byte	0x3
+ 1984 00a3 00000000 		.4byte	cy_meta_configecc
+ 1985 00a7 07       		.uleb128 0x7
+ 1986 00a8 79000000 		.4byte	0x79
+ 1987 00ac 05       		.uleb128 0x5
+ 1988 00ad 91000000 		.4byte	0x91
+ 1989 00b1 BC000000 		.4byte	0xbc
+ 1990 00b5 09       		.uleb128 0x9
+ 1991 00b6 8A000000 		.4byte	0x8a
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 36
+
+
+ 1992 00ba 03       		.byte	0x3
+ 1993 00bb 00       		.byte	0
+ 1994 00bc 0A       		.uleb128 0xa
+ 1995 00bd 60000000 		.4byte	.LASF13
+ 1996 00c1 03       		.byte	0x3
+ 1997 00c2 1101     		.2byte	0x111
+ 1998 00c4 CE000000 		.4byte	0xce
+ 1999 00c8 05       		.uleb128 0x5
+ 2000 00c9 03       		.byte	0x3
+ 2001 00ca 00000000 		.4byte	cy_meta_custnvl
+ 2002 00ce 07       		.uleb128 0x7
+ 2003 00cf AC000000 		.4byte	0xac
+ 2004 00d3 0A       		.uleb128 0xa
+ 2005 00d4 E2010000 		.4byte	.LASF14
+ 2006 00d8 03       		.byte	0x3
+ 2007 00d9 1F01     		.2byte	0x11f
+ 2008 00db E5000000 		.4byte	0xe5
+ 2009 00df 05       		.uleb128 0x5
+ 2010 00e0 03       		.byte	0x3
+ 2011 00e1 00000000 		.4byte	cy_meta_wonvl
+ 2012 00e5 07       		.uleb128 0x7
+ 2013 00e6 AC000000 		.4byte	0xac
+ 2014 00ea 05       		.uleb128 0x5
+ 2015 00eb 91000000 		.4byte	0x91
+ 2016 00ef FA000000 		.4byte	0xfa
+ 2017 00f3 09       		.uleb128 0x9
+ 2018 00f4 8A000000 		.4byte	0x8a
+ 2019 00f8 FF       		.byte	0xff
+ 2020 00f9 00       		.byte	0
+ 2021 00fa 0A       		.uleb128 0xa
+ 2022 00fb CD010000 		.4byte	.LASF15
+ 2023 00ff 03       		.byte	0x3
+ 2024 0100 2D01     		.2byte	0x12d
+ 2025 0102 0C010000 		.4byte	0x10c
+ 2026 0106 05       		.uleb128 0x5
+ 2027 0107 03       		.byte	0x3
+ 2028 0108 00000000 		.4byte	cy_meta_flashprotect
+ 2029 010c 07       		.uleb128 0x7
+ 2030 010d EA000000 		.4byte	0xea
+ 2031 0111 05       		.uleb128 0x5
+ 2032 0112 91000000 		.4byte	0x91
+ 2033 0116 21010000 		.4byte	0x121
+ 2034 011a 09       		.uleb128 0x9
+ 2035 011b 8A000000 		.4byte	0x8a
+ 2036 011f 0B       		.byte	0xb
+ 2037 0120 00       		.byte	0
+ 2038 0121 0A       		.uleb128 0xa
+ 2039 0122 0A000000 		.4byte	.LASF16
+ 2040 0126 03       		.byte	0x3
+ 2041 0127 5A01     		.2byte	0x15a
+ 2042 0129 33010000 		.4byte	0x133
+ 2043 012d 05       		.uleb128 0x5
+ 2044 012e 03       		.byte	0x3
+ 2045 012f 00000000 		.4byte	cy_metadata
+ 2046 0133 07       		.uleb128 0x7
+ 2047 0134 11010000 		.4byte	0x111
+ 2048 0138 00       		.byte	0
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 37
+
+
+ 2049              		.section	.debug_abbrev,"",%progbits
+ 2050              	.Ldebug_abbrev0:
+ 2051 0000 01       		.uleb128 0x1
+ 2052 0001 11       		.uleb128 0x11
+ 2053 0002 01       		.byte	0x1
+ 2054 0003 25       		.uleb128 0x25
+ 2055 0004 0E       		.uleb128 0xe
+ 2056 0005 13       		.uleb128 0x13
+ 2057 0006 0B       		.uleb128 0xb
+ 2058 0007 03       		.uleb128 0x3
+ 2059 0008 0E       		.uleb128 0xe
+ 2060 0009 1B       		.uleb128 0x1b
+ 2061 000a 0E       		.uleb128 0xe
+ 2062 000b 10       		.uleb128 0x10
+ 2063 000c 17       		.uleb128 0x17
+ 2064 000d 00       		.byte	0
+ 2065 000e 00       		.byte	0
+ 2066 000f 02       		.uleb128 0x2
+ 2067 0010 24       		.uleb128 0x24
+ 2068 0011 00       		.byte	0
+ 2069 0012 0B       		.uleb128 0xb
+ 2070 0013 0B       		.uleb128 0xb
+ 2071 0014 3E       		.uleb128 0x3e
+ 2072 0015 0B       		.uleb128 0xb
+ 2073 0016 03       		.uleb128 0x3
+ 2074 0017 0E       		.uleb128 0xe
+ 2075 0018 00       		.byte	0
+ 2076 0019 00       		.byte	0
+ 2077 001a 03       		.uleb128 0x3
+ 2078 001b 16       		.uleb128 0x16
+ 2079 001c 00       		.byte	0
+ 2080 001d 03       		.uleb128 0x3
+ 2081 001e 0E       		.uleb128 0xe
+ 2082 001f 3A       		.uleb128 0x3a
+ 2083 0020 0B       		.uleb128 0xb
+ 2084 0021 3B       		.uleb128 0x3b
+ 2085 0022 0B       		.uleb128 0xb
+ 2086 0023 49       		.uleb128 0x49
+ 2087 0024 13       		.uleb128 0x13
+ 2088 0025 00       		.byte	0
+ 2089 0026 00       		.byte	0
+ 2090 0027 04       		.uleb128 0x4
+ 2091 0028 24       		.uleb128 0x24
+ 2092 0029 00       		.byte	0
+ 2093 002a 0B       		.uleb128 0xb
+ 2094 002b 0B       		.uleb128 0xb
+ 2095 002c 3E       		.uleb128 0x3e
+ 2096 002d 0B       		.uleb128 0xb
+ 2097 002e 03       		.uleb128 0x3
+ 2098 002f 08       		.uleb128 0x8
+ 2099 0030 00       		.byte	0
+ 2100 0031 00       		.byte	0
+ 2101 0032 05       		.uleb128 0x5
+ 2102 0033 01       		.uleb128 0x1
+ 2103 0034 01       		.byte	0x1
+ 2104 0035 49       		.uleb128 0x49
+ 2105 0036 13       		.uleb128 0x13
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 38
+
+
+ 2106 0037 01       		.uleb128 0x1
+ 2107 0038 13       		.uleb128 0x13
+ 2108 0039 00       		.byte	0
+ 2109 003a 00       		.byte	0
+ 2110 003b 06       		.uleb128 0x6
+ 2111 003c 21       		.uleb128 0x21
+ 2112 003d 00       		.byte	0
+ 2113 003e 49       		.uleb128 0x49
+ 2114 003f 13       		.uleb128 0x13
+ 2115 0040 2F       		.uleb128 0x2f
+ 2116 0041 05       		.uleb128 0x5
+ 2117 0042 00       		.byte	0
+ 2118 0043 00       		.byte	0
+ 2119 0044 07       		.uleb128 0x7
+ 2120 0045 26       		.uleb128 0x26
+ 2121 0046 00       		.byte	0
+ 2122 0047 49       		.uleb128 0x49
+ 2123 0048 13       		.uleb128 0x13
+ 2124 0049 00       		.byte	0
+ 2125 004a 00       		.byte	0
+ 2126 004b 08       		.uleb128 0x8
+ 2127 004c 34       		.uleb128 0x34
+ 2128 004d 00       		.byte	0
+ 2129 004e 03       		.uleb128 0x3
+ 2130 004f 0E       		.uleb128 0xe
+ 2131 0050 3A       		.uleb128 0x3a
+ 2132 0051 0B       		.uleb128 0xb
+ 2133 0052 3B       		.uleb128 0x3b
+ 2134 0053 0B       		.uleb128 0xb
+ 2135 0054 49       		.uleb128 0x49
+ 2136 0055 13       		.uleb128 0x13
+ 2137 0056 3F       		.uleb128 0x3f
+ 2138 0057 19       		.uleb128 0x19
+ 2139 0058 02       		.uleb128 0x2
+ 2140 0059 18       		.uleb128 0x18
+ 2141 005a 00       		.byte	0
+ 2142 005b 00       		.byte	0
+ 2143 005c 09       		.uleb128 0x9
+ 2144 005d 21       		.uleb128 0x21
+ 2145 005e 00       		.byte	0
+ 2146 005f 49       		.uleb128 0x49
+ 2147 0060 13       		.uleb128 0x13
+ 2148 0061 2F       		.uleb128 0x2f
+ 2149 0062 0B       		.uleb128 0xb
+ 2150 0063 00       		.byte	0
+ 2151 0064 00       		.byte	0
+ 2152 0065 0A       		.uleb128 0xa
+ 2153 0066 34       		.uleb128 0x34
+ 2154 0067 00       		.byte	0
+ 2155 0068 03       		.uleb128 0x3
+ 2156 0069 0E       		.uleb128 0xe
+ 2157 006a 3A       		.uleb128 0x3a
+ 2158 006b 0B       		.uleb128 0xb
+ 2159 006c 3B       		.uleb128 0x3b
+ 2160 006d 05       		.uleb128 0x5
+ 2161 006e 49       		.uleb128 0x49
+ 2162 006f 13       		.uleb128 0x13
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 39
+
+
+ 2163 0070 3F       		.uleb128 0x3f
+ 2164 0071 19       		.uleb128 0x19
+ 2165 0072 02       		.uleb128 0x2
+ 2166 0073 18       		.uleb128 0x18
+ 2167 0074 00       		.byte	0
+ 2168 0075 00       		.byte	0
+ 2169 0076 00       		.byte	0
+ 2170              		.section	.debug_aranges,"",%progbits
+ 2171 0000 14000000 		.4byte	0x14
+ 2172 0004 0200     		.2byte	0x2
+ 2173 0006 00000000 		.4byte	.Ldebug_info0
+ 2174 000a 04       		.byte	0x4
+ 2175 000b 00       		.byte	0
+ 2176 000c 0000     		.2byte	0
+ 2177 000e 0000     		.2byte	0
+ 2178 0010 00000000 		.4byte	0
+ 2179 0014 00000000 		.4byte	0
+ 2180              		.section	.debug_line,"",%progbits
+ 2181              	.Ldebug_line0:
+ 2182 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 2182      02003701 
+ 2182      00000201 
+ 2182      FB0E0D00 
+ 2182      01010101 
+ 2183              	.LASF9:
+ 2184 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 2184      6E74385F 
+ 2184      7400
+ 2185              	.LASF16:
+ 2186 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 2186      65746164 
+ 2186      61746100 
+ 2187              	.LASF7:
+ 2188 0016 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2188      206C6F6E 
+ 2188      6720756E 
+ 2188      7369676E 
+ 2188      65642069 
+ 2189              	.LASF1:
+ 2190 002d 756E7369 		.ascii	"unsigned char\000"
+ 2190      676E6564 
+ 2190      20636861 
+ 2190      7200
+ 2191              	.LASF5:
+ 2192 003b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2192      20756E73 
+ 2192      69676E65 
+ 2192      6420696E 
+ 2192      7400
+ 2193              	.LASF3:
+ 2194 004d 73686F72 		.ascii	"short unsigned int\000"
+ 2194      7420756E 
+ 2194      7369676E 
+ 2194      65642069 
+ 2194      6E7400
+ 2195              	.LASF13:
+ 2196 0060 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 40
+
+
+ 2196      6574615F 
+ 2196      63757374 
+ 2196      6E766C00 
+ 2197              	.LASF12:
+ 2198 0070 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 2198      6574615F 
+ 2198      636F6E66 
+ 2198      69676563 
+ 2198      6300
+ 2199              	.LASF19:
+ 2200 0082 443A5C48 		.ascii	"D:\\H_da\\Winter Semester\\MM03 Advanced Microcontr"
+ 2200      5F64615C 
+ 2200      57696E74 
+ 2200      65722053 
+ 2200      656D6573 
+ 2201 00b2 6F6C6C65 		.ascii	"oller Systems and Embedded Operating Systems\\Lectu"
+ 2201      72205379 
+ 2201      7374656D 
+ 2201      7320616E 
+ 2201      6420456D 
+ 2202 00e4 72652050 		.ascii	"re Prof. Fromm\\workspace\\workspace_psoc\\Reaction"
+ 2202      726F662E 
+ 2202      2046726F 
+ 2202      6D6D5C77 
+ 2202      6F726B73 
+ 2203 0114 47616D65 		.ascii	"Game_with erika.cydsn\000"
+ 2203      5F776974 
+ 2203      68206572 
+ 2203      696B612E 
+ 2203      63796473 
+ 2204              	.LASF8:
+ 2205 012a 756E7369 		.ascii	"unsigned int\000"
+ 2205      676E6564 
+ 2205      20696E74 
+ 2205      00
+ 2206              	.LASF17:
+ 2207 0137 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2207      43313120 
+ 2207      352E342E 
+ 2207      31203230 
+ 2207      31363036 
+ 2208 016a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2208      20726576 
+ 2208      6973696F 
+ 2208      6E203233 
+ 2208      37373135 
+ 2209 019d 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 2209      66756E63 
+ 2209      74696F6E 
+ 2209      2D736563 
+ 2209      74696F6E 
+ 2210              	.LASF10:
+ 2211 01c5 75696E74 		.ascii	"uint8_t\000"
+ 2211      385F7400 
+ 2212              	.LASF15:
+ 2213 01cd 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 2213      6574615F 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccq3HUkN.s 			page 41
+
+
+ 2213      666C6173 
+ 2213      6870726F 
+ 2213      74656374 
+ 2214              	.LASF14:
+ 2215 01e2 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 2215      6574615F 
+ 2215      776F6E76 
+ 2215      6C00
+ 2216              	.LASF11:
+ 2217 01f0 73697A65 		.ascii	"sizetype\000"
+ 2217      74797065 
+ 2217      00
+ 2218              	.LASF6:
+ 2219 01f9 6C6F6E67 		.ascii	"long long int\000"
+ 2219      206C6F6E 
+ 2219      6720696E 
+ 2219      7400
+ 2220              	.LASF2:
+ 2221 0207 73686F72 		.ascii	"short int\000"
+ 2221      7420696E 
+ 2221      7400
+ 2222              	.LASF4:
+ 2223 0211 6C6F6E67 		.ascii	"long int\000"
+ 2223      20696E74 
+ 2223      00
+ 2224              	.LASF0:
+ 2225 021a 7369676E 		.ascii	"signed char\000"
+ 2225      65642063 
+ 2225      68617200 
+ 2226              	.LASF18:
+ 2227 0226 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 2227      72617465 
+ 2227      645F536F 
+ 2227      75726365 
+ 2227      5C50536F 
+ 2228              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

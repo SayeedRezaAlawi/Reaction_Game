@@ -1,0 +1,2490 @@
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"RGB_PWM_blue.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.RGB_PWM_blue_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	RGB_PWM_blue_Init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	RGB_PWM_blue_Init, %function
+  25              	RGB_PWM_blue_Init:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC5\\RGB_PWM_blue.c"
+   1:Generated_Source\PSoC5/RGB_PWM_blue.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/RGB_PWM_blue.c **** * File Name: RGB_PWM_blue.c
+   3:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Version 3.30
+   4:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+   5:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Description:
+   6:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  The PWM User Module consist of an 8 or 16-bit counter with two 8 or 16-bit
+   7:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  comparitors. Each instance of this user module is capable of generating
+   8:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  two PWM outputs with the same period. The pulse width is selectable between
+   9:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  1 and 255/65535. The period is selectable between 2 and 255/65536 clocks.
+  10:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  The compare value output may be configured to be active when the present
+  11:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  counter is less than or less than/equal to the compare value.
+  12:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  A terminal count output is also provided. It generates a pulse one clock
+  13:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  width wide when the counter is equal to zero.
+  14:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  15:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Note:
+  16:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  17:Generated_Source\PSoC5/RGB_PWM_blue.c **** *******************************************************************************
+  18:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  19:Generated_Source\PSoC5/RGB_PWM_blue.c **** * You may use this file only in accordance with the license, terms, conditions,
+  20:Generated_Source\PSoC5/RGB_PWM_blue.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  21:Generated_Source\PSoC5/RGB_PWM_blue.c **** * the software package with which this file was provided.
+  22:Generated_Source\PSoC5/RGB_PWM_blue.c **** ********************************************************************************/
+  23:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+  24:Generated_Source\PSoC5/RGB_PWM_blue.c **** #include "RGB_PWM_blue.h"
+  25:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+  26:Generated_Source\PSoC5/RGB_PWM_blue.c **** /* Error message for removed <resource> through optimization */
+  27:Generated_Source\PSoC5/RGB_PWM_blue.c **** #ifdef RGB_PWM_blue_PWMUDB_genblk1_ctrlreg__REMOVED
+  28:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #error PWM_v3_30 detected with a constant 0 for the enable or \
+  29:Generated_Source\PSoC5/RGB_PWM_blue.c ****          constant 1 for reset. This will prevent the component from operating.
+  30:Generated_Source\PSoC5/RGB_PWM_blue.c **** #endif /* RGB_PWM_blue_PWMUDB_genblk1_ctrlreg__REMOVED */
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 2
+
+
+  31:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+  32:Generated_Source\PSoC5/RGB_PWM_blue.c **** uint8 RGB_PWM_blue_initVar = 0u;
+  33:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+  34:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+  35:Generated_Source\PSoC5/RGB_PWM_blue.c **** /*******************************************************************************
+  36:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Function Name: RGB_PWM_blue_Start
+  37:Generated_Source\PSoC5/RGB_PWM_blue.c **** ********************************************************************************
+  38:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  39:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Summary:
+  40:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  The start function initializes the pwm with the default values, the
+  41:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  enables the counter to begin counting.  It does not enable interrupts,
+  42:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  the EnableInt command should be called if interrupt generation is required.
+  43:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  44:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Parameters:
+  45:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  None
+  46:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  47:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Return:
+  48:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  None
+  49:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  50:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Global variables:
+  51:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  RGB_PWM_blue_initVar: Is modified when this function is called for the
+  52:Generated_Source\PSoC5/RGB_PWM_blue.c **** *   first time. Is used to ensure that initialization happens only once.
+  53:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  54:Generated_Source\PSoC5/RGB_PWM_blue.c **** *******************************************************************************/
+  55:Generated_Source\PSoC5/RGB_PWM_blue.c **** void RGB_PWM_blue_Start(void) 
+  56:Generated_Source\PSoC5/RGB_PWM_blue.c **** {
+  57:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /* If not Initialized then initialize all required hardware and software */
+  58:Generated_Source\PSoC5/RGB_PWM_blue.c ****     if(RGB_PWM_blue_initVar == 0u)
+  59:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+  60:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_Init();
+  61:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_initVar = 1u;
+  62:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+  63:Generated_Source\PSoC5/RGB_PWM_blue.c ****     RGB_PWM_blue_Enable();
+  64:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+  65:Generated_Source\PSoC5/RGB_PWM_blue.c **** }
+  66:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+  67:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+  68:Generated_Source\PSoC5/RGB_PWM_blue.c **** /*******************************************************************************
+  69:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Function Name: RGB_PWM_blue_Init
+  70:Generated_Source\PSoC5/RGB_PWM_blue.c **** ********************************************************************************
+  71:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  72:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Summary:
+  73:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  Initialize component's parameters to the parameters set by user in the
+  74:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  customizer of the component placed onto schematic. Usually called in
+  75:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  RGB_PWM_blue_Start().
+  76:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  77:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Parameters:
+  78:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  None
+  79:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  80:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Return:
+  81:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  None
+  82:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+  83:Generated_Source\PSoC5/RGB_PWM_blue.c **** *******************************************************************************/
+  84:Generated_Source\PSoC5/RGB_PWM_blue.c **** void RGB_PWM_blue_Init(void) 
+  85:Generated_Source\PSoC5/RGB_PWM_blue.c **** {
+  28              		.loc 1 85 0
+  29              		.cfi_startproc
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 3
+
+
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  86:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_UsingFixedFunction || RGB_PWM_blue_UseControl)
+  87:Generated_Source\PSoC5/RGB_PWM_blue.c ****         uint8 ctrl;
+  88:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UsingFixedFunction || RGB_PWM_blue_UseControl) */
+  89:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+  90:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if(!RGB_PWM_blue_UsingFixedFunction)
+  91:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if(RGB_PWM_blue_UseStatus)
+  92:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* Interrupt State Backup for Critical Region*/
+  93:Generated_Source\PSoC5/RGB_PWM_blue.c ****             uint8 RGB_PWM_blue_interruptState;
+  94:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_UseStatus) */
+  95:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (!RGB_PWM_blue_UsingFixedFunction) */
+  96:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+  97:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_UsingFixedFunction)
+  98:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* You are allowed to write the compare value (FF only) */
+  99:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_CONTROL |= RGB_PWM_blue_CFG0_MODE;
+ 100:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if (RGB_PWM_blue_DeadBand2_4)
+ 101:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_CONTROL |= RGB_PWM_blue_CFG0_DB;
+ 102:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_DeadBand2_4) */
+ 103:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 104:Generated_Source\PSoC5/RGB_PWM_blue.c ****         ctrl = RGB_PWM_blue_CONTROL3 & ((uint8 )(~RGB_PWM_blue_CTRL_CMPMODE1_MASK));
+ 105:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_CONTROL3 = ctrl | RGB_PWM_blue_DEFAULT_COMPARE1_MODE;
+ 106:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 107:Generated_Source\PSoC5/RGB_PWM_blue.c ****          /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+ 108:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_RT1 &= ((uint8)(~RGB_PWM_blue_RT1_MASK));
+ 109:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_RT1 |= RGB_PWM_blue_SYNC;
+ 110:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 111:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /*Enable DSI Sync all all inputs of the PWM*/
+ 112:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_RT1 &= ((uint8)(~RGB_PWM_blue_SYNCDSI_MASK));
+ 113:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_RT1 |= RGB_PWM_blue_SYNCDSI_EN;
+ 114:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 115:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #elif (RGB_PWM_blue_UseControl)
+ 116:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* Set the default compare mode defined in the parameter */
+ 117:Generated_Source\PSoC5/RGB_PWM_blue.c ****         ctrl = RGB_PWM_blue_CONTROL & ((uint8)(~RGB_PWM_blue_CTRL_CMPMODE2_MASK)) &
+  33              		.loc 1 117 0
+  34 0000 0D4A     		ldr	r2, .L2
+  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  36              	.LVL0:
+ 118:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 ((uint8)(~RGB_PWM_blue_CTRL_CMPMODE1_MASK));
+ 119:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_CONTROL = ctrl | RGB_PWM_blue_DEFAULT_COMPARE2_MODE |
+  37              		.loc 1 119 0
+  38 0004 03F0C003 		and	r3, r3, #192
+  39              	.LVL1:
+  40 0008 43F00903 		orr	r3, r3, #9
+  41 000c 1370     		strb	r3, [r2]
+ 120:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                    RGB_PWM_blue_DEFAULT_COMPARE1_MODE;
+ 121:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 122:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 123:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (!RGB_PWM_blue_UsingFixedFunction)
+ 124:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if (RGB_PWM_blue_Resolution == 8)
+ 125:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* Set FIFO 0 to 1 byte register for period*/
+ 126:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_AUX_CONTROLDP0 |= (RGB_PWM_blue_AUX_CTRL_FIFO0_CLR);
+ 127:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #else /* (RGB_PWM_blue_Resolution == 16)*/
+ 128:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* Set FIFO 0 to 1 byte register for period */
+ 129:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_AUX_CONTROLDP0 |= (RGB_PWM_blue_AUX_CTRL_FIFO0_CLR);
+  42              		.loc 1 129 0
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 4
+
+
+  43 000e D37F     		ldrb	r3, [r2, #31]	@ zero_extendqisi2
+  44 0010 43F00103 		orr	r3, r3, #1
+  45 0014 D377     		strb	r3, [r2, #31]
+ 130:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_AUX_CONTROLDP1 |= (RGB_PWM_blue_AUX_CTRL_FIFO0_CLR);
+  46              		.loc 1 130 0
+  47 0016 92F82030 		ldrb	r3, [r2, #32]	@ zero_extendqisi2
+  48 001a 43F00103 		orr	r3, r3, #1
+  49 001e 82F82030 		strb	r3, [r2, #32]
+  50              	.LVL2:
+  51              	.LBB8:
+  52              	.LBB9:
+ 131:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_Resolution == 8) */
+ 132:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 133:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_WriteCounter(RGB_PWM_blue_INIT_PERIOD_VALUE);
+ 134:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (!RGB_PWM_blue_UsingFixedFunction) */
+ 135:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 136:Generated_Source\PSoC5/RGB_PWM_blue.c ****     RGB_PWM_blue_WritePeriod(RGB_PWM_blue_INIT_PERIOD_VALUE);
+ 137:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 138:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if (RGB_PWM_blue_UseOneCompareMode)
+ 139:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_WriteCompare(RGB_PWM_blue_INIT_COMPARE_VALUE1);
+ 140:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #else
+ 141:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_WriteCompare1(RGB_PWM_blue_INIT_COMPARE_VALUE1);
+ 142:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_WriteCompare2(RGB_PWM_blue_INIT_COMPARE_VALUE2);
+ 143:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_UseOneCompareMode) */
+ 144:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 145:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if (RGB_PWM_blue_KillModeMinTime)
+ 146:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_WriteKillTime(RGB_PWM_blue_MinimumKillTime);
+ 147:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_KillModeMinTime) */
+ 148:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 149:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if (RGB_PWM_blue_DeadBandUsed)
+ 150:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_WriteDeadTime(RGB_PWM_blue_INIT_DEAD_TIME);
+ 151:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_DeadBandUsed) */
+ 152:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 153:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_UseStatus || RGB_PWM_blue_UsingFixedFunction)
+ 154:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_SetInterruptMode(RGB_PWM_blue_INIT_INTERRUPTS_MODE);
+ 155:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UseStatus || RGB_PWM_blue_UsingFixedFunction) */
+ 156:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 157:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_UsingFixedFunction)
+ 158:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* Globally Enable the Fixed Function Block chosen */
+ 159:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_GLOBAL_ENABLE |= RGB_PWM_blue_BLOCK_EN_MASK;
+ 160:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* Set the Interrupt source to come from the status register */
+ 161:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_CONTROL2 |= RGB_PWM_blue_CTRL2_IRQ_SEL;
+ 162:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #else
+ 163:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if(RGB_PWM_blue_UseStatus)
+ 164:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 165:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 166:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* Enter Critical Region*/
+ 167:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_interruptState = CyEnterCriticalSection();
+ 168:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 169:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_STATUS_AUX_CTRL |= RGB_PWM_blue_STATUS_ACTL_INT_EN_MASK;
+ 170:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 171:Generated_Source\PSoC5/RGB_PWM_blue.c ****              /* Exit Critical Region*/
+ 172:Generated_Source\PSoC5/RGB_PWM_blue.c ****             CyExitCriticalSection(RGB_PWM_blue_interruptState);
+ 173:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 174:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* Clear the FIFO to enable the RGB_PWM_blue_STATUS_FIFOFULL
+ 175:Generated_Source\PSoC5/RGB_PWM_blue.c ****                    bit to be set on FIFO full. */
+ 176:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_ClearFIFO();
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 5
+
+
+ 177:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_UseStatus) */
+ 178:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 179:Generated_Source\PSoC5/RGB_PWM_blue.c **** }
+ 180:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 181:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 182:Generated_Source\PSoC5/RGB_PWM_blue.c **** /*******************************************************************************
+ 183:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Function Name: RGB_PWM_blue_Enable
+ 184:Generated_Source\PSoC5/RGB_PWM_blue.c **** ********************************************************************************
+ 185:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 186:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Summary:
+ 187:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  Enables the PWM block operation
+ 188:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 189:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Parameters:
+ 190:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  None
+ 191:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 192:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Return:
+ 193:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  None
+ 194:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 195:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Side Effects:
+ 196:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  This works only if software enable mode is chosen
+ 197:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 198:Generated_Source\PSoC5/RGB_PWM_blue.c **** *******************************************************************************/
+ 199:Generated_Source\PSoC5/RGB_PWM_blue.c **** void RGB_PWM_blue_Enable(void) 
+ 200:Generated_Source\PSoC5/RGB_PWM_blue.c **** {
+ 201:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 202:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_UsingFixedFunction)
+ 203:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_GLOBAL_ENABLE |= RGB_PWM_blue_BLOCK_EN_MASK;
+ 204:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_GLOBAL_STBY_ENABLE |= RGB_PWM_blue_BLOCK_STBY_EN_MASK;
+ 205:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 206:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 207:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /* Enable the PWM from the control register  */
+ 208:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_UseControl || RGB_PWM_blue_UsingFixedFunction)
+ 209:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_CONTROL |= RGB_PWM_blue_CTRL_ENABLE;
+ 210:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UseControl || RGB_PWM_blue_UsingFixedFunction) */
+ 211:Generated_Source\PSoC5/RGB_PWM_blue.c **** }
+ 212:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 213:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 214:Generated_Source\PSoC5/RGB_PWM_blue.c **** /*******************************************************************************
+ 215:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Function Name: RGB_PWM_blue_Stop
+ 216:Generated_Source\PSoC5/RGB_PWM_blue.c **** ********************************************************************************
+ 217:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 218:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Summary:
+ 219:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  The stop function halts the PWM, but does not change any modes or disable
+ 220:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  interrupts.
+ 221:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 222:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Parameters:
+ 223:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  None
+ 224:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 225:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Return:
+ 226:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  None
+ 227:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 228:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Side Effects:
+ 229:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  If the Enable mode is set to Hardware only then this function
+ 230:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  has no effect on the operation of the PWM
+ 231:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 232:Generated_Source\PSoC5/RGB_PWM_blue.c **** *******************************************************************************/
+ 233:Generated_Source\PSoC5/RGB_PWM_blue.c **** void RGB_PWM_blue_Stop(void) 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 6
+
+
+ 234:Generated_Source\PSoC5/RGB_PWM_blue.c **** {
+ 235:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_UseControl || RGB_PWM_blue_UsingFixedFunction)
+ 236:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_CONTROL &= ((uint8)(~RGB_PWM_blue_CTRL_ENABLE));
+ 237:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UseControl || RGB_PWM_blue_UsingFixedFunction) */
+ 238:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 239:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /* Globally disable the Fixed Function Block chosen */
+ 240:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_UsingFixedFunction)
+ 241:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_GLOBAL_ENABLE &= ((uint8)(~RGB_PWM_blue_BLOCK_EN_MASK));
+ 242:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_GLOBAL_STBY_ENABLE &= ((uint8)(~RGB_PWM_blue_BLOCK_STBY_EN_MASK));
+ 243:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 244:Generated_Source\PSoC5/RGB_PWM_blue.c **** }
+ 245:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 246:Generated_Source\PSoC5/RGB_PWM_blue.c **** #if (RGB_PWM_blue_UseOneCompareMode)
+ 247:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_CompareMode1SW)
+ 248:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 249:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 250:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /*******************************************************************************
+ 251:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Function Name: RGB_PWM_blue_SetCompareMode
+ 252:Generated_Source\PSoC5/RGB_PWM_blue.c ****         ********************************************************************************
+ 253:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 254:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Summary:
+ 255:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *  This function writes the Compare Mode for the pwm output when in Dither mode,
+ 256:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *  Center Align Mode or One Output Mode.
+ 257:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 258:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Parameters:
+ 259:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 260:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *                defined in the H file as input arguments.
+ 261:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 262:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Return:
+ 263:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *  None
+ 264:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 265:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *******************************************************************************/
+ 266:Generated_Source\PSoC5/RGB_PWM_blue.c ****         void RGB_PWM_blue_SetCompareMode(uint8 comparemode) 
+ 267:Generated_Source\PSoC5/RGB_PWM_blue.c ****         {
+ 268:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #if(RGB_PWM_blue_UsingFixedFunction)
+ 269:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 270:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 #if(0 != RGB_PWM_blue_CTRL_CMPMODE1_SHIFT)
+ 271:Generated_Source\PSoC5/RGB_PWM_blue.c ****                     uint8 comparemodemasked = ((uint8)((uint8)comparemode << RGB_PWM_blue_CTRL_CMPM
+ 272:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 #else
+ 273:Generated_Source\PSoC5/RGB_PWM_blue.c ****                     uint8 comparemodemasked = comparemode;
+ 274:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 #endif /* (0 != RGB_PWM_blue_CTRL_CMPMODE1_SHIFT) */
+ 275:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 276:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 RGB_PWM_blue_CONTROL3 &= ((uint8)(~RGB_PWM_blue_CTRL_CMPMODE1_MASK)); /*Clear Exist
+ 277:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 RGB_PWM_blue_CONTROL3 |= comparemodemasked;
+ 278:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 279:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #elif (RGB_PWM_blue_UseControl)
+ 280:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 281:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 #if(0 != RGB_PWM_blue_CTRL_CMPMODE1_SHIFT)
+ 282:Generated_Source\PSoC5/RGB_PWM_blue.c ****                     uint8 comparemode1masked = ((uint8)((uint8)comparemode << RGB_PWM_blue_CTRL_CMP
+ 283:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                                 RGB_PWM_blue_CTRL_CMPMODE1_MASK;
+ 284:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 #else
+ 285:Generated_Source\PSoC5/RGB_PWM_blue.c ****                     uint8 comparemode1masked = comparemode & RGB_PWM_blue_CTRL_CMPMODE1_MASK;
+ 286:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 #endif /* (0 != RGB_PWM_blue_CTRL_CMPMODE1_SHIFT) */
+ 287:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 288:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 #if(0 != RGB_PWM_blue_CTRL_CMPMODE2_SHIFT)
+ 289:Generated_Source\PSoC5/RGB_PWM_blue.c ****                     uint8 comparemode2masked = ((uint8)((uint8)comparemode << RGB_PWM_blue_CTRL_CMP
+ 290:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                                RGB_PWM_blue_CTRL_CMPMODE2_MASK;
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 7
+
+
+ 291:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 #else
+ 292:Generated_Source\PSoC5/RGB_PWM_blue.c ****                     uint8 comparemode2masked = comparemode & RGB_PWM_blue_CTRL_CMPMODE2_MASK;
+ 293:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 #endif /* (0 != RGB_PWM_blue_CTRL_CMPMODE2_SHIFT) */
+ 294:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 295:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 /*Clear existing mode */
+ 296:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 RGB_PWM_blue_CONTROL &= ((uint8)(~(RGB_PWM_blue_CTRL_CMPMODE1_MASK |
+ 297:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                             RGB_PWM_blue_CTRL_CMPMODE2_MASK)));
+ 298:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 RGB_PWM_blue_CONTROL |= (comparemode1masked | comparemode2masked);
+ 299:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 300:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #else
+ 301:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 uint8 temp = comparemode;
+ 302:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 303:Generated_Source\PSoC5/RGB_PWM_blue.c ****         }
+ 304:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* RGB_PWM_blue_CompareMode1SW */
+ 305:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 306:Generated_Source\PSoC5/RGB_PWM_blue.c **** #else /* UseOneCompareMode */
+ 307:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 308:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_CompareMode1SW)
+ 309:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 310:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 311:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /*******************************************************************************
+ 312:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Function Name: RGB_PWM_blue_SetCompareMode1
+ 313:Generated_Source\PSoC5/RGB_PWM_blue.c ****         ********************************************************************************
+ 314:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 315:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Summary:
+ 316:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *  This function writes the Compare Mode for the pwm or pwm1 output
+ 317:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 318:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Parameters:
+ 319:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 320:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *                defined in the H file as input arguments.
+ 321:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 322:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Return:
+ 323:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *  None
+ 324:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 325:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *******************************************************************************/
+ 326:Generated_Source\PSoC5/RGB_PWM_blue.c ****         void RGB_PWM_blue_SetCompareMode1(uint8 comparemode) 
+ 327:Generated_Source\PSoC5/RGB_PWM_blue.c ****         {
+ 328:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #if(0 != RGB_PWM_blue_CTRL_CMPMODE1_SHIFT)
+ 329:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 uint8 comparemodemasked = ((uint8)((uint8)comparemode << RGB_PWM_blue_CTRL_CMPMODE1
+ 330:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                            RGB_PWM_blue_CTRL_CMPMODE1_MASK;
+ 331:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #else
+ 332:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 uint8 comparemodemasked = comparemode & RGB_PWM_blue_CTRL_CMPMODE1_MASK;
+ 333:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #endif /* (0 != RGB_PWM_blue_CTRL_CMPMODE1_SHIFT) */
+ 334:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 335:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #if (RGB_PWM_blue_UseControl)
+ 336:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 RGB_PWM_blue_CONTROL &= ((uint8)(~RGB_PWM_blue_CTRL_CMPMODE1_MASK)); /*Clear existi
+ 337:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 RGB_PWM_blue_CONTROL |= comparemodemasked;
+ 338:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #endif /* (RGB_PWM_blue_UseControl) */
+ 339:Generated_Source\PSoC5/RGB_PWM_blue.c ****         }
+ 340:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* RGB_PWM_blue_CompareMode1SW */
+ 341:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 342:Generated_Source\PSoC5/RGB_PWM_blue.c **** #if (RGB_PWM_blue_CompareMode2SW)
+ 343:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 344:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 345:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 346:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_SetCompareMode2
+ 347:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 8
+
+
+ 348:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 349:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 350:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  This function writes the Compare Mode for the pwm or pwm2 output
+ 351:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 352:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 353:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 354:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *                defined in the H file as input arguments.
+ 355:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 356:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 357:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 358:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 359:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 360:Generated_Source\PSoC5/RGB_PWM_blue.c ****     void RGB_PWM_blue_SetCompareMode2(uint8 comparemode) 
+ 361:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 362:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 363:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if(0 != RGB_PWM_blue_CTRL_CMPMODE2_SHIFT)
+ 364:Generated_Source\PSoC5/RGB_PWM_blue.c ****             uint8 comparemodemasked = ((uint8)((uint8)comparemode << RGB_PWM_blue_CTRL_CMPMODE2_SHI
+ 365:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                                  RGB_PWM_blue_CTRL_CMPMODE2_MASK;
+ 366:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #else
+ 367:Generated_Source\PSoC5/RGB_PWM_blue.c ****             uint8 comparemodemasked = comparemode & RGB_PWM_blue_CTRL_CMPMODE2_MASK;
+ 368:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (0 != RGB_PWM_blue_CTRL_CMPMODE2_SHIFT) */
+ 369:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 370:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if (RGB_PWM_blue_UseControl)
+ 371:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_CONTROL &= ((uint8)(~RGB_PWM_blue_CTRL_CMPMODE2_MASK)); /*Clear existing m
+ 372:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_CONTROL |= comparemodemasked;
+ 373:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_UseControl) */
+ 374:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 375:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /*RGB_PWM_blue_CompareMode2SW */
+ 376:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 377:Generated_Source\PSoC5/RGB_PWM_blue.c **** #endif /* UseOneCompareMode */
+ 378:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 379:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 380:Generated_Source\PSoC5/RGB_PWM_blue.c **** #if (!RGB_PWM_blue_UsingFixedFunction)
+ 381:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 382:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 383:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 384:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_WriteCounter
+ 385:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 386:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 387:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 388:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  Writes a new counter value directly to the counter register. This will be
+ 389:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  implemented for that currently running period and only that period. This API
+ 390:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  is valid only for UDB implementation and not available for fixed function
+ 391:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  PWM implementation.
+ 392:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 393:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 394:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  counter:  The period new period counter value.
+ 395:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 396:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 397:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 398:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 399:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Side Effects:
+ 400:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  The PWM Period will be reloaded when a counter value will be a zero
+ 401:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 402:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 403:Generated_Source\PSoC5/RGB_PWM_blue.c ****     void RGB_PWM_blue_WriteCounter(uint16 counter) \
+ 404:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                        
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 9
+
+
+ 405:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 406:Generated_Source\PSoC5/RGB_PWM_blue.c ****         CY_SET_REG16(RGB_PWM_blue_COUNTER_LSB_PTR, counter);
+  53              		.loc 1 406 0
+  54 0022 4FF6FF73 		movw	r3, #65535
+  55 0026 A2F89933 		strh	r3, [r2, #921]	@ movhi
+  56              	.LVL3:
+  57              	.LBE9:
+  58              	.LBE8:
+  59              	.LBB10:
+  60              	.LBB11:
+ 407:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 408:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 409:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 410:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 411:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_ReadCounter
+ 412:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 413:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 414:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 415:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  This function returns the current value of the counter.  It doesn't matter
+ 416:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  if the counter is enabled or running.
+ 417:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 418:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 419:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 420:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 421:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 422:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  The current value of the counter.
+ 423:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 424:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 425:Generated_Source\PSoC5/RGB_PWM_blue.c ****     uint16 RGB_PWM_blue_ReadCounter(void) 
+ 426:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 427:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* Force capture by reading Accumulator */
+ 428:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* Must first do a software capture to be able to read the counter */
+ 429:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 430:Generated_Source\PSoC5/RGB_PWM_blue.c ****           (void)CY_GET_REG8(RGB_PWM_blue_COUNTERCAP_LSB_PTR_8BIT);
+ 431:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 432:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* Read the data from the FIFO */
+ 433:Generated_Source\PSoC5/RGB_PWM_blue.c ****         return (CY_GET_REG16(RGB_PWM_blue_CAPTURE_LSB_PTR));
+ 434:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 435:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 436:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_UseStatus)
+ 437:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 438:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 439:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /*******************************************************************************
+ 440:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Function Name: RGB_PWM_blue_ClearFIFO
+ 441:Generated_Source\PSoC5/RGB_PWM_blue.c ****         ********************************************************************************
+ 442:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 443:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Summary:
+ 444:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *  This function clears all capture data from the capture FIFO
+ 445:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 446:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Parameters:
+ 447:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *  None
+ 448:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 449:Generated_Source\PSoC5/RGB_PWM_blue.c ****         * Return:
+ 450:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *  None
+ 451:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *
+ 452:Generated_Source\PSoC5/RGB_PWM_blue.c ****         *******************************************************************************/
+ 453:Generated_Source\PSoC5/RGB_PWM_blue.c ****         void RGB_PWM_blue_ClearFIFO(void) 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 10
+
+
+ 454:Generated_Source\PSoC5/RGB_PWM_blue.c ****         {
+ 455:Generated_Source\PSoC5/RGB_PWM_blue.c ****             while(0u != (RGB_PWM_blue_ReadStatusRegister() & RGB_PWM_blue_STATUS_FIFONEMPTY))
+ 456:Generated_Source\PSoC5/RGB_PWM_blue.c ****             {
+ 457:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 (void)RGB_PWM_blue_ReadCapture();
+ 458:Generated_Source\PSoC5/RGB_PWM_blue.c ****             }
+ 459:Generated_Source\PSoC5/RGB_PWM_blue.c ****         }
+ 460:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 461:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* RGB_PWM_blue_UseStatus */
+ 462:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 463:Generated_Source\PSoC5/RGB_PWM_blue.c **** #endif /* !RGB_PWM_blue_UsingFixedFunction */
+ 464:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 465:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 466:Generated_Source\PSoC5/RGB_PWM_blue.c **** /*******************************************************************************
+ 467:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Function Name: RGB_PWM_blue_WritePeriod
+ 468:Generated_Source\PSoC5/RGB_PWM_blue.c **** ********************************************************************************
+ 469:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 470:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Summary:
+ 471:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  This function is used to change the period of the counter.  The new period
+ 472:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  will be loaded the next time terminal count is detected.
+ 473:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 474:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Parameters:
+ 475:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  period:  Period value. May be between 1 and (2^Resolution)-1.  A value of 0
+ 476:Generated_Source\PSoC5/RGB_PWM_blue.c **** *           will result in the counter remaining at zero.
+ 477:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 478:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Return:
+ 479:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  None
+ 480:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 481:Generated_Source\PSoC5/RGB_PWM_blue.c **** *******************************************************************************/
+ 482:Generated_Source\PSoC5/RGB_PWM_blue.c **** void RGB_PWM_blue_WritePeriod(uint16 period) 
+ 483:Generated_Source\PSoC5/RGB_PWM_blue.c **** {
+ 484:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if(RGB_PWM_blue_UsingFixedFunction)
+ 485:Generated_Source\PSoC5/RGB_PWM_blue.c ****         CY_SET_REG16(RGB_PWM_blue_PERIOD_LSB_PTR, (uint16)period);
+ 486:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #else
+ 487:Generated_Source\PSoC5/RGB_PWM_blue.c ****         CY_SET_REG16(RGB_PWM_blue_PERIOD_LSB_PTR, period);
+  61              		.loc 1 487 0
+  62 002a A2F81934 		strh	r3, [r2, #1049]	@ movhi
+  63              	.LVL4:
+  64              	.LBE11:
+  65              	.LBE10:
+  66              	.LBB12:
+  67              	.LBB13:
+ 488:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 489:Generated_Source\PSoC5/RGB_PWM_blue.c **** }
+ 490:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 491:Generated_Source\PSoC5/RGB_PWM_blue.c **** #if (RGB_PWM_blue_UseOneCompareMode)
+ 492:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 493:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 494:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 495:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_WriteCompare
+ 496:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 497:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 498:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 499:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  This funtion is used to change the compare1 value when the PWM is in Dither
+ 500:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  mode. The compare output will reflect the new value on the next UDB clock.
+ 501:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  The compare output will be driven high when the present counter value is
+ 502:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  compared to the compare value based on the compare mode defined in
+ 503:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  Dither Mode.
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 11
+
+
+ 504:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 505:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 506:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  compare:  New compare value.
+ 507:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 508:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 509:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 510:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 511:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Side Effects:
+ 512:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  This function is only available if the PWM mode parameter is set to
+ 513:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  Dither Mode, Center Aligned Mode or One Output Mode
+ 514:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 515:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 516:Generated_Source\PSoC5/RGB_PWM_blue.c ****     void RGB_PWM_blue_WriteCompare(uint16 compare) \
+ 517:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                        
+ 518:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 519:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if(RGB_PWM_blue_UsingFixedFunction)
+ 520:Generated_Source\PSoC5/RGB_PWM_blue.c ****             CY_SET_REG16(RGB_PWM_blue_COMPARE1_LSB_PTR, (uint16)compare);
+ 521:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #else
+ 522:Generated_Source\PSoC5/RGB_PWM_blue.c ****             CY_SET_REG16(RGB_PWM_blue_COMPARE1_LSB_PTR, compare);
+  68              		.loc 1 522 0
+  69 002e 034B     		ldr	r3, .L2+4
+  70 0030 0022     		movs	r2, #0
+  71 0032 1A80     		strh	r2, [r3]	@ movhi
+  72              	.LVL5:
+  73 0034 7047     		bx	lr
+  74              	.L3:
+  75 0036 00BF     		.align	2
+  76              	.L2:
+  77 0038 7B640040 		.word	1073767547
+  78 003c 54680040 		.word	1073768532
+  79              	.LBE13:
+  80              	.LBE12:
+  81              		.cfi_endproc
+  82              	.LFE1:
+  83              		.size	RGB_PWM_blue_Init, .-RGB_PWM_blue_Init
+  84              		.section	.text.RGB_PWM_blue_Enable,"ax",%progbits
+  85              		.align	1
+  86              		.global	RGB_PWM_blue_Enable
+  87              		.thumb
+  88              		.thumb_func
+  89              		.type	RGB_PWM_blue_Enable, %function
+  90              	RGB_PWM_blue_Enable:
+  91              	.LFB2:
+ 200:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /* Globally Enable the Fixed Function Block chosen */
+  92              		.loc 1 200 0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96              		@ link register save eliminated.
+ 209:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UseControl || RGB_PWM_blue_UsingFixedFunction) */
+  97              		.loc 1 209 0
+  98 0000 024A     		ldr	r2, .L5
+  99 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 100 0004 43F08003 		orr	r3, r3, #128
+ 101 0008 1370     		strb	r3, [r2]
+ 102 000a 7047     		bx	lr
+ 103              	.L6:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 12
+
+
+ 104              		.align	2
+ 105              	.L5:
+ 106 000c 7B640040 		.word	1073767547
+ 107              		.cfi_endproc
+ 108              	.LFE2:
+ 109              		.size	RGB_PWM_blue_Enable, .-RGB_PWM_blue_Enable
+ 110              		.section	.text.RGB_PWM_blue_Start,"ax",%progbits
+ 111              		.align	1
+ 112              		.global	RGB_PWM_blue_Start
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.type	RGB_PWM_blue_Start, %function
+ 116              	RGB_PWM_blue_Start:
+ 117              	.LFB0:
+  56:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /* If not Initialized then initialize all required hardware and software */
+ 118              		.loc 1 56 0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122 0000 08B5     		push	{r3, lr}
+ 123              		.cfi_def_cfa_offset 8
+ 124              		.cfi_offset 3, -8
+ 125              		.cfi_offset 14, -4
+  58:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 126              		.loc 1 58 0
+ 127 0002 0549     		ldr	r1, .L10
+ 128 0004 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 129 0006 1BB9     		cbnz	r3, .L8
+  60:Generated_Source\PSoC5/RGB_PWM_blue.c ****         RGB_PWM_blue_initVar = 1u;
+ 130              		.loc 1 60 0
+ 131 0008 FFF7FEFF 		bl	RGB_PWM_blue_Init
+ 132              	.LVL6:
+  61:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 133              		.loc 1 61 0
+ 134 000c 0123     		movs	r3, #1
+ 135 000e 0B70     		strb	r3, [r1]
+ 136              	.L8:
+  65:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 137              		.loc 1 65 0
+ 138 0010 BDE80840 		pop	{r3, lr}
+ 139              		.cfi_restore 14
+ 140              		.cfi_restore 3
+ 141              		.cfi_def_cfa_offset 0
+  63:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 142              		.loc 1 63 0
+ 143 0014 FFF7FEBF 		b	RGB_PWM_blue_Enable
+ 144              	.LVL7:
+ 145              	.L11:
+ 146              		.align	2
+ 147              	.L10:
+ 148 0018 00000000 		.word	.LANCHOR0
+ 149              		.cfi_endproc
+ 150              	.LFE0:
+ 151              		.size	RGB_PWM_blue_Start, .-RGB_PWM_blue_Start
+ 152              		.section	.text.RGB_PWM_blue_Stop,"ax",%progbits
+ 153              		.align	1
+ 154              		.global	RGB_PWM_blue_Stop
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 13
+
+
+ 155              		.thumb
+ 156              		.thumb_func
+ 157              		.type	RGB_PWM_blue_Stop, %function
+ 158              	RGB_PWM_blue_Stop:
+ 159              	.LFB3:
+ 234:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if (RGB_PWM_blue_UseControl || RGB_PWM_blue_UsingFixedFunction)
+ 160              		.loc 1 234 0
+ 161              		.cfi_startproc
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164              		@ link register save eliminated.
+ 236:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UseControl || RGB_PWM_blue_UsingFixedFunction) */
+ 165              		.loc 1 236 0
+ 166 0000 024A     		ldr	r2, .L13
+ 167 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 168 0004 03F07F03 		and	r3, r3, #127
+ 169 0008 1370     		strb	r3, [r2]
+ 170 000a 7047     		bx	lr
+ 171              	.L14:
+ 172              		.align	2
+ 173              	.L13:
+ 174 000c 7B640040 		.word	1073767547
+ 175              		.cfi_endproc
+ 176              	.LFE3:
+ 177              		.size	RGB_PWM_blue_Stop, .-RGB_PWM_blue_Stop
+ 178              		.section	.text.RGB_PWM_blue_WriteCounter,"ax",%progbits
+ 179              		.align	1
+ 180              		.global	RGB_PWM_blue_WriteCounter
+ 181              		.thumb
+ 182              		.thumb_func
+ 183              		.type	RGB_PWM_blue_WriteCounter, %function
+ 184              	RGB_PWM_blue_WriteCounter:
+ 185              	.LFB4:
+ 405:Generated_Source\PSoC5/RGB_PWM_blue.c ****         CY_SET_REG16(RGB_PWM_blue_COUNTER_LSB_PTR, counter);
+ 186              		.loc 1 405 0
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 0
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190              		@ link register save eliminated.
+ 191              	.LVL8:
+ 406:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 192              		.loc 1 406 0
+ 193 0000 014B     		ldr	r3, .L16
+ 194 0002 1880     		strh	r0, [r3]	@ movhi
+ 195 0004 7047     		bx	lr
+ 196              	.L17:
+ 197 0006 00BF     		.align	2
+ 198              	.L16:
+ 199 0008 14680040 		.word	1073768468
+ 200              		.cfi_endproc
+ 201              	.LFE4:
+ 202              		.size	RGB_PWM_blue_WriteCounter, .-RGB_PWM_blue_WriteCounter
+ 203              		.section	.text.RGB_PWM_blue_ReadCounter,"ax",%progbits
+ 204              		.align	1
+ 205              		.global	RGB_PWM_blue_ReadCounter
+ 206              		.thumb
+ 207              		.thumb_func
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 14
+
+
+ 208              		.type	RGB_PWM_blue_ReadCounter, %function
+ 209              	RGB_PWM_blue_ReadCounter:
+ 210              	.LFB5:
+ 426:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* Force capture by reading Accumulator */
+ 211              		.loc 1 426 0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		@ link register save eliminated.
+ 430:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 216              		.loc 1 430 0
+ 217 0000 024B     		ldr	r3, .L19
+ 218 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 433:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 219              		.loc 1 433 0
+ 220 0004 024B     		ldr	r3, .L19+4
+ 221 0006 1888     		ldrh	r0, [r3]
+ 434:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 222              		.loc 1 434 0
+ 223 0008 80B2     		uxth	r0, r0
+ 224 000a 7047     		bx	lr
+ 225              	.L20:
+ 226              		.align	2
+ 227              	.L19:
+ 228 000c 1A640040 		.word	1073767450
+ 229 0010 B4680040 		.word	1073768628
+ 230              		.cfi_endproc
+ 231              	.LFE5:
+ 232              		.size	RGB_PWM_blue_ReadCounter, .-RGB_PWM_blue_ReadCounter
+ 233              		.section	.text.RGB_PWM_blue_WritePeriod,"ax",%progbits
+ 234              		.align	1
+ 235              		.global	RGB_PWM_blue_WritePeriod
+ 236              		.thumb
+ 237              		.thumb_func
+ 238              		.type	RGB_PWM_blue_WritePeriod, %function
+ 239              	RGB_PWM_blue_WritePeriod:
+ 240              	.LFB6:
+ 483:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if(RGB_PWM_blue_UsingFixedFunction)
+ 241              		.loc 1 483 0
+ 242              		.cfi_startproc
+ 243              		@ args = 0, pretend = 0, frame = 0
+ 244              		@ frame_needed = 0, uses_anonymous_args = 0
+ 245              		@ link register save eliminated.
+ 246              	.LVL9:
+ 487:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 247              		.loc 1 487 0
+ 248 0000 014B     		ldr	r3, .L22
+ 249 0002 1880     		strh	r0, [r3]	@ movhi
+ 250 0004 7047     		bx	lr
+ 251              	.L23:
+ 252 0006 00BF     		.align	2
+ 253              	.L22:
+ 254 0008 94680040 		.word	1073768596
+ 255              		.cfi_endproc
+ 256              	.LFE6:
+ 257              		.size	RGB_PWM_blue_WritePeriod, .-RGB_PWM_blue_WritePeriod
+ 258              		.section	.text.RGB_PWM_blue_WriteCompare,"ax",%progbits
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 15
+
+
+ 259              		.align	1
+ 260              		.global	RGB_PWM_blue_WriteCompare
+ 261              		.thumb
+ 262              		.thumb_func
+ 263              		.type	RGB_PWM_blue_WriteCompare, %function
+ 264              	RGB_PWM_blue_WriteCompare:
+ 265              	.LFB7:
+ 518:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if(RGB_PWM_blue_UsingFixedFunction)
+ 266              		.loc 1 518 0
+ 267              		.cfi_startproc
+ 268              		@ args = 0, pretend = 0, frame = 0
+ 269              		@ frame_needed = 0, uses_anonymous_args = 0
+ 270              		@ link register save eliminated.
+ 271              	.LVL10:
+ 272              		.loc 1 522 0
+ 273 0000 014B     		ldr	r3, .L25
+ 274 0002 1880     		strh	r0, [r3]	@ movhi
+ 275 0004 7047     		bx	lr
+ 276              	.L26:
+ 277 0006 00BF     		.align	2
+ 278              	.L25:
+ 279 0008 54680040 		.word	1073768532
+ 280              		.cfi_endproc
+ 281              	.LFE7:
+ 282              		.size	RGB_PWM_blue_WriteCompare, .-RGB_PWM_blue_WriteCompare
+ 283              		.section	.text.RGB_PWM_blue_ReadControlRegister,"ax",%progbits
+ 284              		.align	1
+ 285              		.global	RGB_PWM_blue_ReadControlRegister
+ 286              		.thumb
+ 287              		.thumb_func
+ 288              		.type	RGB_PWM_blue_ReadControlRegister, %function
+ 289              	RGB_PWM_blue_ReadControlRegister:
+ 290              	.LFB8:
+ 523:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 524:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 525:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if (RGB_PWM_blue_PWMMode == RGB_PWM_blue__B_PWM__DITHER)
+ 526:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #if(RGB_PWM_blue_UsingFixedFunction)
+ 527:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 CY_SET_REG16(RGB_PWM_blue_COMPARE2_LSB_PTR, (uint16)(compare + 1u));
+ 528:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #else
+ 529:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 CY_SET_REG16(RGB_PWM_blue_COMPARE2_LSB_PTR, (compare + 1u));
+ 530:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 531:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_PWMMode == RGB_PWM_blue__B_PWM__DITHER) */
+ 532:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 533:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 534:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 535:Generated_Source\PSoC5/RGB_PWM_blue.c **** #else
+ 536:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 537:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 538:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 539:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_WriteCompare1
+ 540:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 541:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 542:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 543:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  This funtion is used to change the compare1 value.  The compare output will
+ 544:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  reflect the new value on the next UDB clock.  The compare output will be
+ 545:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  driven high when the present counter value is less than or less than or
+ 546:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  equal to the compare register, depending on the mode.
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 16
+
+
+ 547:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 548:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 549:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  compare:  New compare value.
+ 550:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 551:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 552:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 553:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 554:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 555:Generated_Source\PSoC5/RGB_PWM_blue.c ****     void RGB_PWM_blue_WriteCompare1(uint16 compare) \
+ 556:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                         
+ 557:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 558:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if(RGB_PWM_blue_UsingFixedFunction)
+ 559:Generated_Source\PSoC5/RGB_PWM_blue.c ****             CY_SET_REG16(RGB_PWM_blue_COMPARE1_LSB_PTR, (uint16)compare);
+ 560:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #else
+ 561:Generated_Source\PSoC5/RGB_PWM_blue.c ****             CY_SET_REG16(RGB_PWM_blue_COMPARE1_LSB_PTR, compare);
+ 562:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 563:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 564:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 565:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 566:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 567:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_WriteCompare2
+ 568:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 569:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 570:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 571:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  This funtion is used to change the compare value, for compare1 output.
+ 572:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  The compare output will reflect the new value on the next UDB clock.
+ 573:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  The compare output will be driven high when the present counter value is
+ 574:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  less than or less than or equal to the compare register, depending on the
+ 575:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  mode.
+ 576:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 577:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 578:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  compare:  New compare value.
+ 579:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 580:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 581:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 582:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 583:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 584:Generated_Source\PSoC5/RGB_PWM_blue.c ****     void RGB_PWM_blue_WriteCompare2(uint16 compare) \
+ 585:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                         
+ 586:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 587:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if(RGB_PWM_blue_UsingFixedFunction)
+ 588:Generated_Source\PSoC5/RGB_PWM_blue.c ****             CY_SET_REG16(RGB_PWM_blue_COMPARE2_LSB_PTR, compare);
+ 589:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #else
+ 590:Generated_Source\PSoC5/RGB_PWM_blue.c ****             CY_SET_REG16(RGB_PWM_blue_COMPARE2_LSB_PTR, compare);
+ 591:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 592:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 593:Generated_Source\PSoC5/RGB_PWM_blue.c **** #endif /* UseOneCompareMode */
+ 594:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 595:Generated_Source\PSoC5/RGB_PWM_blue.c **** #if (RGB_PWM_blue_DeadBandUsed)
+ 596:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 597:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 598:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 599:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_WriteDeadTime
+ 600:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 601:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 602:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 603:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  This function writes the dead-band counts to the corresponding register
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 17
+
+
+ 604:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 605:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 606:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  deadtime:  Number of counts for dead time
+ 607:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 608:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 609:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 610:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 611:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 612:Generated_Source\PSoC5/RGB_PWM_blue.c ****     void RGB_PWM_blue_WriteDeadTime(uint8 deadtime) 
+ 613:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 614:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* If using the Dead Band 1-255 mode then just write the register */
+ 615:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if(!RGB_PWM_blue_DeadBand2_4)
+ 616:Generated_Source\PSoC5/RGB_PWM_blue.c ****             CY_SET_REG8(RGB_PWM_blue_DEADBAND_COUNT_PTR, deadtime);
+ 617:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #else
+ 618:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* Otherwise the data has to be masked and offset */
+ 619:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* Clear existing data */
+ 620:Generated_Source\PSoC5/RGB_PWM_blue.c ****             RGB_PWM_blue_DEADBAND_COUNT &= ((uint8)(~RGB_PWM_blue_DEADBAND_COUNT_MASK));
+ 621:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 622:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* Set new dead time */
+ 623:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #if(RGB_PWM_blue_DEADBAND_COUNT_SHIFT)
+ 624:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 RGB_PWM_blue_DEADBAND_COUNT |= ((uint8)((uint8)deadtime << RGB_PWM_blue_DEADBAND_CO
+ 625:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                                     RGB_PWM_blue_DEADBAND_COUNT_MASK;
+ 626:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #else
+ 627:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 RGB_PWM_blue_DEADBAND_COUNT |= deadtime & RGB_PWM_blue_DEADBAND_COUNT_MASK;
+ 628:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #endif /* (RGB_PWM_blue_DEADBAND_COUNT_SHIFT) */
+ 629:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 630:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (!RGB_PWM_blue_DeadBand2_4) */
+ 631:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 632:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 633:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 634:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 635:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_ReadDeadTime
+ 636:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 637:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 638:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 639:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  This function reads the dead-band counts from the corresponding register
+ 640:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 641:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 642:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 643:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 644:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 645:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  Dead Band Counts
+ 646:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 647:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 648:Generated_Source\PSoC5/RGB_PWM_blue.c ****     uint8 RGB_PWM_blue_ReadDeadTime(void) 
+ 649:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 650:Generated_Source\PSoC5/RGB_PWM_blue.c ****         /* If using the Dead Band 1-255 mode then just read the register */
+ 651:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if(!RGB_PWM_blue_DeadBand2_4)
+ 652:Generated_Source\PSoC5/RGB_PWM_blue.c ****             return (CY_GET_REG8(RGB_PWM_blue_DEADBAND_COUNT_PTR));
+ 653:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #else
+ 654:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 655:Generated_Source\PSoC5/RGB_PWM_blue.c ****             /* Otherwise the data has to be masked and offset */
+ 656:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #if(RGB_PWM_blue_DEADBAND_COUNT_SHIFT)
+ 657:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 return ((uint8)(((uint8)(RGB_PWM_blue_DEADBAND_COUNT & RGB_PWM_blue_DEADBAND_COUNT_
+ 658:Generated_Source\PSoC5/RGB_PWM_blue.c ****                                                                            RGB_PWM_blue_DEADBAND_CO
+ 659:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #else
+ 660:Generated_Source\PSoC5/RGB_PWM_blue.c ****                 return (RGB_PWM_blue_DEADBAND_COUNT & RGB_PWM_blue_DEADBAND_COUNT_MASK);
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 18
+
+
+ 661:Generated_Source\PSoC5/RGB_PWM_blue.c ****             #endif /* (RGB_PWM_blue_DEADBAND_COUNT_SHIFT) */
+ 662:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (!RGB_PWM_blue_DeadBand2_4) */
+ 663:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 664:Generated_Source\PSoC5/RGB_PWM_blue.c **** #endif /* DeadBandUsed */
+ 665:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 666:Generated_Source\PSoC5/RGB_PWM_blue.c **** #if (RGB_PWM_blue_UseStatus || RGB_PWM_blue_UsingFixedFunction)
+ 667:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 668:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 669:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 670:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_SetInterruptMode
+ 671:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 672:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 673:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 674:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  This function configures the interrupts mask control of theinterrupt
+ 675:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  source status register.
+ 676:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 677:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 678:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  uint8 interruptMode: Bit field containing the interrupt sources enabled
+ 679:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 680:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 681:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 682:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 683:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 684:Generated_Source\PSoC5/RGB_PWM_blue.c ****     void RGB_PWM_blue_SetInterruptMode(uint8 interruptMode) 
+ 685:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 686:Generated_Source\PSoC5/RGB_PWM_blue.c ****         CY_SET_REG8(RGB_PWM_blue_STATUS_MASK_PTR, interruptMode);
+ 687:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 688:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 689:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 690:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 691:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_ReadStatusRegister
+ 692:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 693:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 694:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 695:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  This function returns the current state of the status register.
+ 696:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 697:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 698:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 699:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 700:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 701:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  uint8 : Current status register value. The status register bits are:
+ 702:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [7:6] : Unused(0)
+ 703:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [5]   : Kill event output
+ 704:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [4]   : FIFO not empty
+ 705:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [3]   : FIFO full
+ 706:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [2]   : Terminal count
+ 707:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [1]   : Compare output 2
+ 708:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [0]   : Compare output 1
+ 709:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 710:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 711:Generated_Source\PSoC5/RGB_PWM_blue.c ****     uint8 RGB_PWM_blue_ReadStatusRegister(void) 
+ 712:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 713:Generated_Source\PSoC5/RGB_PWM_blue.c ****         return (CY_GET_REG8(RGB_PWM_blue_STATUS_PTR));
+ 714:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 715:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 716:Generated_Source\PSoC5/RGB_PWM_blue.c **** #endif /* (RGB_PWM_blue_UseStatus || RGB_PWM_blue_UsingFixedFunction) */
+ 717:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 19
+
+
+ 718:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 719:Generated_Source\PSoC5/RGB_PWM_blue.c **** #if (RGB_PWM_blue_UseControl)
+ 720:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 721:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 722:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 723:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_ReadControlRegister
+ 724:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 725:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 726:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 727:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  Returns the current state of the control register. This API is available
+ 728:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  only if the control register is not removed.
+ 729:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 730:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 731:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 732:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 733:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 734:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  uint8 : Current control register value
+ 735:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 736:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 737:Generated_Source\PSoC5/RGB_PWM_blue.c ****     uint8 RGB_PWM_blue_ReadControlRegister(void) 
+ 738:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 291              		.loc 1 738 0
+ 292              		.cfi_startproc
+ 293              		@ args = 0, pretend = 0, frame = 0
+ 294              		@ frame_needed = 0, uses_anonymous_args = 0
+ 295              		@ link register save eliminated.
+ 739:Generated_Source\PSoC5/RGB_PWM_blue.c ****         uint8 result;
+ 740:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 741:Generated_Source\PSoC5/RGB_PWM_blue.c ****         result = CY_GET_REG8(RGB_PWM_blue_CONTROL_PTR);
+ 296              		.loc 1 741 0
+ 297 0000 014B     		ldr	r3, .L28
+ 298 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 299              	.LVL11:
+ 742:Generated_Source\PSoC5/RGB_PWM_blue.c ****         return (result);
+ 743:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 300              		.loc 1 743 0
+ 301 0004 7047     		bx	lr
+ 302              	.L29:
+ 303 0006 00BF     		.align	2
+ 304              	.L28:
+ 305 0008 7B640040 		.word	1073767547
+ 306              		.cfi_endproc
+ 307              	.LFE8:
+ 308              		.size	RGB_PWM_blue_ReadControlRegister, .-RGB_PWM_blue_ReadControlRegister
+ 309              		.section	.text.RGB_PWM_blue_WriteControlRegister,"ax",%progbits
+ 310              		.align	1
+ 311              		.global	RGB_PWM_blue_WriteControlRegister
+ 312              		.thumb
+ 313              		.thumb_func
+ 314              		.type	RGB_PWM_blue_WriteControlRegister, %function
+ 315              	RGB_PWM_blue_WriteControlRegister:
+ 316              	.LFB9:
+ 744:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 745:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 746:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 747:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_WriteControlRegister
+ 748:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 20
+
+
+ 749:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 750:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 751:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  Sets the bit field of the control register. This API is available only if
+ 752:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  the control register is not removed.
+ 753:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 754:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 755:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  uint8 control: Control register bit field, The status register bits are:
+ 756:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [7]   : PWM Enable
+ 757:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [6]   : Reset
+ 758:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [5:3] : Compare Mode2
+ 759:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  [2:0] : Compare Mode2
+ 760:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 761:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 762:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 763:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 764:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 765:Generated_Source\PSoC5/RGB_PWM_blue.c ****     void RGB_PWM_blue_WriteControlRegister(uint8 control) 
+ 766:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 317              		.loc 1 766 0
+ 318              		.cfi_startproc
+ 319              		@ args = 0, pretend = 0, frame = 0
+ 320              		@ frame_needed = 0, uses_anonymous_args = 0
+ 321              		@ link register save eliminated.
+ 322              	.LVL12:
+ 767:Generated_Source\PSoC5/RGB_PWM_blue.c ****         CY_SET_REG8(RGB_PWM_blue_CONTROL_PTR, control);
+ 323              		.loc 1 767 0
+ 324 0000 014B     		ldr	r3, .L31
+ 325 0002 1870     		strb	r0, [r3]
+ 326 0004 7047     		bx	lr
+ 327              	.L32:
+ 328 0006 00BF     		.align	2
+ 329              	.L31:
+ 330 0008 7B640040 		.word	1073767547
+ 331              		.cfi_endproc
+ 332              	.LFE9:
+ 333              		.size	RGB_PWM_blue_WriteControlRegister, .-RGB_PWM_blue_WriteControlRegister
+ 334              		.section	.text.RGB_PWM_blue_ReadCapture,"ax",%progbits
+ 335              		.align	1
+ 336              		.global	RGB_PWM_blue_ReadCapture
+ 337              		.thumb
+ 338              		.thumb_func
+ 339              		.type	RGB_PWM_blue_ReadCapture, %function
+ 340              	RGB_PWM_blue_ReadCapture:
+ 341              	.LFB10:
+ 768:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 769:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 770:Generated_Source\PSoC5/RGB_PWM_blue.c **** #endif /* (RGB_PWM_blue_UseControl) */
+ 771:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 772:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 773:Generated_Source\PSoC5/RGB_PWM_blue.c **** #if (!RGB_PWM_blue_UsingFixedFunction)
+ 774:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 775:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 776:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 777:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_ReadCapture
+ 778:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 779:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 780:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 21
+
+
+ 781:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  Reads the capture value from the capture FIFO.
+ 782:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 783:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 784:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 785:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 786:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 787:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  uint8/uint16: The current capture value
+ 788:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 789:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 790:Generated_Source\PSoC5/RGB_PWM_blue.c ****     uint16 RGB_PWM_blue_ReadCapture(void) 
+ 791:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 342              		.loc 1 791 0
+ 343              		.cfi_startproc
+ 344              		@ args = 0, pretend = 0, frame = 0
+ 345              		@ frame_needed = 0, uses_anonymous_args = 0
+ 346              		@ link register save eliminated.
+ 792:Generated_Source\PSoC5/RGB_PWM_blue.c ****         return (CY_GET_REG16(RGB_PWM_blue_CAPTURE_LSB_PTR));
+ 347              		.loc 1 792 0
+ 348 0000 014B     		ldr	r3, .L34
+ 349 0002 1888     		ldrh	r0, [r3]
+ 793:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 350              		.loc 1 793 0
+ 351 0004 80B2     		uxth	r0, r0
+ 352 0006 7047     		bx	lr
+ 353              	.L35:
+ 354              		.align	2
+ 355              	.L34:
+ 356 0008 B4680040 		.word	1073768628
+ 357              		.cfi_endproc
+ 358              	.LFE10:
+ 359              		.size	RGB_PWM_blue_ReadCapture, .-RGB_PWM_blue_ReadCapture
+ 360              		.section	.text.RGB_PWM_blue_ReadCompare,"ax",%progbits
+ 361              		.align	1
+ 362              		.global	RGB_PWM_blue_ReadCompare
+ 363              		.thumb
+ 364              		.thumb_func
+ 365              		.type	RGB_PWM_blue_ReadCompare, %function
+ 366              	RGB_PWM_blue_ReadCompare:
+ 367              	.LFB11:
+ 794:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 795:Generated_Source\PSoC5/RGB_PWM_blue.c **** #endif /* (!RGB_PWM_blue_UsingFixedFunction) */
+ 796:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 797:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 798:Generated_Source\PSoC5/RGB_PWM_blue.c **** #if (RGB_PWM_blue_UseOneCompareMode)
+ 799:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 800:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 801:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 802:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_ReadCompare
+ 803:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 804:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 805:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 806:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  Reads the compare value for the compare output when the PWM Mode parameter is
+ 807:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  set to Dither mode, Center Aligned mode, or One Output mode.
+ 808:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 809:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 810:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 811:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 22
+
+
+ 812:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 813:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  uint8/uint16: Current compare value
+ 814:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 815:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 816:Generated_Source\PSoC5/RGB_PWM_blue.c ****     uint16 RGB_PWM_blue_ReadCompare(void) 
+ 817:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 368              		.loc 1 817 0
+ 369              		.cfi_startproc
+ 370              		@ args = 0, pretend = 0, frame = 0
+ 371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 372              		@ link register save eliminated.
+ 818:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #if(RGB_PWM_blue_UsingFixedFunction)
+ 819:Generated_Source\PSoC5/RGB_PWM_blue.c ****             return ((uint16)CY_GET_REG16(RGB_PWM_blue_COMPARE1_LSB_PTR));
+ 820:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #else
+ 821:Generated_Source\PSoC5/RGB_PWM_blue.c ****             return (CY_GET_REG16(RGB_PWM_blue_COMPARE1_LSB_PTR));
+ 373              		.loc 1 821 0
+ 374 0000 014B     		ldr	r3, .L37
+ 375 0002 1888     		ldrh	r0, [r3]
+ 822:Generated_Source\PSoC5/RGB_PWM_blue.c ****         #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 823:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 376              		.loc 1 823 0
+ 377 0004 80B2     		uxth	r0, r0
+ 378 0006 7047     		bx	lr
+ 379              	.L38:
+ 380              		.align	2
+ 381              	.L37:
+ 382 0008 54680040 		.word	1073768532
+ 383              		.cfi_endproc
+ 384              	.LFE11:
+ 385              		.size	RGB_PWM_blue_ReadCompare, .-RGB_PWM_blue_ReadCompare
+ 386              		.section	.text.RGB_PWM_blue_ReadPeriod,"ax",%progbits
+ 387              		.align	1
+ 388              		.global	RGB_PWM_blue_ReadPeriod
+ 389              		.thumb
+ 390              		.thumb_func
+ 391              		.type	RGB_PWM_blue_ReadPeriod, %function
+ 392              	RGB_PWM_blue_ReadPeriod:
+ 393              	.LFB12:
+ 824:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 825:Generated_Source\PSoC5/RGB_PWM_blue.c **** #else
+ 826:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 827:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 828:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 829:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_ReadCompare1
+ 830:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 831:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 832:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 833:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  Reads the compare value for the compare1 output.
+ 834:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 835:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 836:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 837:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 838:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 839:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  uint8/uint16: Current compare value.
+ 840:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 841:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 842:Generated_Source\PSoC5/RGB_PWM_blue.c ****     uint16 RGB_PWM_blue_ReadCompare1(void) 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 23
+
+
+ 843:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 844:Generated_Source\PSoC5/RGB_PWM_blue.c ****         return (CY_GET_REG16(RGB_PWM_blue_COMPARE1_LSB_PTR));
+ 845:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 846:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 847:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 848:Generated_Source\PSoC5/RGB_PWM_blue.c ****     /*******************************************************************************
+ 849:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Function Name: RGB_PWM_blue_ReadCompare2
+ 850:Generated_Source\PSoC5/RGB_PWM_blue.c ****     ********************************************************************************
+ 851:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 852:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Summary:
+ 853:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  Reads the compare value for the compare2 output.
+ 854:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 855:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Parameters:
+ 856:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  None
+ 857:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 858:Generated_Source\PSoC5/RGB_PWM_blue.c ****     * Return:
+ 859:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *  uint8/uint16: Current compare value.
+ 860:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *
+ 861:Generated_Source\PSoC5/RGB_PWM_blue.c ****     *******************************************************************************/
+ 862:Generated_Source\PSoC5/RGB_PWM_blue.c ****     uint16 RGB_PWM_blue_ReadCompare2(void) 
+ 863:Generated_Source\PSoC5/RGB_PWM_blue.c ****     {
+ 864:Generated_Source\PSoC5/RGB_PWM_blue.c ****         return (CY_GET_REG16(RGB_PWM_blue_COMPARE2_LSB_PTR));
+ 865:Generated_Source\PSoC5/RGB_PWM_blue.c ****     }
+ 866:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 867:Generated_Source\PSoC5/RGB_PWM_blue.c **** #endif /* (RGB_PWM_blue_UseOneCompareMode) */
+ 868:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 869:Generated_Source\PSoC5/RGB_PWM_blue.c **** 
+ 870:Generated_Source\PSoC5/RGB_PWM_blue.c **** /*******************************************************************************
+ 871:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Function Name: RGB_PWM_blue_ReadPeriod
+ 872:Generated_Source\PSoC5/RGB_PWM_blue.c **** ********************************************************************************
+ 873:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 874:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Summary:
+ 875:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  Reads the period value used by the PWM hardware.
+ 876:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 877:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Parameters:
+ 878:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  None
+ 879:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 880:Generated_Source\PSoC5/RGB_PWM_blue.c **** * Return:
+ 881:Generated_Source\PSoC5/RGB_PWM_blue.c **** *  uint8/16: Period value
+ 882:Generated_Source\PSoC5/RGB_PWM_blue.c **** *
+ 883:Generated_Source\PSoC5/RGB_PWM_blue.c **** *******************************************************************************/
+ 884:Generated_Source\PSoC5/RGB_PWM_blue.c **** uint16 RGB_PWM_blue_ReadPeriod(void) 
+ 885:Generated_Source\PSoC5/RGB_PWM_blue.c **** {
+ 394              		.loc 1 885 0
+ 395              		.cfi_startproc
+ 396              		@ args = 0, pretend = 0, frame = 0
+ 397              		@ frame_needed = 0, uses_anonymous_args = 0
+ 398              		@ link register save eliminated.
+ 886:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #if(RGB_PWM_blue_UsingFixedFunction)
+ 887:Generated_Source\PSoC5/RGB_PWM_blue.c ****         return ((uint16)CY_GET_REG16(RGB_PWM_blue_PERIOD_LSB_PTR));
+ 888:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #else
+ 889:Generated_Source\PSoC5/RGB_PWM_blue.c ****         return (CY_GET_REG16(RGB_PWM_blue_PERIOD_LSB_PTR));
+ 399              		.loc 1 889 0
+ 400 0000 014B     		ldr	r3, .L40
+ 401 0002 1888     		ldrh	r0, [r3]
+ 890:Generated_Source\PSoC5/RGB_PWM_blue.c ****     #endif /* (RGB_PWM_blue_UsingFixedFunction) */
+ 891:Generated_Source\PSoC5/RGB_PWM_blue.c **** }
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 24
+
+
+ 402              		.loc 1 891 0
+ 403 0004 80B2     		uxth	r0, r0
+ 404 0006 7047     		bx	lr
+ 405              	.L41:
+ 406              		.align	2
+ 407              	.L40:
+ 408 0008 94680040 		.word	1073768596
+ 409              		.cfi_endproc
+ 410              	.LFE12:
+ 411              		.size	RGB_PWM_blue_ReadPeriod, .-RGB_PWM_blue_ReadPeriod
+ 412              		.global	RGB_PWM_blue_initVar
+ 413              		.bss
+ 414              		.set	.LANCHOR0,. + 0
+ 415              		.type	RGB_PWM_blue_initVar, %object
+ 416              		.size	RGB_PWM_blue_initVar, 1
+ 417              	RGB_PWM_blue_initVar:
+ 418 0000 00       		.space	1
+ 419              		.text
+ 420              	.Letext0:
+ 421              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 422              		.section	.debug_info,"",%progbits
+ 423              	.Ldebug_info0:
+ 424 0000 DD020000 		.4byte	0x2dd
+ 425 0004 0400     		.2byte	0x4
+ 426 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 427 000a 04       		.byte	0x4
+ 428 000b 01       		.uleb128 0x1
+ 429 000c B8000000 		.4byte	.LASF35
+ 430 0010 0C       		.byte	0xc
+ 431 0011 54010000 		.4byte	.LASF36
+ 432 0015 C8020000 		.4byte	.LASF37
+ 433 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 434 001d 00000000 		.4byte	0
+ 435 0021 00000000 		.4byte	.Ldebug_line0
+ 436 0025 02       		.uleb128 0x2
+ 437 0026 01       		.byte	0x1
+ 438 0027 06       		.byte	0x6
+ 439 0028 B4020000 		.4byte	.LASF0
+ 440 002c 02       		.uleb128 0x2
+ 441 002d 01       		.byte	0x1
+ 442 002e 08       		.byte	0x8
+ 443 002f A5000000 		.4byte	.LASF1
+ 444 0033 02       		.uleb128 0x2
+ 445 0034 02       		.byte	0x2
+ 446 0035 05       		.byte	0x5
+ 447 0036 90020000 		.4byte	.LASF2
+ 448 003a 02       		.uleb128 0x2
+ 449 003b 02       		.byte	0x2
+ 450 003c 07       		.byte	0x7
+ 451 003d 58000000 		.4byte	.LASF3
+ 452 0041 02       		.uleb128 0x2
+ 453 0042 04       		.byte	0x4
+ 454 0043 05       		.byte	0x5
+ 455 0044 9F020000 		.4byte	.LASF4
+ 456 0048 02       		.uleb128 0x2
+ 457 0049 04       		.byte	0x4
+ 458 004a 07       		.byte	0x7
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 25
+
+
+ 459 004b 9A010000 		.4byte	.LASF5
+ 460 004f 02       		.uleb128 0x2
+ 461 0050 08       		.byte	0x8
+ 462 0051 05       		.byte	0x5
+ 463 0052 5B020000 		.4byte	.LASF6
+ 464 0056 02       		.uleb128 0x2
+ 465 0057 08       		.byte	0x8
+ 466 0058 07       		.byte	0x7
+ 467 0059 B9010000 		.4byte	.LASF7
+ 468 005d 03       		.uleb128 0x3
+ 469 005e 04       		.byte	0x4
+ 470 005f 05       		.byte	0x5
+ 471 0060 696E7400 		.ascii	"int\000"
+ 472 0064 02       		.uleb128 0x2
+ 473 0065 04       		.byte	0x4
+ 474 0066 07       		.byte	0x7
+ 475 0067 AC010000 		.4byte	.LASF8
+ 476 006b 04       		.uleb128 0x4
+ 477 006c 46010000 		.4byte	.LASF9
+ 478 0070 02       		.byte	0x2
+ 479 0071 E401     		.2byte	0x1e4
+ 480 0073 2C000000 		.4byte	0x2c
+ 481 0077 04       		.uleb128 0x4
+ 482 0078 93010000 		.4byte	.LASF10
+ 483 007c 02       		.byte	0x2
+ 484 007d E501     		.2byte	0x1e5
+ 485 007f 3A000000 		.4byte	0x3a
+ 486 0083 02       		.uleb128 0x2
+ 487 0084 04       		.byte	0x4
+ 488 0085 04       		.byte	0x4
+ 489 0086 97000000 		.4byte	.LASF11
+ 490 008a 02       		.uleb128 0x2
+ 491 008b 08       		.byte	0x8
+ 492 008c 04       		.byte	0x4
+ 493 008d 8C010000 		.4byte	.LASF12
+ 494 0091 02       		.uleb128 0x2
+ 495 0092 01       		.byte	0x1
+ 496 0093 08       		.byte	0x8
+ 497 0094 69020000 		.4byte	.LASF13
+ 498 0098 04       		.uleb128 0x4
+ 499 0099 B3000000 		.4byte	.LASF14
+ 500 009d 02       		.byte	0x2
+ 501 009e 8E02     		.2byte	0x28e
+ 502 00a0 A4000000 		.4byte	0xa4
+ 503 00a4 05       		.uleb128 0x5
+ 504 00a5 6B000000 		.4byte	0x6b
+ 505 00a9 04       		.uleb128 0x4
+ 506 00aa 00000000 		.4byte	.LASF15
+ 507 00ae 02       		.byte	0x2
+ 508 00af 8F02     		.2byte	0x28f
+ 509 00b1 B5000000 		.4byte	0xb5
+ 510 00b5 05       		.uleb128 0x5
+ 511 00b6 77000000 		.4byte	0x77
+ 512 00ba 02       		.uleb128 0x2
+ 513 00bb 08       		.byte	0x8
+ 514 00bc 04       		.byte	0x4
+ 515 00bd A8020000 		.4byte	.LASF16
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 26
+
+
+ 516 00c1 02       		.uleb128 0x2
+ 517 00c2 04       		.byte	0x4
+ 518 00c3 07       		.byte	0x7
+ 519 00c4 31020000 		.4byte	.LASF17
+ 520 00c8 06       		.uleb128 0x6
+ 521 00c9 E9010000 		.4byte	.LASF18
+ 522 00cd 01       		.byte	0x1
+ 523 00ce 0402     		.2byte	0x204
+ 524 00d0 01       		.byte	0x1
+ 525 00d1 E2000000 		.4byte	0xe2
+ 526 00d5 07       		.uleb128 0x7
+ 527 00d6 C0020000 		.4byte	.LASF20
+ 528 00da 01       		.byte	0x1
+ 529 00db 0402     		.2byte	0x204
+ 530 00dd 77000000 		.4byte	0x77
+ 531 00e1 00       		.byte	0
+ 532 00e2 06       		.uleb128 0x6
+ 533 00e3 6B000000 		.4byte	.LASF19
+ 534 00e7 01       		.byte	0x1
+ 535 00e8 E201     		.2byte	0x1e2
+ 536 00ea 01       		.byte	0x1
+ 537 00eb FC000000 		.4byte	0xfc
+ 538 00ef 07       		.uleb128 0x7
+ 539 00f0 51000000 		.4byte	.LASF21
+ 540 00f4 01       		.byte	0x1
+ 541 00f5 E201     		.2byte	0x1e2
+ 542 00f7 77000000 		.4byte	0x77
+ 543 00fb 00       		.byte	0
+ 544 00fc 06       		.uleb128 0x6
+ 545 00fd 1E000000 		.4byte	.LASF22
+ 546 0101 01       		.byte	0x1
+ 547 0102 9301     		.2byte	0x193
+ 548 0104 01       		.byte	0x1
+ 549 0105 16010000 		.4byte	0x116
+ 550 0109 07       		.uleb128 0x7
+ 551 010a 9D000000 		.4byte	.LASF23
+ 552 010e 01       		.byte	0x1
+ 553 010f 9301     		.2byte	0x193
+ 554 0111 77000000 		.4byte	0x77
+ 555 0115 00       		.byte	0
+ 556 0116 08       		.uleb128 0x8
+ 557 0117 3F000000 		.4byte	.LASF24
+ 558 011b 01       		.byte	0x1
+ 559 011c 54       		.byte	0x54
+ 560 011d 00000000 		.4byte	.LFB1
+ 561 0121 40000000 		.4byte	.LFE1-.LFB1
+ 562 0125 01       		.uleb128 0x1
+ 563 0126 9C       		.byte	0x9c
+ 564 0127 8E010000 		.4byte	0x18e
+ 565 012b 09       		.uleb128 0x9
+ 566 012c 9A020000 		.4byte	.LASF28
+ 567 0130 01       		.byte	0x1
+ 568 0131 57       		.byte	0x57
+ 569 0132 6B000000 		.4byte	0x6b
+ 570 0136 00000000 		.4byte	.LLST0
+ 571 013a 0A       		.uleb128 0xa
+ 572 013b FC000000 		.4byte	0xfc
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 27
+
+
+ 573 013f 22000000 		.4byte	.LBB8
+ 574 0143 08000000 		.4byte	.LBE8-.LBB8
+ 575 0147 01       		.byte	0x1
+ 576 0148 85       		.byte	0x85
+ 577 0149 57010000 		.4byte	0x157
+ 578 014d 0B       		.uleb128 0xb
+ 579 014e 09010000 		.4byte	0x109
+ 580 0152 18000000 		.4byte	.LLST1
+ 581 0156 00       		.byte	0
+ 582 0157 0A       		.uleb128 0xa
+ 583 0158 E2000000 		.4byte	0xe2
+ 584 015c 2A000000 		.4byte	.LBB10
+ 585 0160 04000000 		.4byte	.LBE10-.LBB10
+ 586 0164 01       		.byte	0x1
+ 587 0165 88       		.byte	0x88
+ 588 0166 74010000 		.4byte	0x174
+ 589 016a 0B       		.uleb128 0xb
+ 590 016b EF000000 		.4byte	0xef
+ 591 016f 2D000000 		.4byte	.LLST2
+ 592 0173 00       		.byte	0
+ 593 0174 0C       		.uleb128 0xc
+ 594 0175 C8000000 		.4byte	0xc8
+ 595 0179 2E000000 		.4byte	.LBB12
+ 596 017d 12000000 		.4byte	.LBE12-.LBB12
+ 597 0181 01       		.byte	0x1
+ 598 0182 8B       		.byte	0x8b
+ 599 0183 0B       		.uleb128 0xb
+ 600 0184 D5000000 		.4byte	0xd5
+ 601 0188 42000000 		.4byte	.LLST3
+ 602 018c 00       		.byte	0
+ 603 018d 00       		.byte	0
+ 604 018e 0D       		.uleb128 0xd
+ 605 018f 70030000 		.4byte	.LASF26
+ 606 0193 01       		.byte	0x1
+ 607 0194 C7       		.byte	0xc7
+ 608 0195 00000000 		.4byte	.LFB2
+ 609 0199 10000000 		.4byte	.LFE2-.LFB2
+ 610 019d 01       		.uleb128 0x1
+ 611 019e 9C       		.byte	0x9c
+ 612 019f 08       		.uleb128 0x8
+ 613 01a0 84000000 		.4byte	.LASF25
+ 614 01a4 01       		.byte	0x1
+ 615 01a5 37       		.byte	0x37
+ 616 01a6 00000000 		.4byte	.LFB0
+ 617 01aa 1C000000 		.4byte	.LFE0-.LFB0
+ 618 01ae 01       		.uleb128 0x1
+ 619 01af 9C       		.byte	0x9c
+ 620 01b0 C7010000 		.4byte	0x1c7
+ 621 01b4 0E       		.uleb128 0xe
+ 622 01b5 0C000000 		.4byte	.LVL6
+ 623 01b9 16010000 		.4byte	0x116
+ 624 01bd 0F       		.uleb128 0xf
+ 625 01be 18000000 		.4byte	.LVL7
+ 626 01c2 8E010000 		.4byte	0x18e
+ 627 01c6 00       		.byte	0
+ 628 01c7 0D       		.uleb128 0xd
+ 629 01c8 7A010000 		.4byte	.LASF27
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 28
+
+
+ 630 01cc 01       		.byte	0x1
+ 631 01cd E9       		.byte	0xe9
+ 632 01ce 00000000 		.4byte	.LFB3
+ 633 01d2 10000000 		.4byte	.LFE3-.LFB3
+ 634 01d6 01       		.uleb128 0x1
+ 635 01d7 9C       		.byte	0x9c
+ 636 01d8 10       		.uleb128 0x10
+ 637 01d9 FC000000 		.4byte	0xfc
+ 638 01dd 00000000 		.4byte	.LFB4
+ 639 01e1 0C000000 		.4byte	.LFE4-.LFB4
+ 640 01e5 01       		.uleb128 0x1
+ 641 01e6 9C       		.byte	0x9c
+ 642 01e7 F3010000 		.4byte	0x1f3
+ 643 01eb 11       		.uleb128 0x11
+ 644 01ec 09010000 		.4byte	0x109
+ 645 01f0 01       		.uleb128 0x1
+ 646 01f1 50       		.byte	0x50
+ 647 01f2 00       		.byte	0
+ 648 01f3 12       		.uleb128 0x12
+ 649 01f4 84030000 		.4byte	.LASF31
+ 650 01f8 01       		.byte	0x1
+ 651 01f9 A901     		.2byte	0x1a9
+ 652 01fb 77000000 		.4byte	0x77
+ 653 01ff 00000000 		.4byte	.LFB5
+ 654 0203 14000000 		.4byte	.LFE5-.LFB5
+ 655 0207 01       		.uleb128 0x1
+ 656 0208 9C       		.byte	0x9c
+ 657 0209 10       		.uleb128 0x10
+ 658 020a E2000000 		.4byte	0xe2
+ 659 020e 00000000 		.4byte	.LFB6
+ 660 0212 0C000000 		.4byte	.LFE6-.LFB6
+ 661 0216 01       		.uleb128 0x1
+ 662 0217 9C       		.byte	0x9c
+ 663 0218 24020000 		.4byte	0x224
+ 664 021c 11       		.uleb128 0x11
+ 665 021d EF000000 		.4byte	0xef
+ 666 0221 01       		.uleb128 0x1
+ 667 0222 50       		.byte	0x50
+ 668 0223 00       		.byte	0
+ 669 0224 10       		.uleb128 0x10
+ 670 0225 C8000000 		.4byte	0xc8
+ 671 0229 00000000 		.4byte	.LFB7
+ 672 022d 0C000000 		.4byte	.LFE7-.LFB7
+ 673 0231 01       		.uleb128 0x1
+ 674 0232 9C       		.byte	0x9c
+ 675 0233 3F020000 		.4byte	0x23f
+ 676 0237 11       		.uleb128 0x11
+ 677 0238 D5000000 		.4byte	0xd5
+ 678 023c 01       		.uleb128 0x1
+ 679 023d 50       		.byte	0x50
+ 680 023e 00       		.byte	0
+ 681 023f 13       		.uleb128 0x13
+ 682 0240 3A020000 		.4byte	.LASF38
+ 683 0244 01       		.byte	0x1
+ 684 0245 E102     		.2byte	0x2e1
+ 685 0247 6B000000 		.4byte	0x6b
+ 686 024b 00000000 		.4byte	.LFB8
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 29
+
+
+ 687 024f 0C000000 		.4byte	.LFE8-.LFB8
+ 688 0253 01       		.uleb128 0x1
+ 689 0254 9C       		.byte	0x9c
+ 690 0255 68020000 		.4byte	0x268
+ 691 0259 14       		.uleb128 0x14
+ 692 025a 38000000 		.4byte	.LASF29
+ 693 025e 01       		.byte	0x1
+ 694 025f E302     		.2byte	0x2e3
+ 695 0261 6B000000 		.4byte	0x6b
+ 696 0265 01       		.uleb128 0x1
+ 697 0266 50       		.byte	0x50
+ 698 0267 00       		.byte	0
+ 699 0268 15       		.uleb128 0x15
+ 700 0269 6E020000 		.4byte	.LASF30
+ 701 026d 01       		.byte	0x1
+ 702 026e FD02     		.2byte	0x2fd
+ 703 0270 00000000 		.4byte	.LFB9
+ 704 0274 0C000000 		.4byte	.LFE9-.LFB9
+ 705 0278 01       		.uleb128 0x1
+ 706 0279 9C       		.byte	0x9c
+ 707 027a 8D020000 		.4byte	0x28d
+ 708 027e 16       		.uleb128 0x16
+ 709 027f 4C010000 		.4byte	.LASF39
+ 710 0283 01       		.byte	0x1
+ 711 0284 FD02     		.2byte	0x2fd
+ 712 0286 6B000000 		.4byte	0x6b
+ 713 028a 01       		.uleb128 0x1
+ 714 028b 50       		.byte	0x50
+ 715 028c 00       		.byte	0
+ 716 028d 12       		.uleb128 0x12
+ 717 028e 18020000 		.4byte	.LASF32
+ 718 0292 01       		.byte	0x1
+ 719 0293 1603     		.2byte	0x316
+ 720 0295 77000000 		.4byte	0x77
+ 721 0299 00000000 		.4byte	.LFB10
+ 722 029d 0C000000 		.4byte	.LFE10-.LFB10
+ 723 02a1 01       		.uleb128 0x1
+ 724 02a2 9C       		.byte	0x9c
+ 725 02a3 12       		.uleb128 0x12
+ 726 02a4 D0010000 		.4byte	.LASF33
+ 727 02a8 01       		.byte	0x1
+ 728 02a9 3003     		.2byte	0x330
+ 729 02ab 77000000 		.4byte	0x77
+ 730 02af 00000000 		.4byte	.LFB11
+ 731 02b3 0C000000 		.4byte	.LFE11-.LFB11
+ 732 02b7 01       		.uleb128 0x1
+ 733 02b8 9C       		.byte	0x9c
+ 734 02b9 12       		.uleb128 0x12
+ 735 02ba 06000000 		.4byte	.LASF34
+ 736 02be 01       		.byte	0x1
+ 737 02bf 7403     		.2byte	0x374
+ 738 02c1 77000000 		.4byte	0x77
+ 739 02c5 00000000 		.4byte	.LFB12
+ 740 02c9 0C000000 		.4byte	.LFE12-.LFB12
+ 741 02cd 01       		.uleb128 0x1
+ 742 02ce 9C       		.byte	0x9c
+ 743 02cf 17       		.uleb128 0x17
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 30
+
+
+ 744 02d0 03020000 		.4byte	.LASF40
+ 745 02d4 01       		.byte	0x1
+ 746 02d5 20       		.byte	0x20
+ 747 02d6 6B000000 		.4byte	0x6b
+ 748 02da 05       		.uleb128 0x5
+ 749 02db 03       		.byte	0x3
+ 750 02dc 00000000 		.4byte	RGB_PWM_blue_initVar
+ 751 02e0 00       		.byte	0
+ 752              		.section	.debug_abbrev,"",%progbits
+ 753              	.Ldebug_abbrev0:
+ 754 0000 01       		.uleb128 0x1
+ 755 0001 11       		.uleb128 0x11
+ 756 0002 01       		.byte	0x1
+ 757 0003 25       		.uleb128 0x25
+ 758 0004 0E       		.uleb128 0xe
+ 759 0005 13       		.uleb128 0x13
+ 760 0006 0B       		.uleb128 0xb
+ 761 0007 03       		.uleb128 0x3
+ 762 0008 0E       		.uleb128 0xe
+ 763 0009 1B       		.uleb128 0x1b
+ 764 000a 0E       		.uleb128 0xe
+ 765 000b 55       		.uleb128 0x55
+ 766 000c 17       		.uleb128 0x17
+ 767 000d 11       		.uleb128 0x11
+ 768 000e 01       		.uleb128 0x1
+ 769 000f 10       		.uleb128 0x10
+ 770 0010 17       		.uleb128 0x17
+ 771 0011 00       		.byte	0
+ 772 0012 00       		.byte	0
+ 773 0013 02       		.uleb128 0x2
+ 774 0014 24       		.uleb128 0x24
+ 775 0015 00       		.byte	0
+ 776 0016 0B       		.uleb128 0xb
+ 777 0017 0B       		.uleb128 0xb
+ 778 0018 3E       		.uleb128 0x3e
+ 779 0019 0B       		.uleb128 0xb
+ 780 001a 03       		.uleb128 0x3
+ 781 001b 0E       		.uleb128 0xe
+ 782 001c 00       		.byte	0
+ 783 001d 00       		.byte	0
+ 784 001e 03       		.uleb128 0x3
+ 785 001f 24       		.uleb128 0x24
+ 786 0020 00       		.byte	0
+ 787 0021 0B       		.uleb128 0xb
+ 788 0022 0B       		.uleb128 0xb
+ 789 0023 3E       		.uleb128 0x3e
+ 790 0024 0B       		.uleb128 0xb
+ 791 0025 03       		.uleb128 0x3
+ 792 0026 08       		.uleb128 0x8
+ 793 0027 00       		.byte	0
+ 794 0028 00       		.byte	0
+ 795 0029 04       		.uleb128 0x4
+ 796 002a 16       		.uleb128 0x16
+ 797 002b 00       		.byte	0
+ 798 002c 03       		.uleb128 0x3
+ 799 002d 0E       		.uleb128 0xe
+ 800 002e 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 31
+
+
+ 801 002f 0B       		.uleb128 0xb
+ 802 0030 3B       		.uleb128 0x3b
+ 803 0031 05       		.uleb128 0x5
+ 804 0032 49       		.uleb128 0x49
+ 805 0033 13       		.uleb128 0x13
+ 806 0034 00       		.byte	0
+ 807 0035 00       		.byte	0
+ 808 0036 05       		.uleb128 0x5
+ 809 0037 35       		.uleb128 0x35
+ 810 0038 00       		.byte	0
+ 811 0039 49       		.uleb128 0x49
+ 812 003a 13       		.uleb128 0x13
+ 813 003b 00       		.byte	0
+ 814 003c 00       		.byte	0
+ 815 003d 06       		.uleb128 0x6
+ 816 003e 2E       		.uleb128 0x2e
+ 817 003f 01       		.byte	0x1
+ 818 0040 3F       		.uleb128 0x3f
+ 819 0041 19       		.uleb128 0x19
+ 820 0042 03       		.uleb128 0x3
+ 821 0043 0E       		.uleb128 0xe
+ 822 0044 3A       		.uleb128 0x3a
+ 823 0045 0B       		.uleb128 0xb
+ 824 0046 3B       		.uleb128 0x3b
+ 825 0047 05       		.uleb128 0x5
+ 826 0048 27       		.uleb128 0x27
+ 827 0049 19       		.uleb128 0x19
+ 828 004a 20       		.uleb128 0x20
+ 829 004b 0B       		.uleb128 0xb
+ 830 004c 01       		.uleb128 0x1
+ 831 004d 13       		.uleb128 0x13
+ 832 004e 00       		.byte	0
+ 833 004f 00       		.byte	0
+ 834 0050 07       		.uleb128 0x7
+ 835 0051 05       		.uleb128 0x5
+ 836 0052 00       		.byte	0
+ 837 0053 03       		.uleb128 0x3
+ 838 0054 0E       		.uleb128 0xe
+ 839 0055 3A       		.uleb128 0x3a
+ 840 0056 0B       		.uleb128 0xb
+ 841 0057 3B       		.uleb128 0x3b
+ 842 0058 05       		.uleb128 0x5
+ 843 0059 49       		.uleb128 0x49
+ 844 005a 13       		.uleb128 0x13
+ 845 005b 00       		.byte	0
+ 846 005c 00       		.byte	0
+ 847 005d 08       		.uleb128 0x8
+ 848 005e 2E       		.uleb128 0x2e
+ 849 005f 01       		.byte	0x1
+ 850 0060 3F       		.uleb128 0x3f
+ 851 0061 19       		.uleb128 0x19
+ 852 0062 03       		.uleb128 0x3
+ 853 0063 0E       		.uleb128 0xe
+ 854 0064 3A       		.uleb128 0x3a
+ 855 0065 0B       		.uleb128 0xb
+ 856 0066 3B       		.uleb128 0x3b
+ 857 0067 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 32
+
+
+ 858 0068 27       		.uleb128 0x27
+ 859 0069 19       		.uleb128 0x19
+ 860 006a 11       		.uleb128 0x11
+ 861 006b 01       		.uleb128 0x1
+ 862 006c 12       		.uleb128 0x12
+ 863 006d 06       		.uleb128 0x6
+ 864 006e 40       		.uleb128 0x40
+ 865 006f 18       		.uleb128 0x18
+ 866 0070 9742     		.uleb128 0x2117
+ 867 0072 19       		.uleb128 0x19
+ 868 0073 01       		.uleb128 0x1
+ 869 0074 13       		.uleb128 0x13
+ 870 0075 00       		.byte	0
+ 871 0076 00       		.byte	0
+ 872 0077 09       		.uleb128 0x9
+ 873 0078 34       		.uleb128 0x34
+ 874 0079 00       		.byte	0
+ 875 007a 03       		.uleb128 0x3
+ 876 007b 0E       		.uleb128 0xe
+ 877 007c 3A       		.uleb128 0x3a
+ 878 007d 0B       		.uleb128 0xb
+ 879 007e 3B       		.uleb128 0x3b
+ 880 007f 0B       		.uleb128 0xb
+ 881 0080 49       		.uleb128 0x49
+ 882 0081 13       		.uleb128 0x13
+ 883 0082 02       		.uleb128 0x2
+ 884 0083 17       		.uleb128 0x17
+ 885 0084 00       		.byte	0
+ 886 0085 00       		.byte	0
+ 887 0086 0A       		.uleb128 0xa
+ 888 0087 1D       		.uleb128 0x1d
+ 889 0088 01       		.byte	0x1
+ 890 0089 31       		.uleb128 0x31
+ 891 008a 13       		.uleb128 0x13
+ 892 008b 11       		.uleb128 0x11
+ 893 008c 01       		.uleb128 0x1
+ 894 008d 12       		.uleb128 0x12
+ 895 008e 06       		.uleb128 0x6
+ 896 008f 58       		.uleb128 0x58
+ 897 0090 0B       		.uleb128 0xb
+ 898 0091 59       		.uleb128 0x59
+ 899 0092 0B       		.uleb128 0xb
+ 900 0093 01       		.uleb128 0x1
+ 901 0094 13       		.uleb128 0x13
+ 902 0095 00       		.byte	0
+ 903 0096 00       		.byte	0
+ 904 0097 0B       		.uleb128 0xb
+ 905 0098 05       		.uleb128 0x5
+ 906 0099 00       		.byte	0
+ 907 009a 31       		.uleb128 0x31
+ 908 009b 13       		.uleb128 0x13
+ 909 009c 02       		.uleb128 0x2
+ 910 009d 17       		.uleb128 0x17
+ 911 009e 00       		.byte	0
+ 912 009f 00       		.byte	0
+ 913 00a0 0C       		.uleb128 0xc
+ 914 00a1 1D       		.uleb128 0x1d
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 33
+
+
+ 915 00a2 01       		.byte	0x1
+ 916 00a3 31       		.uleb128 0x31
+ 917 00a4 13       		.uleb128 0x13
+ 918 00a5 11       		.uleb128 0x11
+ 919 00a6 01       		.uleb128 0x1
+ 920 00a7 12       		.uleb128 0x12
+ 921 00a8 06       		.uleb128 0x6
+ 922 00a9 58       		.uleb128 0x58
+ 923 00aa 0B       		.uleb128 0xb
+ 924 00ab 59       		.uleb128 0x59
+ 925 00ac 0B       		.uleb128 0xb
+ 926 00ad 00       		.byte	0
+ 927 00ae 00       		.byte	0
+ 928 00af 0D       		.uleb128 0xd
+ 929 00b0 2E       		.uleb128 0x2e
+ 930 00b1 00       		.byte	0
+ 931 00b2 3F       		.uleb128 0x3f
+ 932 00b3 19       		.uleb128 0x19
+ 933 00b4 03       		.uleb128 0x3
+ 934 00b5 0E       		.uleb128 0xe
+ 935 00b6 3A       		.uleb128 0x3a
+ 936 00b7 0B       		.uleb128 0xb
+ 937 00b8 3B       		.uleb128 0x3b
+ 938 00b9 0B       		.uleb128 0xb
+ 939 00ba 27       		.uleb128 0x27
+ 940 00bb 19       		.uleb128 0x19
+ 941 00bc 11       		.uleb128 0x11
+ 942 00bd 01       		.uleb128 0x1
+ 943 00be 12       		.uleb128 0x12
+ 944 00bf 06       		.uleb128 0x6
+ 945 00c0 40       		.uleb128 0x40
+ 946 00c1 18       		.uleb128 0x18
+ 947 00c2 9742     		.uleb128 0x2117
+ 948 00c4 19       		.uleb128 0x19
+ 949 00c5 00       		.byte	0
+ 950 00c6 00       		.byte	0
+ 951 00c7 0E       		.uleb128 0xe
+ 952 00c8 898201   		.uleb128 0x4109
+ 953 00cb 00       		.byte	0
+ 954 00cc 11       		.uleb128 0x11
+ 955 00cd 01       		.uleb128 0x1
+ 956 00ce 31       		.uleb128 0x31
+ 957 00cf 13       		.uleb128 0x13
+ 958 00d0 00       		.byte	0
+ 959 00d1 00       		.byte	0
+ 960 00d2 0F       		.uleb128 0xf
+ 961 00d3 898201   		.uleb128 0x4109
+ 962 00d6 00       		.byte	0
+ 963 00d7 11       		.uleb128 0x11
+ 964 00d8 01       		.uleb128 0x1
+ 965 00d9 9542     		.uleb128 0x2115
+ 966 00db 19       		.uleb128 0x19
+ 967 00dc 31       		.uleb128 0x31
+ 968 00dd 13       		.uleb128 0x13
+ 969 00de 00       		.byte	0
+ 970 00df 00       		.byte	0
+ 971 00e0 10       		.uleb128 0x10
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 34
+
+
+ 972 00e1 2E       		.uleb128 0x2e
+ 973 00e2 01       		.byte	0x1
+ 974 00e3 31       		.uleb128 0x31
+ 975 00e4 13       		.uleb128 0x13
+ 976 00e5 11       		.uleb128 0x11
+ 977 00e6 01       		.uleb128 0x1
+ 978 00e7 12       		.uleb128 0x12
+ 979 00e8 06       		.uleb128 0x6
+ 980 00e9 40       		.uleb128 0x40
+ 981 00ea 18       		.uleb128 0x18
+ 982 00eb 9742     		.uleb128 0x2117
+ 983 00ed 19       		.uleb128 0x19
+ 984 00ee 01       		.uleb128 0x1
+ 985 00ef 13       		.uleb128 0x13
+ 986 00f0 00       		.byte	0
+ 987 00f1 00       		.byte	0
+ 988 00f2 11       		.uleb128 0x11
+ 989 00f3 05       		.uleb128 0x5
+ 990 00f4 00       		.byte	0
+ 991 00f5 31       		.uleb128 0x31
+ 992 00f6 13       		.uleb128 0x13
+ 993 00f7 02       		.uleb128 0x2
+ 994 00f8 18       		.uleb128 0x18
+ 995 00f9 00       		.byte	0
+ 996 00fa 00       		.byte	0
+ 997 00fb 12       		.uleb128 0x12
+ 998 00fc 2E       		.uleb128 0x2e
+ 999 00fd 00       		.byte	0
+ 1000 00fe 3F       		.uleb128 0x3f
+ 1001 00ff 19       		.uleb128 0x19
+ 1002 0100 03       		.uleb128 0x3
+ 1003 0101 0E       		.uleb128 0xe
+ 1004 0102 3A       		.uleb128 0x3a
+ 1005 0103 0B       		.uleb128 0xb
+ 1006 0104 3B       		.uleb128 0x3b
+ 1007 0105 05       		.uleb128 0x5
+ 1008 0106 27       		.uleb128 0x27
+ 1009 0107 19       		.uleb128 0x19
+ 1010 0108 49       		.uleb128 0x49
+ 1011 0109 13       		.uleb128 0x13
+ 1012 010a 11       		.uleb128 0x11
+ 1013 010b 01       		.uleb128 0x1
+ 1014 010c 12       		.uleb128 0x12
+ 1015 010d 06       		.uleb128 0x6
+ 1016 010e 40       		.uleb128 0x40
+ 1017 010f 18       		.uleb128 0x18
+ 1018 0110 9742     		.uleb128 0x2117
+ 1019 0112 19       		.uleb128 0x19
+ 1020 0113 00       		.byte	0
+ 1021 0114 00       		.byte	0
+ 1022 0115 13       		.uleb128 0x13
+ 1023 0116 2E       		.uleb128 0x2e
+ 1024 0117 01       		.byte	0x1
+ 1025 0118 3F       		.uleb128 0x3f
+ 1026 0119 19       		.uleb128 0x19
+ 1027 011a 03       		.uleb128 0x3
+ 1028 011b 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 35
+
+
+ 1029 011c 3A       		.uleb128 0x3a
+ 1030 011d 0B       		.uleb128 0xb
+ 1031 011e 3B       		.uleb128 0x3b
+ 1032 011f 05       		.uleb128 0x5
+ 1033 0120 27       		.uleb128 0x27
+ 1034 0121 19       		.uleb128 0x19
+ 1035 0122 49       		.uleb128 0x49
+ 1036 0123 13       		.uleb128 0x13
+ 1037 0124 11       		.uleb128 0x11
+ 1038 0125 01       		.uleb128 0x1
+ 1039 0126 12       		.uleb128 0x12
+ 1040 0127 06       		.uleb128 0x6
+ 1041 0128 40       		.uleb128 0x40
+ 1042 0129 18       		.uleb128 0x18
+ 1043 012a 9742     		.uleb128 0x2117
+ 1044 012c 19       		.uleb128 0x19
+ 1045 012d 01       		.uleb128 0x1
+ 1046 012e 13       		.uleb128 0x13
+ 1047 012f 00       		.byte	0
+ 1048 0130 00       		.byte	0
+ 1049 0131 14       		.uleb128 0x14
+ 1050 0132 34       		.uleb128 0x34
+ 1051 0133 00       		.byte	0
+ 1052 0134 03       		.uleb128 0x3
+ 1053 0135 0E       		.uleb128 0xe
+ 1054 0136 3A       		.uleb128 0x3a
+ 1055 0137 0B       		.uleb128 0xb
+ 1056 0138 3B       		.uleb128 0x3b
+ 1057 0139 05       		.uleb128 0x5
+ 1058 013a 49       		.uleb128 0x49
+ 1059 013b 13       		.uleb128 0x13
+ 1060 013c 02       		.uleb128 0x2
+ 1061 013d 18       		.uleb128 0x18
+ 1062 013e 00       		.byte	0
+ 1063 013f 00       		.byte	0
+ 1064 0140 15       		.uleb128 0x15
+ 1065 0141 2E       		.uleb128 0x2e
+ 1066 0142 01       		.byte	0x1
+ 1067 0143 3F       		.uleb128 0x3f
+ 1068 0144 19       		.uleb128 0x19
+ 1069 0145 03       		.uleb128 0x3
+ 1070 0146 0E       		.uleb128 0xe
+ 1071 0147 3A       		.uleb128 0x3a
+ 1072 0148 0B       		.uleb128 0xb
+ 1073 0149 3B       		.uleb128 0x3b
+ 1074 014a 05       		.uleb128 0x5
+ 1075 014b 27       		.uleb128 0x27
+ 1076 014c 19       		.uleb128 0x19
+ 1077 014d 11       		.uleb128 0x11
+ 1078 014e 01       		.uleb128 0x1
+ 1079 014f 12       		.uleb128 0x12
+ 1080 0150 06       		.uleb128 0x6
+ 1081 0151 40       		.uleb128 0x40
+ 1082 0152 18       		.uleb128 0x18
+ 1083 0153 9742     		.uleb128 0x2117
+ 1084 0155 19       		.uleb128 0x19
+ 1085 0156 01       		.uleb128 0x1
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 36
+
+
+ 1086 0157 13       		.uleb128 0x13
+ 1087 0158 00       		.byte	0
+ 1088 0159 00       		.byte	0
+ 1089 015a 16       		.uleb128 0x16
+ 1090 015b 05       		.uleb128 0x5
+ 1091 015c 00       		.byte	0
+ 1092 015d 03       		.uleb128 0x3
+ 1093 015e 0E       		.uleb128 0xe
+ 1094 015f 3A       		.uleb128 0x3a
+ 1095 0160 0B       		.uleb128 0xb
+ 1096 0161 3B       		.uleb128 0x3b
+ 1097 0162 05       		.uleb128 0x5
+ 1098 0163 49       		.uleb128 0x49
+ 1099 0164 13       		.uleb128 0x13
+ 1100 0165 02       		.uleb128 0x2
+ 1101 0166 18       		.uleb128 0x18
+ 1102 0167 00       		.byte	0
+ 1103 0168 00       		.byte	0
+ 1104 0169 17       		.uleb128 0x17
+ 1105 016a 34       		.uleb128 0x34
+ 1106 016b 00       		.byte	0
+ 1107 016c 03       		.uleb128 0x3
+ 1108 016d 0E       		.uleb128 0xe
+ 1109 016e 3A       		.uleb128 0x3a
+ 1110 016f 0B       		.uleb128 0xb
+ 1111 0170 3B       		.uleb128 0x3b
+ 1112 0171 0B       		.uleb128 0xb
+ 1113 0172 49       		.uleb128 0x49
+ 1114 0173 13       		.uleb128 0x13
+ 1115 0174 3F       		.uleb128 0x3f
+ 1116 0175 19       		.uleb128 0x19
+ 1117 0176 02       		.uleb128 0x2
+ 1118 0177 18       		.uleb128 0x18
+ 1119 0178 00       		.byte	0
+ 1120 0179 00       		.byte	0
+ 1121 017a 00       		.byte	0
+ 1122              		.section	.debug_loc,"",%progbits
+ 1123              	.Ldebug_loc0:
+ 1124              	.LLST0:
+ 1125 0000 04000000 		.4byte	.LVL0
+ 1126 0004 08000000 		.4byte	.LVL1
+ 1127 0008 0600     		.2byte	0x6
+ 1128 000a 73       		.byte	0x73
+ 1129 000b 00       		.sleb128 0
+ 1130 000c 09       		.byte	0x9
+ 1131 000d C0       		.byte	0xc0
+ 1132 000e 1A       		.byte	0x1a
+ 1133 000f 9F       		.byte	0x9f
+ 1134 0010 00000000 		.4byte	0
+ 1135 0014 00000000 		.4byte	0
+ 1136              	.LLST1:
+ 1137 0018 22000000 		.4byte	.LVL2
+ 1138 001c 2A000000 		.4byte	.LVL3
+ 1139 0020 0300     		.2byte	0x3
+ 1140 0022 09       		.byte	0x9
+ 1141 0023 FF       		.byte	0xff
+ 1142 0024 9F       		.byte	0x9f
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 37
+
+
+ 1143 0025 00000000 		.4byte	0
+ 1144 0029 00000000 		.4byte	0
+ 1145              	.LLST2:
+ 1146 002d 2A000000 		.4byte	.LVL3
+ 1147 0031 2E000000 		.4byte	.LVL4
+ 1148 0035 0300     		.2byte	0x3
+ 1149 0037 09       		.byte	0x9
+ 1150 0038 FF       		.byte	0xff
+ 1151 0039 9F       		.byte	0x9f
+ 1152 003a 00000000 		.4byte	0
+ 1153 003e 00000000 		.4byte	0
+ 1154              	.LLST3:
+ 1155 0042 2E000000 		.4byte	.LVL4
+ 1156 0046 34000000 		.4byte	.LVL5
+ 1157 004a 0200     		.2byte	0x2
+ 1158 004c 30       		.byte	0x30
+ 1159 004d 9F       		.byte	0x9f
+ 1160 004e 00000000 		.4byte	0
+ 1161 0052 00000000 		.4byte	0
+ 1162              		.section	.debug_aranges,"",%progbits
+ 1163 0000 7C000000 		.4byte	0x7c
+ 1164 0004 0200     		.2byte	0x2
+ 1165 0006 00000000 		.4byte	.Ldebug_info0
+ 1166 000a 04       		.byte	0x4
+ 1167 000b 00       		.byte	0
+ 1168 000c 0000     		.2byte	0
+ 1169 000e 0000     		.2byte	0
+ 1170 0010 00000000 		.4byte	.LFB1
+ 1171 0014 40000000 		.4byte	.LFE1-.LFB1
+ 1172 0018 00000000 		.4byte	.LFB2
+ 1173 001c 10000000 		.4byte	.LFE2-.LFB2
+ 1174 0020 00000000 		.4byte	.LFB0
+ 1175 0024 1C000000 		.4byte	.LFE0-.LFB0
+ 1176 0028 00000000 		.4byte	.LFB3
+ 1177 002c 10000000 		.4byte	.LFE3-.LFB3
+ 1178 0030 00000000 		.4byte	.LFB4
+ 1179 0034 0C000000 		.4byte	.LFE4-.LFB4
+ 1180 0038 00000000 		.4byte	.LFB5
+ 1181 003c 14000000 		.4byte	.LFE5-.LFB5
+ 1182 0040 00000000 		.4byte	.LFB6
+ 1183 0044 0C000000 		.4byte	.LFE6-.LFB6
+ 1184 0048 00000000 		.4byte	.LFB7
+ 1185 004c 0C000000 		.4byte	.LFE7-.LFB7
+ 1186 0050 00000000 		.4byte	.LFB8
+ 1187 0054 0C000000 		.4byte	.LFE8-.LFB8
+ 1188 0058 00000000 		.4byte	.LFB9
+ 1189 005c 0C000000 		.4byte	.LFE9-.LFB9
+ 1190 0060 00000000 		.4byte	.LFB10
+ 1191 0064 0C000000 		.4byte	.LFE10-.LFB10
+ 1192 0068 00000000 		.4byte	.LFB11
+ 1193 006c 0C000000 		.4byte	.LFE11-.LFB11
+ 1194 0070 00000000 		.4byte	.LFB12
+ 1195 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1196 0078 00000000 		.4byte	0
+ 1197 007c 00000000 		.4byte	0
+ 1198              		.section	.debug_ranges,"",%progbits
+ 1199              	.Ldebug_ranges0:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 38
+
+
+ 1200 0000 00000000 		.4byte	.LFB1
+ 1201 0004 40000000 		.4byte	.LFE1
+ 1202 0008 00000000 		.4byte	.LFB2
+ 1203 000c 10000000 		.4byte	.LFE2
+ 1204 0010 00000000 		.4byte	.LFB0
+ 1205 0014 1C000000 		.4byte	.LFE0
+ 1206 0018 00000000 		.4byte	.LFB3
+ 1207 001c 10000000 		.4byte	.LFE3
+ 1208 0020 00000000 		.4byte	.LFB4
+ 1209 0024 0C000000 		.4byte	.LFE4
+ 1210 0028 00000000 		.4byte	.LFB5
+ 1211 002c 14000000 		.4byte	.LFE5
+ 1212 0030 00000000 		.4byte	.LFB6
+ 1213 0034 0C000000 		.4byte	.LFE6
+ 1214 0038 00000000 		.4byte	.LFB7
+ 1215 003c 0C000000 		.4byte	.LFE7
+ 1216 0040 00000000 		.4byte	.LFB8
+ 1217 0044 0C000000 		.4byte	.LFE8
+ 1218 0048 00000000 		.4byte	.LFB9
+ 1219 004c 0C000000 		.4byte	.LFE9
+ 1220 0050 00000000 		.4byte	.LFB10
+ 1221 0054 0C000000 		.4byte	.LFE10
+ 1222 0058 00000000 		.4byte	.LFB11
+ 1223 005c 0C000000 		.4byte	.LFE11
+ 1224 0060 00000000 		.4byte	.LFB12
+ 1225 0064 0C000000 		.4byte	.LFE12
+ 1226 0068 00000000 		.4byte	0
+ 1227 006c 00000000 		.4byte	0
+ 1228              		.section	.debug_line,"",%progbits
+ 1229              	.Ldebug_line0:
+ 1230 0000 49010000 		.section	.debug_str,"MS",%progbits,1
+ 1230      02004900 
+ 1230      00000201 
+ 1230      FB0E0D00 
+ 1230      01010101 
+ 1231              	.LASF15:
+ 1232 0000 72656731 		.ascii	"reg16\000"
+ 1232      3600
+ 1233              	.LASF34:
+ 1234 0006 5247425F 		.ascii	"RGB_PWM_blue_ReadPeriod\000"
+ 1234      50574D5F 
+ 1234      626C7565 
+ 1234      5F526561 
+ 1234      64506572 
+ 1235              	.LASF22:
+ 1236 001e 5247425F 		.ascii	"RGB_PWM_blue_WriteCounter\000"
+ 1236      50574D5F 
+ 1236      626C7565 
+ 1236      5F577269 
+ 1236      7465436F 
+ 1237              	.LASF29:
+ 1238 0038 72657375 		.ascii	"result\000"
+ 1238      6C7400
+ 1239              	.LASF24:
+ 1240 003f 5247425F 		.ascii	"RGB_PWM_blue_Init\000"
+ 1240      50574D5F 
+ 1240      626C7565 
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 39
+
+
+ 1240      5F496E69 
+ 1240      7400
+ 1241              	.LASF21:
+ 1242 0051 70657269 		.ascii	"period\000"
+ 1242      6F6400
+ 1243              	.LASF3:
+ 1244 0058 73686F72 		.ascii	"short unsigned int\000"
+ 1244      7420756E 
+ 1244      7369676E 
+ 1244      65642069 
+ 1244      6E7400
+ 1245              	.LASF19:
+ 1246 006b 5247425F 		.ascii	"RGB_PWM_blue_WritePeriod\000"
+ 1246      50574D5F 
+ 1246      626C7565 
+ 1246      5F577269 
+ 1246      74655065 
+ 1247              	.LASF25:
+ 1248 0084 5247425F 		.ascii	"RGB_PWM_blue_Start\000"
+ 1248      50574D5F 
+ 1248      626C7565 
+ 1248      5F537461 
+ 1248      727400
+ 1249              	.LASF11:
+ 1250 0097 666C6F61 		.ascii	"float\000"
+ 1250      7400
+ 1251              	.LASF23:
+ 1252 009d 636F756E 		.ascii	"counter\000"
+ 1252      74657200 
+ 1253              	.LASF1:
+ 1254 00a5 756E7369 		.ascii	"unsigned char\000"
+ 1254      676E6564 
+ 1254      20636861 
+ 1254      7200
+ 1255              	.LASF14:
+ 1256 00b3 72656738 		.ascii	"reg8\000"
+ 1256      00
+ 1257              	.LASF35:
+ 1258 00b8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1258      43313120 
+ 1258      352E342E 
+ 1258      31203230 
+ 1258      31363036 
+ 1259 00eb 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1259      20726576 
+ 1259      6973696F 
+ 1259      6E203233 
+ 1259      37373135 
+ 1260 011e 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 1260      66756E63 
+ 1260      74696F6E 
+ 1260      2D736563 
+ 1260      74696F6E 
+ 1261              	.LASF9:
+ 1262 0146 75696E74 		.ascii	"uint8\000"
+ 1262      3800
+ 1263              	.LASF39:
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 40
+
+
+ 1264 014c 636F6E74 		.ascii	"control\000"
+ 1264      726F6C00 
+ 1265              	.LASF36:
+ 1266 0154 47656E65 		.ascii	"Generated_Source\\PSoC5\\RGB_PWM_blue.c\000"
+ 1266      72617465 
+ 1266      645F536F 
+ 1266      75726365 
+ 1266      5C50536F 
+ 1267              	.LASF27:
+ 1268 017a 5247425F 		.ascii	"RGB_PWM_blue_Stop\000"
+ 1268      50574D5F 
+ 1268      626C7565 
+ 1268      5F53746F 
+ 1268      7000
+ 1269              	.LASF12:
+ 1270 018c 646F7562 		.ascii	"double\000"
+ 1270      6C6500
+ 1271              	.LASF10:
+ 1272 0193 75696E74 		.ascii	"uint16\000"
+ 1272      313600
+ 1273              	.LASF5:
+ 1274 019a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1274      20756E73 
+ 1274      69676E65 
+ 1274      6420696E 
+ 1274      7400
+ 1275              	.LASF8:
+ 1276 01ac 756E7369 		.ascii	"unsigned int\000"
+ 1276      676E6564 
+ 1276      20696E74 
+ 1276      00
+ 1277              	.LASF7:
+ 1278 01b9 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1278      206C6F6E 
+ 1278      6720756E 
+ 1278      7369676E 
+ 1278      65642069 
+ 1279              	.LASF33:
+ 1280 01d0 5247425F 		.ascii	"RGB_PWM_blue_ReadCompare\000"
+ 1280      50574D5F 
+ 1280      626C7565 
+ 1280      5F526561 
+ 1280      64436F6D 
+ 1281              	.LASF18:
+ 1282 01e9 5247425F 		.ascii	"RGB_PWM_blue_WriteCompare\000"
+ 1282      50574D5F 
+ 1282      626C7565 
+ 1282      5F577269 
+ 1282      7465436F 
+ 1283              	.LASF40:
+ 1284 0203 5247425F 		.ascii	"RGB_PWM_blue_initVar\000"
+ 1284      50574D5F 
+ 1284      626C7565 
+ 1284      5F696E69 
+ 1284      74566172 
+ 1285              	.LASF32:
+ 1286 0218 5247425F 		.ascii	"RGB_PWM_blue_ReadCapture\000"
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 41
+
+
+ 1286      50574D5F 
+ 1286      626C7565 
+ 1286      5F526561 
+ 1286      64436170 
+ 1287              	.LASF17:
+ 1288 0231 73697A65 		.ascii	"sizetype\000"
+ 1288      74797065 
+ 1288      00
+ 1289              	.LASF38:
+ 1290 023a 5247425F 		.ascii	"RGB_PWM_blue_ReadControlRegister\000"
+ 1290      50574D5F 
+ 1290      626C7565 
+ 1290      5F526561 
+ 1290      64436F6E 
+ 1291              	.LASF6:
+ 1292 025b 6C6F6E67 		.ascii	"long long int\000"
+ 1292      206C6F6E 
+ 1292      6720696E 
+ 1292      7400
+ 1293              	.LASF13:
+ 1294 0269 63686172 		.ascii	"char\000"
+ 1294      00
+ 1295              	.LASF30:
+ 1296 026e 5247425F 		.ascii	"RGB_PWM_blue_WriteControlRegister\000"
+ 1296      50574D5F 
+ 1296      626C7565 
+ 1296      5F577269 
+ 1296      7465436F 
+ 1297              	.LASF2:
+ 1298 0290 73686F72 		.ascii	"short int\000"
+ 1298      7420696E 
+ 1298      7400
+ 1299              	.LASF28:
+ 1300 029a 6374726C 		.ascii	"ctrl\000"
+ 1300      00
+ 1301              	.LASF4:
+ 1302 029f 6C6F6E67 		.ascii	"long int\000"
+ 1302      20696E74 
+ 1302      00
+ 1303              	.LASF16:
+ 1304 02a8 6C6F6E67 		.ascii	"long double\000"
+ 1304      20646F75 
+ 1304      626C6500 
+ 1305              	.LASF0:
+ 1306 02b4 7369676E 		.ascii	"signed char\000"
+ 1306      65642063 
+ 1306      68617200 
+ 1307              	.LASF20:
+ 1308 02c0 636F6D70 		.ascii	"compare\000"
+ 1308      61726500 
+ 1309              	.LASF37:
+ 1310 02c8 443A5C48 		.ascii	"D:\\H_da\\Winter Semester\\MM03 Advanced Microcontr"
+ 1310      5F64615C 
+ 1310      57696E74 
+ 1310      65722053 
+ 1310      656D6573 
+ 1311 02f8 6F6C6C65 		.ascii	"oller Systems and Embedded Operating Systems\\Lectu"
+ARM GAS  C:\Users\Reza\AppData\Local\Temp\ccYFmr7V.s 			page 42
+
+
+ 1311      72205379 
+ 1311      7374656D 
+ 1311      7320616E 
+ 1311      6420456D 
+ 1312 032a 72652050 		.ascii	"re Prof. Fromm\\workspace\\workspace_psoc\\Reaction"
+ 1312      726F662E 
+ 1312      2046726F 
+ 1312      6D6D5C77 
+ 1312      6F726B73 
+ 1313 035a 47616D65 		.ascii	"Game_with erika.cydsn\000"
+ 1313      5F776974 
+ 1313      68206572 
+ 1313      696B612E 
+ 1313      63796473 
+ 1314              	.LASF26:
+ 1315 0370 5247425F 		.ascii	"RGB_PWM_blue_Enable\000"
+ 1315      50574D5F 
+ 1315      626C7565 
+ 1315      5F456E61 
+ 1315      626C6500 
+ 1316              	.LASF31:
+ 1317 0384 5247425F 		.ascii	"RGB_PWM_blue_ReadCounter\000"
+ 1317      50574D5F 
+ 1317      626C7565 
+ 1317      5F526561 
+ 1317      64436F75 
+ 1318              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
